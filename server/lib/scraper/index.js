@@ -40,7 +40,7 @@ const scrapeJobData = async (url) => {
 
         const jobposted = $('span.btnHighighlights:eq(0)').text().trim();
 
-        // const jobviews = $('span.btnHighighlights:eq(0)').text().trim();
+        // const jobviews = $('.brightonHotels > span').text().trim();
 
         const jobapplied = $('span.btnHighighlights:eq(1)').text().trim();
         
@@ -58,9 +58,10 @@ const scrapeJobData = async (url) => {
 
         const jobsource = $('div.companySource a').attr('href');
 
-        const jobapply = $('btnFunctionality flex div.applyBtnCont a').attr('href');
+        // const jobapply = $('button#applyNowBtn').closest('a').attr('href');
         
         const data = {
+            url,
             jobName: jobtitle,
             jobCompany: jobcompany,
             jobPlace: jobplace,
@@ -75,7 +76,7 @@ const scrapeJobData = async (url) => {
             jobSkillsets: jobskillset,
             jobCompanyUrl: jobcompanylink,
             jobSource: jobsource,
-            jobApply: jobapply,
+            // jobApply: jobapply,
         };
 
         console.log(data);
