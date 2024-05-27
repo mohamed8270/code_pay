@@ -16,5 +16,16 @@ const jobSchema = new mongoose.Schema({
     jobSkillsets: {type: String, required: true},
     jobCompanyUrl: {type: String, required: true},
     jobSource: {type: String, required: true},
+    users: [
+        {
+            email: {type: String, required: true},
+        },
+    ], default: [],
     // jobApply: {type: String, required: true},
-});
+},
+{timestamps: true},
+);
+
+const JobModel = mongoose.models.JobModel || mongoose.model('JobModel', jobSchema);
+
+module.exports = JobModel;

@@ -32,25 +32,29 @@ const scrapeJobData = async (url) => {
 
         const jobtitle = $('.jobTitle h1').text().trim();
 
-        const jobcompany = $('span .under-link').text().trim();
+        const jobcompany = extractJobDataSpace($('.jdCompanyName span'));
 
         const jobplace = extractJobDataSpace($('.bodyRow .details a'));
 
-        const jobexper = extractJobDataSpace($('div.bodyRow:eq(1)'));
+        const jobexper = extractJobDataSpace($('div.bodyRow:eq(5) .details'));
+
+        const jobsalary = extractJobDataSpace($('div.bodyRow:eq(6) .details'));
 
         const jobposted = $('span.btnHighighlights:eq(0)').text().trim();
 
-        // const jobviews = $('.brightonHotels > span').text().trim();
+        const jobviews = $('.mqfiseo-view').text().trim();
 
         const jobapplied = $('span.btnHighighlights:eq(1)').text().trim();
         
         const jobdescription = $('.jobDescription').text().trim();
 
-        const jobtype = $('div.jobTypeCont:eq(0)').text().trim();
+        const jobtype = extractJobDataSpace($('div.jobTypeCont:eq(0)'));
 
         const jobindustry = $('div.jobTypeCont:eq(1)').text().trim();
 
-        const jobfunction = $('div.jobTypeCont:eq(2)').text().trim();
+        const jobfunction = extractJobDataSpace($('div.jobTypeCont:eq(2)'));
+
+        const jobrole = extractJobDataSpace($('div.jobTypeCont:eq(3)'));
 
         const jobskillset = extractJobDataComma($('.skillSet'));
 
@@ -58,25 +62,27 @@ const scrapeJobData = async (url) => {
 
         const jobsource = $('div.companySource a').attr('href');
 
-        // const jobapply = $('button#applyNowBtn').closest('a').attr('href');
+        const jobapply = $('a').attr('href');
         
         const data = {
             url,
             jobName: jobtitle,
-            jobCompany: jobcompany,
-            jobPlace: jobplace,
-            jobExperience: jobexper,
-            jobPosted: jobposted,
-            // jobViews: jobviews,
-            jobApplied: jobapplied,
-            jobDescription: jobdescription.replace(/^.*\n/, ""),
-            jobType: jobtype,
-            jobIndustry: jobindustry,
-            jobFunction: jobfunction,
-            jobSkillsets: jobskillset,
-            jobCompanyUrl: jobcompanylink,
-            jobSource: jobsource,
-            // jobApply: jobapply,
+            jobCompany: jobcompany || '',
+            jobPlace: jobplace || '',
+            jobExperience: jobexper || '',
+            jobSalary: jobsalary,
+            jobPosted: jobposted || '',
+            jobViews: jobviews || '',
+            jobApplied: jobapplied || '',
+            jobDescription: jobdescription.replace(/^.*\n/, "") || '',
+            jobType: jobtype || '',
+            jobIndustry: jobindustry || '',
+            jobFunction: jobfunction || '',
+            jobRole: jobrole || '',
+            jobSkillsets: jobskillset || '',
+            jobCompanyUrl: jobcompanylink || '',
+            jobSource: jobsource || '',
+            jobApply: jobapply || '',
         };
 
         console.log(data);

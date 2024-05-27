@@ -24,7 +24,7 @@ app.post('/scrape/jobs', async (req, res) => {
     // const jobname = req.body.job;
     const location = 'coimbatore';
     const jobname = 'flutter+developer';
-    const url = `https://www.foundit.in/job/mobile-flutter-developer-atc-global-logistics-remote-29280385?searchId=a7fa8bb0-0adc-4bb4-87bb-7060f8ef4c39`
+    const url = `https://www.foundit.in/job/flutter-developer-bengaluru-bangalore-26279460?searchId=850bf218-6830-4501-b9b1-08551b6a2b62`
     try {
         const jobData = await scrapeJobData(url);
         res.json({message: 'Data scarped successfully!','output': jobData});
