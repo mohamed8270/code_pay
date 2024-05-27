@@ -63,6 +63,10 @@ const scrapeJobData = async (url) => {
         const jobsource = $('div.companySource a').attr('href');
 
         const jobapply = $('a').attr('href');
+
+        const jobpostednumber = Number(jobposted.replace(/\D/g,''));
+
+        const jobappliednumber = Number(jobapplied.replace(/\D/g,''));
         
         const data = {
             url,
@@ -83,6 +87,10 @@ const scrapeJobData = async (url) => {
             jobCompanyUrl: jobcompanylink || '',
             jobSource: jobsource || '',
             jobApply: jobapply || '',
+            jobPostedValue: jobpostednumber || 0,
+            jobAppliedValue: jobappliednumber || 0,
+            postedHistory: [],
+            appliedHistory: [],
         };
 
         console.log(data);
