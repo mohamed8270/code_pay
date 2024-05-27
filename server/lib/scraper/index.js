@@ -70,7 +70,7 @@ const scrapeJobData = async (url) => {
             jobCompany: jobcompany || '',
             jobPlace: jobplace || '',
             jobExperience: jobexper || '',
-            jobSalary: jobsalary,
+            jobSalary: jobsalary || '',
             jobPosted: jobposted || '',
             jobViews: jobviews || '',
             jobApplied: jobapplied || '',
