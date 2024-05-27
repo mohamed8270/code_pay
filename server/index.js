@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 //  imports
-const scrapeJobData = require('./lib/scraper');
+const {scrapeAndStoreJobData} = require('./lib/actions');
 
 // express objects
 const app = express();
@@ -20,14 +20,10 @@ const hosturl = `${localhost+port}`;
 
 // get job data
 app.post('/scrape/jobs', async (req, res) => {
-    // const location = req.body.location;
-    // const jobname = req.body.job;
-    const location = 'coimbatore';
-    const jobname = 'flutter+developer';
     const url = `https://www.foundit.in/job/flutter-developer-bengaluru-bangalore-26279460?searchId=850bf218-6830-4501-b9b1-08551b6a2b62`
     try {
-        const jobData = await scrapeJobData(url);
-        res.json({message: 'Data scarped successfully!','output': jobData});
+        await scrapeAndStoreJobData(url);
+        res.json({message: 'Data scarped successfully!'});
     } catch (error) {
         res.status(400).send({message: `Server ${error.message}`});
     }
