@@ -34,6 +34,12 @@ const scrapeAndStoreJobData = async (joburl) => {
             }
         }
 
+        const newJobData = await JobModel.findOneAndUpdate(
+            {url: scrapedJobData.url},
+            jobData,
+            {upsert: true, new: true},
+        )
+
         
     } catch (error) {
         console.log(`Failed to create or update product: ${error.message}`);
