@@ -17,12 +17,12 @@ const generateEmailBody = async (job, type) => {
     let body = '';
 
     // switch case to generate body and sub
-    switch (key) {
-        case value:
+    switch (type) {
+        case Notification.WELCOME:
             
             break;
     
         default:
-            break;
+            throw new Error("Invalid notification type.");
     }
 },
