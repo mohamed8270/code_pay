@@ -7,23 +7,30 @@ const Notification = {
     WELCOME: 'WELCOME',
 };
 
-const htmlFilePath = 'lib/nodemailer/html_content/welcome_email.html'; // Replace with actual path
-let htmlContent; // Declare outside the callback
 
-fse.readFile(htmlFilePath, 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
+const readHTMLContent = async () => {
+    const htmlFilePath = 'lib/nodemailer/html_content/welcome_email.html'; // Replace with actual path
 
-  htmlContent = data; // Assign read content to the variable
-});
+    await fse.readFile(htmlFilePath, 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+    });
+
+    return data;
+}
 
 // mail type accordian
 const generateEmailBody = async (job, type) => {
 
     // shortened title
     const shortenedTitle = job.jobName.length > 20 ? `${job.jobName.subString(0,20)}` : job.jobName;
+
+    // read HTML content
+    const htmlRead = await readHTMLContent();
+
+    let htmlContent = htmlRead; // Declare outside the callback
 
     // subject and title
     let subject = '';
