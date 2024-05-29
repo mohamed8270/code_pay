@@ -6,6 +6,7 @@ require('dotenv').config();
 
 //  imports
 const {scrapeAndStoreJobData} = require('./lib/actions');
+const scrapeJobData = require('./lib/scraper');
 
 // express objects
 const app = express();
@@ -20,12 +21,13 @@ const hosturl = `${localhost+port}`;
 
 // get job data
 app.post('/scrape/jobs', async (req, res) => {
-    const url = `https://www.foundit.in/job/flutter-developer-bengaluru-bangalore-26279460?searchId=850bf218-6830-4501-b9b1-08551b6a2b62`
+    const joburl = `https://www.foundit.in/job/fflutter-developer-radial-hr-solutions-bengaluru-bangalore-remote-23378163?searchId=eb3850c4-b514-4d9d-9aec-e59277fecd78`
     try {
-        await scrapeAndStoreJobData(url);
-        res.json({message: 'Data scarped successfully!'});
+        const scrapedData = await scrapeJobData(joburl);
+        // const scrapedData = await scrapeAndStoreJobData(joburl);
+        res.json({message: 'Data scarped successfully!', 'output': scrapedData});
     } catch (error) {
-        res.status(400).send({message: `Server ${error.message}`});
+        res.status(500).send({ message: "An error occurred while getting the job details", error: error.message });
     }
 });
 

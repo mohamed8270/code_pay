@@ -30,41 +30,44 @@ const scrapeJobData = async (url) => {
         // console.log(response);
         const $ = cheerio.load(response.data);
 
-        const jobtitle = $('.jobTitle h1').text().trim();
+        const jobtitle = $('#titleSection h1').text().trim();
+        console.log(jobtitle);
 
-        const jobcompany = extractJobDataSpace($('.jdCompanyName span'));
+        const jobcompany = extractJobDataSpace($('#titleSection a'));
 
-        const jobplace = extractJobDataSpace($('.bodyRow .details a'));
+        const jobplace = extractJobDataSpace($('#jobHighlight a'));
 
-        const jobexper = extractJobDataSpace($('div.bodyRow:eq(5) .details'));
+        const jobexper = extractJobDataSpace($('#jobHighlight div.flex .items-center .gap-1 span.text-xs:eq(0)'));
 
-        const jobsalary = extractJobDataSpace($('div.bodyRow:eq(6) .details'));
+        const jobsalary = extractJobDataSpace($('#jobHighlight div.flex .items-center .gap-1 span.text-xs:eq(1)'));
 
-        const jobposted = $('span.btnHighighlights:eq(0)').text().trim();
+        const jobposted = $('#jobHighlight div:eq(8) span').text().trim();
 
-        const jobviews = $('.mqfiseo-view').text().trim();
+        const jobviews = $('#jobHighlight div:eq(9) span').text().trim();
 
-        const jobapplied = $('span.btnHighighlights:eq(1)').text().trim();
+        const jobapplied = $('#jobHighlight div:eq(10) span').text().trim();
         
-        const jobdescription = $('.jobDescription').text().trim();
+        const jobdescription = $('.break-all').text().trim();
 
-        const jobtype = extractJobDataSpace($('div.jobTypeCont:eq(0)'));
+        const jobtype = extractJobDataSpace($('#jobInfo div:eq(0) a'));
 
-        const jobindustry = $('div.jobTypeCont:eq(1)').text().trim();
+        const jobindustry = $('#jobInfo div:eq(4) a').text().trim();
 
-        const jobfunction = extractJobDataSpace($('div.jobTypeCont:eq(2)'));
+        const jobfunction = extractJobDataSpace($('#jobInfo div:eq(8) a'));
 
-        const jobrole = extractJobDataSpace($('div.jobTypeCont:eq(3)'));
+        const jobrole = extractJobDataSpace($('#jobInfo div:eq(12) a'));
 
-        const jobskillset = extractJobDataComma($('.skillSet'));
+        const jobskillset = extractJobDataComma($('#jobInfo div:eq(16) a'));
 
-        const jobcompanylink = $('div.aboutCompanyName h3 a').attr('href');
+        const jobcompanylink = $('#jobCompany p.text-xs').text().trim();
 
-        const jobsource = $('div.companySource a').attr('href');
+        const jobsource = $('#jobCompany label.text-xs span.text-brand-primary a').attr('href');
 
-        const jobapply = $('a').attr('href');
+        const jobapply = $('div.sticky.bottom-0.border.border-surface-primary-normal.bg-surface-primary-normal.px-4 a[target="_self"]').attr('href');
 
         const jobpostednumber = Number(jobposted.replace(/\D/g,''));
+
+        const jobviewsnumber = Number(jobviews.replace(/\D/g,''));
 
         const jobappliednumber = Number(jobapplied.replace(/\D/g,''));
         
@@ -89,6 +92,7 @@ const scrapeJobData = async (url) => {
             jobApply: jobapply || '',
             jobPostedValue: jobpostednumber || 0,
             jobAppliedValue: jobappliednumber || 0,
+            jobViewsValue: jobviewsnumber || 0,
             postedHistory: [],
             appliedHistory: [],
         };

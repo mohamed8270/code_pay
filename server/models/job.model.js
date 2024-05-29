@@ -18,8 +18,10 @@ const jobSchema = new mongoose.Schema({
     jobSkillsets: {type: String, required: true},
     jobCompanyUrl: {type: String, required: true},
     jobSource: {type: String, required: true},
+    jobApply: {type: String, required: true},
     jobPostedValue: {type: Number, required: true},
     jobAppliedValue: {type: Number, required: true},
+    jobViewsValue: {type: Number, required: true},
     postedHistory: [
         {
             posted: {type: Number, required: true},
@@ -37,7 +39,6 @@ const jobSchema = new mongoose.Schema({
             email: {type: String, required: true},
         },
     ], default: [],
-    jobApply: {type: String, required: true},
 },
 {timestamps: true},
 );
