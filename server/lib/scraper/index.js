@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 require('dotenv').config();
 
 // imports
-const {extractJobDataSpace, extractJobDataComma} = require('../utils');
+const {extractJobDataSpace, extractJobDataComma, extractCommaSeparated, extractPostData, extractViewsData, extractAppliedData} = require('../utils');
 
 const scrapeJobData = async (url) => {
     if(!url) return;
@@ -41,11 +41,12 @@ const scrapeJobData = async (url) => {
 
         const jobsalary = extractJobDataSpace($('#jobHighlight div.flex .items-center .gap-1 span.text-xs:eq(1)'));
 
-        const jobposted = $('#jobHighlight div:eq(8) span').text().trim();
+        // const jobposted = $('#jobHighlight div:eq(8) span').text().trim();
+        const jobposted = extractPostData($);
 
-        const jobviews = $('#jobHighlight div:eq(9) span').text().trim();
+        const jobviews = extractViewsData($);
 
-        const jobapplied = $('#jobHighlight div:eq(10) span').text().trim();
+        const jobapplied = extractAppliedData($);
         
         const jobdescription = $('.break-all').text().trim();
 
@@ -55,15 +56,15 @@ const scrapeJobData = async (url) => {
 
         const jobfunction = extractJobDataSpace($('#jobInfo div:eq(8) a'));
 
-        const jobrole = extractJobDataSpace($('#jobInfo div:eq(12) a'));
+        const jobrole = extractCommaSeparated($,'#jobInfo div:eq(12) a');
 
-        const jobskillset = extractJobDataComma($('#jobInfo div:eq(16) a'));
+        const jobskillset = extractCommaSeparated($,'#jobInfo div:eq(16) a');
 
         const jobcompanylink = $('#jobCompany p.text-xs').text().trim();
 
-        const jobsource = $('#jobCompany label.text-xs span.text-brand-primary a').attr('href');
+        const jobsource = $('a[class="Quick Apply inline-flex items-center justify-center gap-1 rounded font-semibold px-3 py-1"]').attr('href');
 
-        const jobapply = $('div.sticky.bottom-0.border.border-surface-primary-normal.bg-surface-primary-normal.px-4 a[target="_self"]').attr('href');
+        const jobapply = $('a').map((i, el) => $(el).attr('href')).get();
 
         const jobpostednumber = Number(jobposted.replace(/\D/g,''));
 
