@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             const CustomAppBar(),
-            text.textWidget(StaticData.heroText, 32, Weight.w6, cBlack),
+            text.textWidget(StaticData.heroText, 32, Weight.w5, cBlack),
           ],
         ),
       ),
