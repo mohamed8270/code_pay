@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 require('dotenv').config();
 
 // imports
-const {extractJobDataSpace, extractJobDataComma, extractCommaSeparated, extractPostData, extractViewsData, extractAppliedData} = require('../utils');
+const {extractJobDataSpace, extractJobDataComma, extractCommaSeparated, extractPostData, extractViewsData, extractAppliedData, extractJobID, extractJobIndexData} = require('../utils');
 
 const scrapeJobData = async (url) => {
     if(!url) return;
@@ -67,9 +67,10 @@ const scrapeJobData = async (url) => {
         const jobsource = $('a[class="Quick Apply inline-flex items-center justify-center gap-1 rounded font-semibold px-3 py-1"]').attr('href');
 
         // href="https://www.foundit.in/seeker/job-apply?id=28836478&autoApply=true"
-        const jobapply = $('a').map((i, el) => $(el).attr('href')).get();
+        // const jobapply = $('a').map((i, el) => $(el).attr('href')).get();
+        const jobapply = extractJobID(url);
 
-        const quickapply = 'https://www.foundit.in'+jobapply[0];
+        const quickapply = 'https://www.foundit.in' + extractJobIndexData($,0);
 
         const jobpostednumber = Number(jobposted.replace(/\D/g,''));
 

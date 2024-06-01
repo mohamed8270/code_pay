@@ -97,12 +97,23 @@ const extractAppliedData = ($) => {
 }
 
 // extract job id
-const extractJobID =  async (data) => {
+const extractJobID = (data) => {
+
+    let output = '';
     const res = data.replace(/\D/g,'');
-    const output = Number(res);
-
+    for (let i=0; i < res[7]; i++) {
+        output = res;
+    }
+    
     return `https://www.foundit.in/seeker/job-apply?id=${output}8&autoApply=true` || '';
+}
 
+// extract URL index
+const extractJobIndexData = ($, i) => {
+    const jobIndex = $('a').map((i, el) => $(el).attr('href')).get();
+    const output = jobIndex[i];
+
+    return output;
 }
 
 module.exports = {
@@ -111,5 +122,7 @@ module.exports = {
     extractCommaSeparated, 
     extractPostData, 
     extractViewsData,
-    extractAppliedData
+    extractAppliedData,
+    extractJobID,
+    extractJobIndexData
 };
