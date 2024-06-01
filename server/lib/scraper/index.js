@@ -3,7 +3,8 @@ const cheerio = require('cheerio');
 require('dotenv').config();
 
 // imports
-const {extractJobDataSpace, extractJobDataComma, extractCommaSeparated, extractPostData, extractViewsData, extractAppliedData, extractJobID, extractJobIndexData} = require('../utils');
+const {extractJobDataSpace, extractJobDataComma, extractCommaSeparated} = require('../utils/utils');
+const {extractPostData, extractViewsData, extractAppliedData, extractJobID, extractJobIndexData} = require('../utils/scraper_extract');
 
 const scrapeJobData = async (url) => {
     if(!url) return;
