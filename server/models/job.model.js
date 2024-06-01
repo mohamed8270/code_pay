@@ -19,6 +19,7 @@ const jobSchema = new mongoose.Schema({
     jobCompanyUrl: {type: String, required: true},
     jobSource: {type: String, required: true},
     jobApply: {type: String, required: true},
+    jobQuickApply: {type: String, required: true},
     jobPostedValue: {type: Number, required: true},
     jobAppliedValue: {type: Number, required: true},
     jobViewsValue: {type: Number, required: true},
