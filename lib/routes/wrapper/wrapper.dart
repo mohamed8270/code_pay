@@ -1,5 +1,5 @@
-import 'package:code_pay/constants/theme.dart';
-import 'package:code_pay/views/pages/home_page.dart';
+import 'package:code_pay/common/styles/color.dart';
+import 'package:code_pay/routes/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class Wrapper extends StatelessWidget {
@@ -15,7 +15,7 @@ class Wrapper extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        'homepage': (c) => const HomePage(),
+        '/homepage': (c) => const HomePage(),
       },
       home: const HomePage(),
     );

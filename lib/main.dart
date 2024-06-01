@@ -1,4 +1,4 @@
-import 'package:code_pay/views/wrapper/wrapper.dart';
+import 'package:code_pay/routes/wrapper/wrapper.dart';
 import 'package:flutter/material.dart';
 
 void main() {
