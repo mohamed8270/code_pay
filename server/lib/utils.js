@@ -101,7 +101,7 @@ const extractJobID = (data) => {
 
     let output = '';
     const res = data.replace(/\D/g,'');
-    for (let i=0; i < res[7]; i++) {
+    for (let i=0; i < res.length; i++) {
         output = res;
     }
     
@@ -111,6 +111,7 @@ const extractJobID = (data) => {
 // extract URL index
 const extractJobIndexData = ($, i) => {
     const jobIndex = $('a').map((i, el) => $(el).attr('href')).get();
+    // console.log(jobIndex);
     const output = jobIndex[i];
 
     return output;

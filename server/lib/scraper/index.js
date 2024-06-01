@@ -62,9 +62,9 @@ const scrapeJobData = async (url) => {
 
         const jobskillset = extractCommaSeparated($,'#jobInfo div:eq(16) a');
 
-        const jobcompanylink = $('#jobCompany p.text-xs').text().trim();
+        const jobcompanylink = $('#titleSection a').attr('href');
 
-        const jobsource = $('a[class="Quick Apply inline-flex items-center justify-center gap-1 rounded font-semibold px-3 py-1"]').attr('href');
+        const jobsource = $('#jobCompany a').text().trim();
 
         // href="https://www.foundit.in/seeker/job-apply?id=28836478&autoApply=true"
         // const jobapply = $('a').map((i, el) => $(el).attr('href')).get();
