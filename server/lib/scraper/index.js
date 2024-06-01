@@ -62,7 +62,7 @@ const scrapeJobData = async (url) => {
 
         const jobskillset = extractCommaSeparated($,'#jobInfo div:eq(16) a');
 
-        const jobcompanylink = $('#titleSection a').attr('href');
+        const jobcompanylink = 'https://www.foundit.in' + $('#titleSection a').attr('href');
 
         const jobsource = $('#jobCompany a').text().trim();
 
