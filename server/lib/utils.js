@@ -96,6 +96,15 @@ const extractAppliedData = ($) => {
     return '';
 }
 
+// extract job id
+const extractJobID =  async (data) => {
+    const res = data.replace(/\D/g,'');
+    const output = Number(res);
+
+    return `https://www.foundit.in/seeker/job-apply?id=${output}8&autoApply=true` || '';
+
+}
+
 module.exports = {
     extractJobDataSpace, 
     extractJobDataComma, 

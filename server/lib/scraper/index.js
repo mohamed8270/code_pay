@@ -66,7 +66,7 @@ const scrapeJobData = async (url) => {
 
         const jobsource = $('a[class="Quick Apply inline-flex items-center justify-center gap-1 rounded font-semibold px-3 py-1"]').attr('href');
 
-        // href="https://www.foundit.in/seeker/job-apply?id=28836478&autoApply=true
+        // href="https://www.foundit.in/seeker/job-apply?id=28836478&autoApply=true"
         const jobapply = $('a').map((i, el) => $(el).attr('href')).get();
 
         const quickapply = 'https://www.foundit.in'+jobapply[0];
