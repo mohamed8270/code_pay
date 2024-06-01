@@ -7,6 +7,7 @@ require('dotenv').config();
 //  imports
 const {scrapeAndStoreJobData} = require('./lib/actions');
 const scrapeJobData = require('./lib/scraper');
+const {extractWhiteSpace} = require('./lib/utils/utils');
 
 // express objects
 const app = express();
@@ -37,9 +38,10 @@ app.post('/scrape/jobs', async (req, res) => {
 app.post('/jobs/search', async (req, res) => {
     const jobsearch = req.body.data;
     try {
-        // const filterData = 
+        const filterData = extractWhiteSpace(jobsearch);
+        const fullurl = 'https://www.foundit.in/search/' + filterData;
     } catch (error) {
-        
+        res.status(500).send({ message: "An error occurred while getting the job details", error: error.message });
     }
 });
 

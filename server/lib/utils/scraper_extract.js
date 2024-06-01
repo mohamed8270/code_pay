@@ -1,7 +1,4 @@
-
-
 // '#jobHighlight div:eq(6) span', '#jobHighlight div:eq(7) span',
-
 // Get job posted day
 const extractPostData = ($) => {
     if (!$) return;

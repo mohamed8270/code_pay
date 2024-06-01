@@ -1,13 +1,10 @@
-
-
-
 // function to remove space and \n
 const extractJobDataSpace = (data) => {
     if(!data) return;
 
     const res = data.text().trim();
     // const output = res.replace(/[\r\n]+/gm, "").replace(/\s+/g, ' ');
-    const output = res.replace(/[\r\n]+/gm, "") .replace(/\s+/g, " ").replace(/<(?:.|\n)*?>/g, ", ");
+    const output = res.replace(/[\r\n]+/gm, "").replace(/\s+/g, " ").replace(/<(?:.|\n)*?>/g, ", ");
     return output;
 };
 
@@ -29,10 +26,18 @@ const extractCommaSeparated = ($,data) => {
     return output.match(/\b\w+\b/g);
 } 
 
+// remove space function
+const extractWhiteSpace = (data) => {
+    if(!data) retrun;
+    const output = data.replace(/\s/g, "-");
+    return ouput;
+}
+
 
 
 module.exports = {
     extractJobDataSpace, 
     extractJobDataComma, 
-    extractCommaSeparated
+    extractCommaSeparated,
+    extractWhiteSpace
 };
