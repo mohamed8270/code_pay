@@ -8,6 +8,9 @@ require('dotenv').config();
 const {scrapeAndStoreJobData} = require('./lib/actions');
 const scrapeJobData = require('./lib/scraper');
 const {extractWhiteSpace} = require('./lib/utils/utils');
+const JobModel = require('./lib/models/job_model');
+const connectToDB = require('./mongoose');
+
 
 // express objects
 const app = express();
@@ -20,7 +23,7 @@ const port = process.env.PORT;
 const localhost = process.env.LOCAL_HOST;
 const hosturl = `${localhost+port}`;
 
-// get job data
+// post job data
 app.post('/scrape/jobs', async (req, res) => {
     // const joburl = req.body.url;
     // const joburl = `https://www.foundit.in/job/fflutter-developer-radial-hr-solutions-bengaluru-bangalore-remote-23378163?searchId=326009df-0a1a-46e3-8a12-696e275f1505`;
@@ -40,6 +43,17 @@ app.post('/jobs/search', async (req, res) => {
     try {
         const filterData = extractWhiteSpace(jobsearch);
         const fullurl = 'https://www.foundit.in/search/' + filterData;
+    } catch (error) {
+        res.status(500).send({ message: "An error occurred while getting the job details", error: error.message });
+    }
+});
+
+// get jobs data
+app.get('/get/jobs', async (req, res) => {
+    try {
+        connectToDB();
+        const jobsdata = await JobModel.find();
+        res.json(jobsdata);
     } catch (error) {
         res.status(500).send({ message: "An error occurred while getting the job details", error: error.message });
     }
