@@ -9,7 +9,9 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: const [],
+      providers:  [
+        BlocProvider(create: )
+      ],
       child: MaterialApp(
         title: 'Code Pay',
         debugShowCheckedModeBanner: false,
