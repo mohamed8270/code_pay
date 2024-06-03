@@ -16,6 +16,10 @@ class StaticData {
   static String heroText = 'Discover Your \n Next Job.';
   static String title1 = 'Popular Categories';
   static String title2 = 'Suggested Jobs';
+  static String des = 'Description';
+  static String info = 'More Info';
+  static String recruiter = 'Recruiter Info';
+  static String apply = 'Apply';
 
   // padding
   static double p1 = 5;
