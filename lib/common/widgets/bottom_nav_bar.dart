@@ -16,13 +16,14 @@ class BottomNavBar extends StatelessWidget {
     final navigate = Get.put(NavigationController());
 
     return Scaffold(
+      body: navigate.screens[navigate.selectedIndex.value],
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           color: Colors.transparent,
           border: Border(top: BorderSide(width: 2, color: cGrey)),
         ),
         child: BottomNavigationBar(
-          currentIndex: navigate.selectedIndex.value,
+          currentIndex: 0,
           onTap: (i) => navigate.selectedIndex.value = i,
           backgroundColor: cWhite,
           type: BottomNavigationBarType.fixed,

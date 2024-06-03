@@ -30,7 +30,8 @@ const extractCommaSeparated = ($,data) => {
 const extractWhiteSpace = (data) => {
     if(!data) retrun;
     const output = data.replace(/\s/g, "-");
-    return ouput;
+    console.log(output);
+    return output;
 }
 
 

@@ -67,13 +67,15 @@ const extractAppliedData = ($) => {
 // extract job id
 const extractJobID = (data) => {
 
-    let output = '';
-    const res = data.replace(/\D/g,'');
-    for (let i=0; i < res.length; i++) {
-        output = res;
-    }
+    // Split the URL at the '?' character.
+    const parts = data.split('?');
+    // The first part of the split will contain the numbers.
+    const numberPart = parts[0];
+    // Extract all numbers using a regular expression.
+    const numbers = numberPart.match(/\d+/g);
+    // Return the array of extracted numbers.
+    return `https://www.foundit.in/seeker/job-apply?id=${numbers}8&autoApply=true` || '';
     
-    return `https://www.foundit.in/seeker/job-apply?id=${output}8&autoApply=true` || '';
 }
 
 // extract URL index
