@@ -13,4 +13,8 @@ final class JobDataLoaded extends JobsDataState {
   JobDataLoaded({required this.jobs});
 }
 
-final class JobDataError extends JobsDataState {}
+final class JobDataError extends JobsDataState {
+  final String error;
+
+  JobDataError({required this.error});
+}

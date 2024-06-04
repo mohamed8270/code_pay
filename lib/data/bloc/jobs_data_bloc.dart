@@ -16,7 +16,7 @@ class JobsDataBloc extends Bloc<JobsDataEvent, JobsDataState> {
         final jobsData = await respository.getJobs();
         emit(JobDataLoaded(jobs: jobsData));
       } catch (e) {
-        emit(JobDataError());
+        emit(JobDataError(error: e.toString()));
       }
     });
   }
