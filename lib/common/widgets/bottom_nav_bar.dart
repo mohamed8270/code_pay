@@ -15,10 +15,10 @@ class BottomNavBar extends StatelessWidget {
     // navigate controller
     final navigate = Get.put(NavigationController());
 
-    return Scaffold(
-      body: navigate.screens[navigate.selectedIndex.value],
-      bottomNavigationBar: Obx(
-        () => Container(
+    return Obx(
+      () => Scaffold(
+        body: navigate.screens[navigate.selectedIndex.value],
+        bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.transparent,
             border: Border(
@@ -26,6 +26,7 @@ class BottomNavBar extends StatelessWidget {
             ),
           ),
           child: BottomNavigationBar(
+            elevation: 0,
             currentIndex: 0,
             onTap: (i) => navigate.selectedIndex.value = i,
             backgroundColor: cWhite,

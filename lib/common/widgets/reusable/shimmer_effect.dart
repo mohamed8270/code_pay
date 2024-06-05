@@ -60,10 +60,7 @@ class _LinearProgressShimmerState extends State<LinearProgressShimmer>
           (index) => AnimatedBuilder(
             animation: _animations[index],
             builder: (context, child) {
-              return FadeTransition(
-                opacity: _animations[index],
-                child: child,
-              );
+              return FadeTransition(opacity: _animations[index], child: child);
             },
             child: Container(
               height: screenSize.height * 0.009,
