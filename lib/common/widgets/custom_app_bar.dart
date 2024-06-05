@@ -9,7 +9,8 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String url = '';
+    String url =
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png';
 
     // text widget
     final text = TextFond();
@@ -44,6 +45,33 @@ class CustomAppBar extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class DetailsAppBar extends StatelessWidget {
+  const DetailsAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // text widget
+    final text = TextFond();
+    return Row(
+      children: [
+        RoundContainer(
+          click: () {},
+          icon: StaticData.back,
+          color: cWhite.withOpacity(0.5),
+          icncolor: cWhite,
+        ),
+        text.textWidget(StaticData.details, 14, Weight.w6, cWhite),
+        RoundContainer(
+          click: () {},
+          icon: StaticData.share,
+          color: cWhite.withOpacity(0.5),
+          icncolor: cWhite,
+        ),
+      ],
     );
   }
 }

@@ -11,6 +11,8 @@ class StaticData {
 
   // icons network
   static String notify = 'https://www.svgrepo.com/show/498261/notification.svg';
+  static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
+  static String share = 'https://www.svgrepo.com/show/507855/share.svg';
 
   // text
   static String heroText = 'Discover Your \n Next Job.';
@@ -20,6 +22,7 @@ class StaticData {
   static String info = 'More Info';
   static String recruiter = 'Recruiter Info';
   static String apply = 'Apply';
+  static String details = 'Details';
 
   // padding
   static double p1 = 5;
