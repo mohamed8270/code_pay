@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
     // text widget
     final text = TextFond();
     return Padding(
-      padding: EdgeInsets.only(top: StaticData.p5, bottom: StaticData.p4),
+      padding: EdgeInsets.only(top: StaticData.p5, bottom: StaticData.p1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,

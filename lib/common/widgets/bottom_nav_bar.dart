@@ -27,7 +27,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           child: BottomNavigationBar(
             elevation: 0,
-            currentIndex: 0,
+            currentIndex: navigate.selectedIndex.value,
             onTap: (i) => navigate.selectedIndex.value = i,
             backgroundColor: cWhite,
             type: BottomNavigationBarType.fixed,
