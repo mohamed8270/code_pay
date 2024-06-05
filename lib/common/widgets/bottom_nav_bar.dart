@@ -20,8 +20,9 @@ class BottomNavBar extends StatelessWidget {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.transparent,
-          border:
-              Border(top: BorderSide(width: 2, color: cGrey.withOpacity(0.07))),
+          border: Border(
+            top: BorderSide(width: 1.5, color: cGrey.withOpacity(0.05)),
+          ),
         ),
         child: BottomNavigationBar(
           currentIndex: navigate.selectedIndex.value,
