@@ -12,7 +12,7 @@ class JobsPage extends StatelessWidget {
       body: BlocBuilder<JobsDataBloc, JobsDataState>(
         builder: (context, state) {
           if (state is JobDataLoading) {
-            return const ShimmerLoadingAnimation();
+            return const LinearProgressShimmer();
           }
           return const Text('');
         },

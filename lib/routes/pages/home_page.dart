@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
         child: Column(
           children: [
-            const CustomAppBar(),
-            text.textWidget(StaticData.heroText, 32, Weight.w5, cBlack),
+            // const CustomAppBar(),
+            // text.textWidget(StaticData.heroText, 32, Weight.w5, cBlack),
           ],
         ),
       ),
