@@ -12,12 +12,14 @@ class HomePage extends StatelessWidget {
     // text widget
     final text = TextFond();
     return Scaffold(
+      backgroundColor: cWhite,
       body: Padding(
         padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomAppBar(),
-            text.textWidget(StaticData.heroText, 32, Weight.w5, cBlack),
+            text.textWidget(StaticData.heroText, 34.0, Weight.w6, cBlack),
           ],
         ),
       ),

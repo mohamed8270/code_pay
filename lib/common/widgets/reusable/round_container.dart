@@ -29,8 +29,8 @@ class RoundContainer extends StatelessWidget {
         alignment: Alignment.center,
         child: SvgPicture.network(
           icon,
-          height: 24,
-          width: 24,
+          height: 20,
+          width: 20,
           colorFilter: ColorFilter.mode(icncolor, BlendMode.srcIn),
         ),
       ),

@@ -18,21 +18,24 @@ class CustomAppBar extends StatelessWidget {
       padding: EdgeInsets.only(top: StaticData.p5, bottom: StaticData.p4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CircleAvatar(
                 radius: 20,
-                backgroundColor: cGrey,
+                backgroundColor: cWhite,
                 backgroundImage: NetworkImage(url),
               ),
               StaticData.gap2,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  text.textWidget('Judy Smith', 12.0, Weight.w6, cBlack),
-                  text.textWidget('UI & UX Designer', 10.0, Weight.w4, cGrey),
+                  text.textWidget('Judy Smith', 14.0, Weight.w6, cBlack),
+                  text.textWidget('UI & UX Designer', 12.0, Weight.w4, cGrey),
                 ],
               ),
             ],
@@ -41,7 +44,7 @@ class CustomAppBar extends StatelessWidget {
             icon: StaticData.notify,
             color: cWhite,
             icncolor: cBlack,
-            border: Border.all(width: 1.5, color: cGrey),
+            border: Border.all(width: 1.5, color: cGrey.withOpacity(0.2)),
           ),
         ],
       ),

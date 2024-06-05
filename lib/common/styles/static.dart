@@ -15,7 +15,7 @@ class StaticData {
   static String share = 'https://www.svgrepo.com/show/507855/share.svg';
 
   // text
-  static String heroText = 'Discover Your \n Next Job.';
+  static String heroText = 'Discover Your \nNext Job.';
   static String title1 = 'Popular Categories';
   static String title2 = 'Suggested Jobs';
   static String des = 'Description';

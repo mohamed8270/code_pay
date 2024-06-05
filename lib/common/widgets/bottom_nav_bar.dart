@@ -17,37 +17,39 @@ class BottomNavBar extends StatelessWidget {
 
     return Scaffold(
       body: navigate.screens[navigate.selectedIndex.value],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          border: Border(
-            top: BorderSide(width: 1.5, color: cGrey.withOpacity(0.05)),
+      bottomNavigationBar: Obx(
+        () => Container(
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            border: Border(
+              top: BorderSide(width: 1.5, color: cGrey.withOpacity(0.05)),
+            ),
           ),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: navigate.selectedIndex.value,
-          onTap: (i) => navigate.selectedIndex.value = i,
-          backgroundColor: cWhite,
-          type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: reusable.svgIconOutline(StaticData.homeOutline),
-              activeIcon: reusable.svgIconFilled(StaticData.homeFilled),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: reusable.svgIconOutline(StaticData.caseOutline),
-              activeIcon: reusable.svgIconFilled(StaticData.caseFilled),
-              label: 'Jobs',
-            ),
-            BottomNavigationBarItem(
-              icon: reusable.svgIconOutline(StaticData.profileOutline),
-              activeIcon: reusable.svgIconFilled(StaticData.profileFilled),
-              label: 'Profile',
-            ),
-          ],
+          child: BottomNavigationBar(
+            currentIndex: 0,
+            onTap: (i) => navigate.selectedIndex.value = i,
+            backgroundColor: cWhite,
+            type: BottomNavigationBarType.fixed,
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                icon: reusable.svgIconOutline(StaticData.homeOutline),
+                activeIcon: reusable.svgIconFilled(StaticData.homeFilled),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: reusable.svgIconOutline(StaticData.caseOutline),
+                activeIcon: reusable.svgIconFilled(StaticData.caseFilled),
+                label: 'Jobs',
+              ),
+              BottomNavigationBarItem(
+                icon: reusable.svgIconOutline(StaticData.profileOutline),
+                activeIcon: reusable.svgIconFilled(StaticData.profileFilled),
+                label: 'Profile',
+              ),
+            ],
+          ),
         ),
       ),
     );
