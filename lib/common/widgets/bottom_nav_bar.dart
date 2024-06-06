@@ -20,7 +20,7 @@ class BottomNavBar extends StatelessWidget {
         body: navigate.screens[navigate.selectedIndex.value],
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: Colors.transparent,
+            color: cGrey2,
             border: Border(
               top: BorderSide(width: 1.5, color: cGrey.withOpacity(0.05)),
             ),
@@ -29,7 +29,7 @@ class BottomNavBar extends StatelessWidget {
             elevation: 0,
             currentIndex: navigate.selectedIndex.value,
             onTap: (i) => navigate.selectedIndex.value = i,
-            backgroundColor: cWhite,
+            backgroundColor: cGrey2,
             type: BottomNavigationBarType.fixed,
             showUnselectedLabels: false,
             showSelectedLabels: false,

@@ -1,5 +1,6 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
+import 'package:code_pay/common/styles/static.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,15 +10,15 @@ class UserInputSection extends StatelessWidget {
       required this.txt,
       required this.icn,
       required this.type,
-      required this.height,
-      required this.width,
+      required this.height_,
+      required this.width_,
       required this.controller});
 
   final String txt;
   final String icn;
   final TextInputType type;
-  final double height;
-  final double width;
+  final double height_;
+  final double width_;
   final TextEditingController controller;
 
   @override
@@ -26,25 +27,24 @@ class UserInputSection extends StatelessWidget {
     final text = TextFond();
     final screenSize = MediaQuery.sizeOf(context);
     return Container(
-      height: screenSize.height * height,
-      width: screenSize.width * width,
+      height: screenSize.height * height_,
+      width: screenSize.width * width_,
       decoration:
           BoxDecoration(color: cWhite, borderRadius: BorderRadius.circular(40)),
       child: TextField(
-        cursorHeight: 2,
+        cursorHeight: 16,
         cursorColor: cGrey.withOpacity(0.2),
-        style: text.textStyle(12, Weight.w6, cGrey),
+        style: text.textStyle(12.0, Weight.w6, cGrey, 0.0),
         keyboardType: type,
         controller: controller,
         decoration: InputDecoration(
-          prefixIcon: SvgPicture.network(
-            icn,
-            height: 18,
-            width: 18,
-            colorFilter: const ColorFilter.mode(cGrey, BlendMode.srcIn),
+          contentPadding: EdgeInsets.symmetric(vertical: StaticData.p5),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(16),
+            child: SvgPicture.network(icn, height: 18, width: 18),
           ),
           hintText: txt,
-          hintStyle: text.textStyle(12, Weight.w6, cGrey),
+          hintStyle: text.textStyle(12.0, Weight.w6, cGrey, 0.0),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 1.5, color: cGrey.withOpacity(0.09)),
             borderRadius: BorderRadius.circular(40),

@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     final text = TextFond();
     var searchController = TextEditingController();
     return Scaffold(
-      backgroundColor: cWhite,
+      backgroundColor: cGrey2,
       body: Padding(
         padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
         child: Column(
@@ -22,12 +22,13 @@ class HomePage extends StatelessWidget {
           children: [
             const CustomAppBar(),
             text.textWidget(StaticData.heroText, 34.0, Weight.w6, cBlack),
+            StaticData.gap2,
             UserInputSection(
               txt: 'Search',
-              icn: 'https://www.svgrepo.com/show/474171/search-broken.svg',
+              icn: 'https://www.svgrepo.com/show/498380/search-normal-1.svg',
               type: TextInputType.url,
-              height: 0.06,
-              width: 0.95,
+              height_: 0.075,
+              width_: 0.95,
               controller: searchController,
             ),
           ],

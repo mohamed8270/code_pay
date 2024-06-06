@@ -35,11 +35,12 @@ class TextFond {
   }
 
   // text style widget
-  TextStyle textStyle(size, weight, color) {
+  TextStyle textStyle(size, weight, color, h) {
     return GoogleFonts.workSans(
       fontSize: size,
       fontWeight: weight,
       color: color,
+      height: h,
     );
   }
 }
