@@ -55,9 +55,9 @@ class UserInputSection extends StatelessWidget {
         decoration: InputDecoration(
           isDense: true,
           isCollapsed: true,
-          contentPadding: const EdgeInsets.only(top: 17),
+          contentPadding: const EdgeInsets.only(top: 15),
           prefixIcon: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             child: SvgPicture.network(icn, height: 18, width: 18),
           ),
           hintText: txt,

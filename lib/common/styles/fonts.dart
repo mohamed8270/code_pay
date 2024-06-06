@@ -26,7 +26,7 @@ class TextFond {
   Widget textWidget(data, size, weight, color) {
     return Text(
       data,
-      style: GoogleFonts.workSans(
+      style: GoogleFonts.dmSans(
         fontSize: size,
         fontWeight: weight,
         color: color,
@@ -36,7 +36,7 @@ class TextFond {
 
   // text style widget
   TextStyle textStyle(size, weight, color, h) {
-    return GoogleFonts.workSans(
+    return GoogleFonts.dmSans(
       fontSize: size,
       fontWeight: weight,
       color: color,

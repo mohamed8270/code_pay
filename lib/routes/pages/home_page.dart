@@ -21,16 +21,19 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomAppBar(),
-            text.textWidget(StaticData.heroText, 34.0, Weight.w6, cBlack),
+            text.textWidget(StaticData.heroText, 34.0, Weight.w7, cBlack),
             StaticData.gap3,
             UserInputSection(
               txt: 'Search',
               icn: 'https://www.svgrepo.com/show/498380/search-normal-1.svg',
               type: TextInputType.url,
-              height_: 0.075,
+              height_: 0.071,
               width_: 0.95,
               controller: searchController,
             ),
+            StaticData.gap5,
+            text.textWidget(StaticData.title1, 22.0, Weight.w6, cBlack),
+            text.textWidget(StaticData.title2, 22.0, Weight.w6, cBlack)
           ],
         ),
       ),

@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  text.textWidget('Judy Smith', 14.0, Weight.w6, cBlack),
+                  text.textWidget('Judy Smith', 14.0, Weight.w7, cBlack),
                   text.textWidget('UI & UX Designer', 12.0, Weight.w4, cGrey),
                 ],
               ),
