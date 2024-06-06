@@ -22,6 +22,7 @@ class Weight {
 }
 
 class TextFond {
+  // Text widget
   Widget textWidget(data, size, weight, color) {
     return Text(
       data,
@@ -30,6 +31,15 @@ class TextFond {
         fontWeight: weight,
         color: color,
       ),
+    );
+  }
+
+  // text style widget
+  TextStyle textStyle(size, weight, color) {
+    return GoogleFonts.workSans(
+      fontSize: size,
+      fontWeight: weight,
+      color: color,
     );
   }
 }
