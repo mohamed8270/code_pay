@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           children: [
             const CustomAppBar(),
             text.textWidget(StaticData.heroText, 34.0, Weight.w6, cBlack),
-            StaticData.gap2,
+            StaticData.gap3,
             UserInputSection(
               txt: 'Search',
               icn: 'https://www.svgrepo.com/show/498380/search-normal-1.svg',

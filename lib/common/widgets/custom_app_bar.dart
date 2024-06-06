@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 20,
-                backgroundColor: cWhite,
+                backgroundColor: cGrey2,
                 backgroundImage: NetworkImage(url),
               ),
               StaticData.gap2,
@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget {
           ),
           RoundContainer(
             icon: StaticData.notify,
-            color: cWhite,
+            color: cGrey2,
             icncolor: cBlack,
             border: Border.all(width: 1.5, color: cGrey.withOpacity(0.2)),
           ),

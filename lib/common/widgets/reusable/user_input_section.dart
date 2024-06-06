@@ -1,6 +1,5 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
-import 'package:code_pay/common/styles/static.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -29,30 +28,42 @@ class UserInputSection extends StatelessWidget {
     return Container(
       height: screenSize.height * height_,
       width: screenSize.width * width_,
-      decoration:
-          BoxDecoration(color: cWhite, borderRadius: BorderRadius.circular(40)),
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(40),
+        border: Border.all(
+          color: cGrey.withOpacity(0.2),
+          width: 1.5,
+          strokeAlign: BorderSide.strokeAlignOutside,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: cBlack.withOpacity(0.06),
+            blurRadius: 10,
+            blurStyle: BlurStyle.outer,
+            spreadRadius: 2,
+          )
+        ],
+      ),
+      alignment: Alignment.center,
       child: TextField(
         cursorHeight: 16,
         cursorColor: cGrey.withOpacity(0.2),
-        style: text.textStyle(12.0, Weight.w6, cGrey, 0.0),
+        style: text.textStyle(13.0, Weight.w6, cGrey, 0.0),
         keyboardType: type,
         controller: controller,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: StaticData.p5),
+          isDense: true,
+          isCollapsed: true,
+          contentPadding: const EdgeInsets.only(top: 17),
           prefixIcon: Padding(
             padding: const EdgeInsets.all(16),
             child: SvgPicture.network(icn, height: 18, width: 18),
           ),
           hintText: txt,
-          hintStyle: text.textStyle(12.0, Weight.w6, cGrey, 0.0),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1.5, color: cGrey.withOpacity(0.09)),
-            borderRadius: BorderRadius.circular(40),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1.5, color: cGrey.withOpacity(0.2)),
-            borderRadius: BorderRadius.circular(40),
-          ),
+          hintStyle: text.textStyle(13.0, Weight.w6, cGrey, 0.0),
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
         ),
       ),
     );
