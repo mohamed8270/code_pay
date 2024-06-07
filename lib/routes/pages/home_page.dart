@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
-            StaticData.gap3,
+            StaticData.gap4,
             text.textWidget(StaticData.title2, 22.0, Weight.w6, cBlack)
           ],
         ),

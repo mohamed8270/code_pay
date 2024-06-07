@@ -31,7 +31,7 @@ class PopularCategoryCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: text.textWidget(
-                  txt, 14.0, Weight.w4, cBlack.withOpacity(0.8)),
+                  txt, 12.0, Weight.w4, cBlack.withOpacity(0.8)),
             ),
           ),
         ),
