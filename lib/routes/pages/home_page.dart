@@ -2,8 +2,11 @@ import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_app_bar.dart';
+import 'package:code_pay/common/widgets/interface/popular_category_card.dart';
 import 'package:code_pay/common/widgets/reusable/user_input_section.dart';
+import 'package:code_pay/data/repository/local_data_repositoy.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,7 +15,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // text widget
     final text = TextFond();
+
+    // screensize
+    final screenSize = MediaQuery.sizeOf(context);
+
     var searchController = TextEditingController();
+
+    // popular data class
+    var popularDataClass = Get.put(LocalDataRepo());
     return Scaffold(
       backgroundColor: cGrey2,
       body: Padding(
@@ -34,6 +44,19 @@ class HomePage extends StatelessWidget {
             ),
             StaticData.gap6,
             text.textWidget(StaticData.title1, 22.0, Weight.w6, cBlack),
+            StaticData.gap3,
+            SizedBox(
+              width: screenSize.width,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: popularDataClass.popularCarddata.length,
+                itemBuilder: (context, index) {
+                  final output = popularDataClass.popularCarddata[index];
+                  return PopularCategoryCard(txt: output['name'].toString());
+                },
+              ),
+            ),
+            StaticData.gap3,
             text.textWidget(StaticData.title2, 22.0, Weight.w6, cBlack)
           ],
         ),
