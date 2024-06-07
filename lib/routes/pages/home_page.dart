@@ -46,6 +46,7 @@ class HomePage extends StatelessWidget {
             text.textWidget(StaticData.title1, 22.0, Weight.w6, cBlack),
             StaticData.gap3,
             SizedBox(
+              height: screenSize.height * 0.05,
               width: screenSize.width,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
