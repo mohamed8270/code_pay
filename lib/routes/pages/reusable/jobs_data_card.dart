@@ -1,6 +1,7 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
+import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,7 @@ class JobsDataCard extends StatelessWidget {
     String url =
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png';
     return Container(
-      height: screenSize.height * 0.35,
+      height: screenSize.height * 0.32,
       width: screenSize.width,
       decoration: BoxDecoration(
         color: cWhite,
@@ -73,8 +74,8 @@ class JobsDataCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        text.textWidget(jobname, 14.0, Weight.w7, cBlack),
-                        text.textWidget(jobplace, 12.0, Weight.w4, cGrey),
+                        text.textWidget(jobname, 15.0, Weight.w7, cBlack),
+                        text.textWidget(companyname, 12.0, Weight.w4, cGrey),
                       ],
                     ),
                   ],
@@ -109,10 +110,20 @@ class JobsDataCard extends StatelessWidget {
             ),
             StaticData.gap2,
             SizedBox(
-              height: screenSize.height * 0.07,
+              height: screenSize.height * 0.075,
               // width: screenSize.width * 0.95,
               child: text.textWidget(description, 12.0, Weight.w5,
-                  cBlack.withOpacity(0.7), TextOverflow.fade),
+                  cBlack.withOpacity(0.7), TextOverflow.fade, 1.5),
+            ),
+            StaticData.gap2,
+            CustomButton(
+              h: 0.075,
+              w: 0.95,
+              txt: StaticData.apply,
+              color: cVoilet,
+              txtcolor: cWhite,
+              icncolor: cWhite,
+              click: () {},
             )
           ],
         ),

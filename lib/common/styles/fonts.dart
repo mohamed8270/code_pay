@@ -23,7 +23,7 @@ class Weight {
 
 class TextFond {
   // Text widget
-  Widget textWidget(data, size, weight, color, [flow]) {
+  Widget textWidget(data, size, weight, color, [flow, h]) {
     return Text(
       data,
       overflow: flow,
@@ -31,6 +31,7 @@ class TextFond {
         fontSize: size,
         fontWeight: weight,
         color: color,
+        height: h,
       ),
     );
   }
