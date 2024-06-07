@@ -60,6 +60,8 @@ class DetailsAppBar extends StatelessWidget {
     // text widget
     final text = TextFond();
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         RoundContainer(
           click: () {},
@@ -67,7 +69,7 @@ class DetailsAppBar extends StatelessWidget {
           color: cWhite.withOpacity(0.5),
           icncolor: cWhite,
         ),
-        text.textWidget(StaticData.details, 14, Weight.w6, cWhite),
+        text.textWidget(StaticData.details, 14.0, Weight.w6, cWhite),
         RoundContainer(
           click: () {},
           icon: StaticData.share,

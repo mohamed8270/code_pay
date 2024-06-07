@@ -23,4 +23,14 @@ class ReusableClass extends GetxController {
       colorFilter: const ColorFilter.mode(cBlack, BlendMode.srcIn),
     );
   }
+
+  // filled icon
+  Widget svgIcon(icon, h, w, color) {
+    return SvgPicture.asset(
+      icon,
+      height: h,
+      width: w,
+      colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+    );
+  }
 }

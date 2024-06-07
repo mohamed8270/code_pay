@@ -13,6 +13,9 @@ class StaticData {
   static String notify = 'https://www.svgrepo.com/show/498261/notification.svg';
   static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
   static String share = 'https://www.svgrepo.com/show/507855/share.svg';
+  static String bookmark = 'https://www.svgrepo.com/show/526490/bookmark.svg';
+  static String location = 'https://www.svgrepo.com/show/498139/location.svg';
+  static String money = 'https://www.svgrepo.com/show/497954/dollar-circle.svg';
 
   // text
   static String heroText = 'Discover Your \nNext Job.';

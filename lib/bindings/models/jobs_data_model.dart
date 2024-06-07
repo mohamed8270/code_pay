@@ -18,9 +18,9 @@ class JobsDataModel {
   final String jobsource;
   final String jobapply;
   final String jobquickapply;
-  final double jobpostedvalue;
-  final double jobappliedvalue;
-  final double jobviewsvalue;
+  final int jobpostedvalue;
+  final int jobappliedvalue;
+  final int jobviewsvalue;
   final List postedhistory;
   final List appliedhistory;
   final List users;

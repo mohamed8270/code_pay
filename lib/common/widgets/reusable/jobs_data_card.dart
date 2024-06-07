@@ -1,8 +1,9 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
+import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class JobsDataCard extends StatelessWidget {
   const JobsDataCard(
@@ -26,6 +27,8 @@ class JobsDataCard extends StatelessWidget {
     final screenSize = MediaQuery.sizeOf(context);
     // text widget
     final text = TextFond();
+    // reusable
+    final reusable = Get.put(ReusableClass());
     return Container(
       height: screenSize.height * 0.5,
       width: screenSize.width,
@@ -62,12 +65,26 @@ class JobsDataCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SvgPicture.network(
-                  '',
-                  height: 20,
-                  width: 20,
-                  colorFilter: const ColorFilter.mode(cBlack, BlendMode.srcIn),
+                reusable.svgIcon(StaticData.bookmark, 20.0, 20.0, cBlack)
+              ],
+            ),
+            StaticData.gap2,
+            Row(
+              children: [
+                Row(
+                  children: [
+                    reusable.svgIcon(StaticData.location, 20.0, 20.0, cBlack),
+                    text.textWidget(
+                        jobplace, 12.0, Weight.w5, cBlack.withOpacity(0.7))
+                  ],
                 ),
+                Row(
+                  children: [
+                    reusable.svgIcon(StaticData.money, 20.0, 20.0, cBlack),
+                    text.textWidget(
+                        jobsalary, 12.0, Weight.w5, cBlack.withOpacity(0.7))
+                  ],
+                )
               ],
             ),
           ],
