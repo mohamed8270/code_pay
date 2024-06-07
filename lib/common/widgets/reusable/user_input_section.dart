@@ -11,7 +11,8 @@ class UserInputSection extends StatelessWidget {
       required this.type,
       required this.height_,
       required this.width_,
-      required this.controller});
+      required this.controller,
+      this.list});
 
   final String txt;
   final String icn;
@@ -19,6 +20,7 @@ class UserInputSection extends StatelessWidget {
   final double height_;
   final double width_;
   final TextEditingController controller;
+  final List<String>? list;
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +49,15 @@ class UserInputSection extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: TextField(
-        cursorHeight: 16,
-        cursorColor: cGrey.withOpacity(0.2),
+        cursorColor: cGrey,
         style: text.textStyle(13.0, Weight.w6, cGrey, 0.0),
         keyboardType: type,
         controller: controller,
+        autofillHints: list,
         decoration: InputDecoration(
           isDense: true,
           isCollapsed: true,
-          contentPadding: const EdgeInsets.only(top: 15),
+          contentPadding: const EdgeInsets.only(top: 16),
           prefixIcon: Padding(
             padding: const EdgeInsets.all(14),
             child: SvgPicture.network(icn, height: 18, width: 18),

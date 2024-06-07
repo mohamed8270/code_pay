@@ -30,8 +30,9 @@ class HomePage extends StatelessWidget {
               height_: 0.071,
               width_: 0.95,
               controller: searchController,
+              list: const ['Jobs', 'Work', 'IT', 'Sales Assistant'],
             ),
-            StaticData.gap5,
+            StaticData.gap6,
             text.textWidget(StaticData.title1, 22.0, Weight.w6, cBlack),
             text.textWidget(StaticData.title2, 22.0, Weight.w6, cBlack)
           ],
