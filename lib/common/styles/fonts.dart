@@ -23,7 +23,7 @@ class Weight {
 
 class TextFond {
   // Text widget
-  Widget textWidget(data, size, weight, color) {
+  Widget textWidget(data, size, weight, color, [flow]) {
     return Text(
       data,
       style: GoogleFonts.dmSans(

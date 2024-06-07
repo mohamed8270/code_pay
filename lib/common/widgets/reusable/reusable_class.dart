@@ -26,7 +26,7 @@ class ReusableClass extends GetxController {
 
   // filled icon
   Widget svgIcon(icon, h, w, color) {
-    return SvgPicture.asset(
+    return SvgPicture.network(
       icon,
       height: h,
       width: w,

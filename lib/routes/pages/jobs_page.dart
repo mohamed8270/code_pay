@@ -14,16 +14,17 @@ class JobsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: cGrey2,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
-          child: BlocBuilder<JobsDataBloc, JobsDataState>(
-            builder: (context, state) {
-              if (state is JobDataLoading) {
-                return const LinearProgressShimmer();
-              } else if (state is JobDataError) {
-                return Text(state.error);
-              } else if (state is JobDataLoaded) {
-                return ListView.builder(
+        child: BlocBuilder<JobsDataBloc, JobsDataState>(
+          builder: (context, state) {
+            if (state is JobDataLoading) {
+              return const LinearProgressShimmer();
+            } else if (state is JobDataError) {
+              return Text(state.error);
+            } else if (state is JobDataLoaded) {
+              return Padding(
+                padding: EdgeInsets.only(
+                    left: StaticData.p2, right: StaticData.p2, top: 10),
+                child: ListView.builder(
                   itemCount: state.jobs.length,
                   itemBuilder: (context, index) {
                     return JobsDataCard(
@@ -35,11 +36,11 @@ class JobsPage extends StatelessWidget {
                       click: () {},
                     );
                   },
-                );
-              }
-              return const Text('');
-            },
-          ),
+                ),
+              );
+            }
+            return const Text('');
+          },
         ),
       ),
     );

@@ -81,7 +81,7 @@ class JobsDataModel {
       postedhistory: json['postedHistory'],
       appliedhistory: json['appliedHistory'],
       users: json['users'],
-      timestamps: json['timestamps'],
+      timestamps: json['createdAt'],
     );
   }
 }

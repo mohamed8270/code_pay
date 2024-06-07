@@ -49,7 +49,7 @@ class _LinearProgressShimmerState extends State<LinearProgressShimmer>
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Shimmer.fromColors(
-      baseColor: cGrey.withOpacity(0.3),
+      baseColor: cGrey.withOpacity(0.05),
       highlightColor: cVoilet,
       direction: ShimmerDirection.ltr,
       period: const Duration(seconds: 2), // Keep overall shimmer duration
