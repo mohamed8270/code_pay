@@ -1,5 +1,5 @@
 import 'package:code_pay/common/styles/color.dart';
-import 'package:code_pay/common/widgets/bottom_nav_bar.dart';
+import 'package:code_pay/common/widgets/interface/bottom_nav_bar.dart';
 import 'package:code_pay/data/bloc/jobs_data_bloc.dart';
 import 'package:code_pay/routes/pages/home_page.dart';
 import 'package:code_pay/routes/pages/jobs_page.dart';
