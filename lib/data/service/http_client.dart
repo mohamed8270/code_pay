@@ -29,7 +29,7 @@ class HttpClientFetch extends GetxController {
 
   // fetching jobs details using ID
   Future<JobsDetailsModel> fetchJobsDetails(String id) async {
-    String url = dotenv.env['JOBS_DATA_URL'].toString();
+    String url = dotenv.env['JOBS_DETAILS_URL'].toString();
 
     try {
       http.Response response = await http.get(Uri.tryParse('$url$id')!);
