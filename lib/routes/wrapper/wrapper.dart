@@ -1,6 +1,7 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/widgets/interface/bottom_nav_bar.dart';
 import 'package:code_pay/data/bloc/jobs_data_bloc.dart';
+import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart';
 import 'package:code_pay/routes/pages/home_page.dart';
 import 'package:code_pay/routes/pages/jobs_page.dart';
 import 'package:code_pay/routes/pages/profile_page.dart';
@@ -14,9 +15,11 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final jobsfetch = Get.put(FetchJobsDataEvent());
+    final jobsdetails = Get.put(FetchJobsDetailsEvent());
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => JobsDataBloc()..add(jobsfetch))
+        BlocProvider(create: (context) => JobsDataBloc()..add(jobsfetch)),
+        BlocProvider(create: (context) => JobsDetailsBloc()..add(jobsdetails))
       ],
       child: MaterialApp(
         title: 'Code Pay',
