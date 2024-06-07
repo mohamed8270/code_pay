@@ -52,7 +52,10 @@ class HomePage extends StatelessWidget {
                 itemCount: popularDataClass.popularCarddata.length,
                 itemBuilder: (context, index) {
                   final output = popularDataClass.popularCarddata[index];
-                  return PopularCategoryCard(txt: output['name'].toString());
+                  return PopularCategoryCard(
+                    click: () {},
+                    txt: output['name'].toString(),
+                  );
                 },
               ),
             ),
