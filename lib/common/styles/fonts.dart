@@ -26,6 +26,7 @@ class TextFond {
   Widget textWidget(data, size, weight, color, [flow]) {
     return Text(
       data,
+      overflow: flow,
       style: GoogleFonts.dmSans(
         fontSize: size,
         fontWeight: weight,

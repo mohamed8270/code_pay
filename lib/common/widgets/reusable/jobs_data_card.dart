@@ -32,15 +32,19 @@ class JobsDataCard extends StatelessWidget {
     String url =
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png';
     return Container(
-      height: screenSize.height * 0.4,
+      height: screenSize.height * 0.35,
       width: screenSize.width,
       decoration: BoxDecoration(
         color: cWhite,
         borderRadius: BorderRadius.circular(25),
-        border: Border.all(width: 1.5, color: cGrey.withOpacity(0.2)),
+        border: Border.all(
+          width: 1.5,
+          color: cGrey.withOpacity(0.2),
+          strokeAlign: BorderSide.strokeAlignOutside,
+        ),
         boxShadow: [
           BoxShadow(
-            color: cBlack.withOpacity(0.06),
+            color: cBlack.withOpacity(0.03),
             blurRadius: 10,
             blurStyle: BlurStyle.outer,
             spreadRadius: 2,
@@ -48,7 +52,7 @@ class JobsDataCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Row(
@@ -61,7 +65,7 @@ class JobsDataCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 20,
-                      backgroundColor: cGrey2,
+                      backgroundColor: cWhite,
                       backgroundImage: NetworkImage(url),
                     ),
                     StaticData.gap2,
@@ -85,16 +89,18 @@ class JobsDataCard extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    reusable.svgIcon(StaticData.location, 20.0, 20.0, cBlack),
+                    reusable.svgIcon(StaticData.location, 18.0, 18.0, cBlack),
+                    StaticData.gap1,
                     text.textWidget(
                         jobplace, 12.0, Weight.w5, cBlack.withOpacity(0.7))
                   ],
                 ),
-                StaticData.gap2,
+                StaticData.gap4,
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    reusable.svgIcon(StaticData.money, 20.0, 20.0, cBlack),
+                    reusable.svgIcon(StaticData.money, 18.0, 18.0, cBlack),
+                    StaticData.gap1,
                     text.textWidget(
                         jobsalary, 12.0, Weight.w5, cBlack.withOpacity(0.7))
                   ],
@@ -103,7 +109,8 @@ class JobsDataCard extends StatelessWidget {
             ),
             StaticData.gap2,
             SizedBox(
-              height: screenSize.height * 0.1,
+              height: screenSize.height * 0.07,
+              // width: screenSize.width * 0.95,
               child: text.textWidget(description, 12.0, Weight.w5,
                   cBlack.withOpacity(0.7), TextOverflow.fade),
             )
