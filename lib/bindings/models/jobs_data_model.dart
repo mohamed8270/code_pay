@@ -12,8 +12,8 @@ class JobsDataModel {
   final String jobtype;
   final String jobindustry;
   final String jobfunction;
-  final String jobrole;
-  final String jobskills;
+  final List<dynamic> jobrole;
+  final List<dynamic> jobskills;
   final String jobcompanyurl;
   final String jobsource;
   final String jobapply;

@@ -17,7 +17,8 @@ class JobsPage extends StatelessWidget {
       backgroundColor: cGrey2,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
+          padding: EdgeInsets.only(
+              left: StaticData.p2, right: StaticData.p2, top: 20),
           child: Column(
             children: [
               UserInputSection(
@@ -34,10 +35,15 @@ class JobsPage extends StatelessWidget {
                     return const LinearProgressShimmer();
                   } else if (state is JobDataError) {
                     return Text(state.error);
+                  } else if (state is JobDataLoaded) {
+                    return ListView.builder(
+                      itemCount: state.jobs.length,
+                      itemBuilder: (context, index) {
+                        return Text(state.jobs.first.jobcompany.toString());
+                      },
+                    );
                   }
-                  return Column(
-                    children: [],
-                  );
+                  return constText('');
                 },
               ),
             ],
