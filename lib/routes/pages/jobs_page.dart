@@ -5,6 +5,7 @@ import 'package:code_pay/common/widgets/reusable/shimmer_effect.dart';
 import 'package:code_pay/data/bloc/jobs_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class JobsPage extends StatelessWidget {
   const JobsPage({super.key});
@@ -33,7 +34,8 @@ class JobsPage extends StatelessWidget {
                       jobplace: state.jobs.first.jobplace.toString(),
                       jobsalary: state.jobs.first.jobsalary.toString(),
                       description: state.jobs.first.jobdescription.toString(),
-                      click: () {},
+                      click: () => Get.toNamed(''),
+                      applyclick: () {},
                     );
                   },
                 ),
