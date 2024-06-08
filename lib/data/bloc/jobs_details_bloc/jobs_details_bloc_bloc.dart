@@ -8,12 +8,13 @@ part 'jobs_details_bloc_event.dart';
 part 'jobs_details_bloc_state.dart';
 
 class JobsDetailsBloc extends Bloc<JobsDetailsBlocEvent, JobsDetailsBlocState> {
-  final repository = Get.put(ApiRepository());
+  final ApiRepository repository = Get.put(ApiRepository());
   JobsDetailsBloc() : super(JobsDetailsBlocInitial()) {
     on<JobsDetailsBlocEvent>((event, emit) async {
       emit(JobsDetailsBlocLoading());
       try {
-        final jobsdetailsout = await repository.getJobsDetails(id);
+        final jobsdetailsout = await repository
+            .getJobsDetails((event as FetchJobsDetailsEvent).id);
         emit(JobsDetailsBlocLoaded(jobsdetails: jobsdetailsout));
       } catch (e) {
         emit(JobsDetailsBlocError(error: e.toString()));

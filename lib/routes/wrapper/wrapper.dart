@@ -5,6 +5,7 @@ import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart
 import 'package:code_pay/routes/pages/home_page.dart';
 import 'package:code_pay/routes/pages/jobs_page.dart';
 import 'package:code_pay/routes/pages/profile_page.dart';
+import 'package:code_pay/routes/pages/reusable/jobs_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -15,11 +16,10 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final jobsfetch = Get.put(FetchJobsDataEvent());
-    final jobsdetails = Get.put(FetchJobsDetailsEvent());
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => JobsDataBloc()..add(jobsfetch)),
-        BlocProvider(create: (context) => JobsDetailsBloc()..add(jobsdetails))
+        BlocProvider(create: (context) => JobsDetailsBloc())
       ],
       child: MaterialApp(
         title: 'Code Pay',
@@ -32,6 +32,7 @@ class Wrapper extends StatelessWidget {
           '/homepage': (c) => const HomePage(),
           '/jobspage': (c) => const JobsPage(),
           '/profile': (c) => const ProfilePage(),
+          '/jobdetails': (c) => const JobsDetailsPage(),
         },
         home: const BottomNavBar(),
       ),

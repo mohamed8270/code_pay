@@ -1,4 +1,5 @@
 class JobsDataModel {
+  final String id;
   final String url;
   final String jobname;
   final String jobcompany;
@@ -27,7 +28,8 @@ class JobsDataModel {
   final String timestamps;
 
   JobsDataModel(
-      {required this.url,
+      {required this.id,
+      required this.url,
       required this.jobname,
       required this.jobcompany,
       required this.jobplace,
@@ -56,6 +58,7 @@ class JobsDataModel {
 
   factory JobsDataModel.fromJson(Map<String, dynamic> json) {
     return JobsDataModel(
+      id: json['_id'],
       url: json['url'],
       jobname: json['jobName'],
       jobcompany: json['jobCompany'],

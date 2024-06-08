@@ -12,6 +12,10 @@ class JobsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onJobClicked(String id) {
+      Get.toNamed('/jobdetails', arguments: id);
+    }
+
     return Scaffold(
       backgroundColor: cGrey2,
       body: SafeArea(
@@ -28,13 +32,14 @@ class JobsPage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: state.jobs.length,
                   itemBuilder: (context, index) {
+                    final output = state.jobs.first;
                     return JobsDataCard(
-                      jobname: state.jobs.first.jobname.toString(),
-                      companyname: state.jobs.first.jobcompany.toString(),
-                      jobplace: state.jobs.first.jobplace.toString(),
-                      jobsalary: state.jobs.first.jobsalary.toString(),
-                      description: state.jobs.first.jobdescription.toString(),
-                      click: () => Get.toNamed(''),
+                      jobname: output.jobname.toString(),
+                      companyname: output.jobcompany.toString(),
+                      jobplace: output.jobplace.toString(),
+                      jobsalary: output.jobsalary.toString(),
+                      description: output.jobdescription.toString(),
+                      click: () => onJobClicked(output.id),
                       applyclick: () {},
                     );
                   },

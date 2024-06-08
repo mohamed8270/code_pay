@@ -1,10 +1,13 @@
+import 'package:code_pay/data/repository/api_repository.dart';
 import 'package:code_pay/routes/wrapper/wrapper.dart';
 import 'package:code_pay/utils/device/system_chrome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get.dart';
 
 Future<void> main() async {
   await dotenv.load();
+  Get.put(ApiRepository());
   SystemChromeMethod.systemUImode();
   SystemChromeMethod.systemUIoverlay();
   runApp(const MyApp());
