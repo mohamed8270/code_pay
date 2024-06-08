@@ -33,4 +33,6 @@ class ReusableClass extends GetxController {
       colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
     );
   }
+
+  // 
 }

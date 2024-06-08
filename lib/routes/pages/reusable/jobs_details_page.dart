@@ -1,7 +1,9 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_app_bar.dart';
+import 'package:code_pay/common/widgets/reusable/shimmer_effect.dart';
 import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart';
+import 'package:code_pay/routes/pages/reusable/job_details_page_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -32,6 +34,9 @@ class JobsDetailsPage extends StatelessWidget {
                 Stack(
                   children: [
                     Positioned(
+                      bottom: -50,
+                      right: 50,
+                      left: 50,
                       child: Container(
                         height: screenSize.height * 0.2,
                         width: screenSize.width * 0.2,
@@ -60,7 +65,33 @@ class JobsDetailsPage extends StatelessWidget {
           ),
           BlocBuilder<JobsDetailsBloc, JobsDetailsBlocState>(
             builder: (context, state) {
-              return const Column();
+              if (state is JobsDetailsBlocLoading) {
+                return const LinearProgressShimmer();
+              } else if (state is JobsDetailsBlocError) {
+                return Text(state.error);
+              } else if (state is JobsDetailsBlocLoaded) {
+                final output = state.jobsdetails;
+                return JobDetailsPageRepo(
+                  jobname: output.jobname.toString(),
+                  jobplace: output.jobplace.toString(),
+                  jobcompany: output.jobcompany.toString(),
+                  jobposted: output.jobposted.toString(),
+                  jobapplied: output.jobapplied.toString(),
+                  jobveiwed: output.jobviews.toString(),
+                  joblocation: output.toString(),
+                  experience: output.jobexperience.toString(),
+                  description: output.jobdescription.toString(),
+                  jobtype: output.jobtype.toString(),
+                  jobindustry: output.jobindustry.toString(),
+                  jobfunction: output.jobfunction.toString(),
+                  skills: output.jobskills,
+                  jobsource: output.jobsource.toString(),
+                  companyurl: output.jobcompanyurl.toString(),
+                  jobsalary: output.jobsalary.toString(),
+                  roles: output.jobrole,
+                );
+              }
+              return const Text('Server busy');
             },
           ),
         ],
