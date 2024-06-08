@@ -53,7 +53,19 @@ class CustomAppBar extends StatelessWidget {
 }
 
 class DetailsAppBar extends StatelessWidget {
-  const DetailsAppBar({super.key});
+  const DetailsAppBar(
+      {super.key,
+      required this.title,
+      required this.action,
+      required this.leading,
+      required this.clicklead,
+      required this.clickaction});
+
+  final String title;
+  final String action;
+  final String leading;
+  final VoidCallback clicklead;
+  final VoidCallback clickaction;
 
   @override
   Widget build(BuildContext context) {
@@ -64,15 +76,15 @@ class DetailsAppBar extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         RoundContainer(
-          click: () {},
-          icon: StaticData.back,
+          click: clicklead,
+          icon: leading,
           color: cWhite.withOpacity(0.5),
           icncolor: cWhite,
         ),
-        text.textWidget(StaticData.details, 14.0, Weight.w6, cWhite),
+        text.textWidget(title, 14.0, Weight.w6, cWhite),
         RoundContainer(
-          click: () {},
-          icon: StaticData.share,
+          click: clickaction,
+          icon: action,
           color: cWhite.withOpacity(0.5),
           icncolor: cWhite,
         ),
