@@ -22,6 +22,8 @@ class StaticData {
       'https://www.svgrepo.com/show/408362/eye-view-reveal-show.svg';
   static String applyicn = 'https://www.svgrepo.com/show/463053/send-alt.svg';
 
+
+
   // text
   static String heroText = 'Discover Your \nNext Job.';
   static String title1 = 'Popular Categories';

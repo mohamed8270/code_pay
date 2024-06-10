@@ -1,6 +1,7 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_app_bar.dart';
+import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/reusable/shimmer_effect.dart';
 import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart';
 import 'package:code_pay/routes/pages/reusable/jobs/job_details_page_repo.dart';
@@ -22,6 +23,17 @@ class JobsDetailsPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: cGrey2,
+      floatingActionButton: CustomButton(
+        h: 0.075,
+        w: 0.95,
+        txt: StaticData.apply,
+        color: cVoilet,
+        txtcolor: cWhite,
+        icncolor: cWhite,
+        click: () {},
+      ),
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Column(
         children: [
           Container(

@@ -13,7 +13,6 @@ class JobsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onJobClicked(String id) {
-      print('clicked');
       Get.toNamed('/jobdetails', arguments: id);
     }
 
