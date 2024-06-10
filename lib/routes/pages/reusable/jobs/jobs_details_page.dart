@@ -25,7 +25,7 @@ class JobsDetailsPage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: screenSize.height * 0.37,
+            height: screenSize.height * 0.32,
             width: screenSize.width,
             decoration: BoxDecoration(
               color: Colors.transparent,
@@ -34,10 +34,17 @@ class JobsDetailsPage extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height: screenSize.height * 0.3,
+                  height: screenSize.height * 0.25,
                   width: screenSize.width,
                   decoration: BoxDecoration(
                     color: cVoilet,
+                    // image: const DecorationImage(
+                    //   image: NetworkImage(
+                    //     'https://i.pinimg.com/736x/a2/56/ab/a256ab90f6dddc61a96e837d887e1ca2.jpg',
+                    //   ),
+                    //   fit: BoxFit.cover,
+                    //   filterQuality: FilterQuality.high,
+                    // ),
                     borderRadius: BorderRadius.circular(40),
                   ),
                 ),
@@ -87,7 +94,7 @@ class JobsDetailsPage extends StatelessWidget {
                   jobposted: output.jobposted.toString(),
                   jobapplied: output.jobapplied.toString(),
                   jobveiwed: output.jobviews.toString(),
-                  joblocation: output.toString(),
+                  joblocation: output.jobplace.toString(),
                   experience: output.jobexperience.toString(),
                   description: output.jobdescription.toString(),
                   jobtype: output.jobtype.toString(),

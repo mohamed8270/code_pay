@@ -25,45 +25,50 @@ class HomePage extends StatelessWidget {
     var popularDataClass = Get.put(LocalDataRepo());
     return Scaffold(
       backgroundColor: cGrey2,
-      body: Padding(
-        padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomAppBar(),
-            text.textWidget(StaticData.heroText, 34.0, Weight.w7, cBlack),
-            StaticData.gap3,
-            UserInputSection(
-              txt: 'Search',
-              icn: 'https://www.svgrepo.com/show/498380/search-normal-1.svg',
-              type: TextInputType.url,
-              height_: 0.071,
-              width_: 0.95,
-              controller: searchController,
-              list: const ['Jobs', 'Work', 'IT', 'Sales Assistant'],
+      body: Column(
+        children: [
+          const CustomAppBar(),
+          Padding(
+            padding: EdgeInsets.only(left: StaticData.p2, right: StaticData.p2),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                text.textWidget(StaticData.heroText, 34.0, Weight.w7, cBlack),
+                StaticData.gap3,
+                UserInputSection(
+                  txt: 'Search',
+                  icn:
+                      'https://www.svgrepo.com/show/498380/search-normal-1.svg',
+                  type: TextInputType.url,
+                  height_: 0.071,
+                  width_: 0.95,
+                  controller: searchController,
+                  list: const ['Jobs', 'Work', 'IT', 'Sales Assistant'],
+                ),
+                StaticData.gap6,
+                text.textWidget(StaticData.title1, 22.0, Weight.w6, cBlack),
+                StaticData.gap3,
+                SizedBox(
+                  height: screenSize.height * 0.05,
+                  width: screenSize.width,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: popularDataClass.popularCarddata.length,
+                    itemBuilder: (context, index) {
+                      final output = popularDataClass.popularCarddata[index];
+                      return PopularCategoryCard(
+                        click: () {},
+                        txt: output['name'].toString(),
+                      );
+                    },
+                  ),
+                ),
+                StaticData.gap4,
+                text.textWidget(StaticData.title2, 22.0, Weight.w6, cBlack)
+              ],
             ),
-            StaticData.gap6,
-            text.textWidget(StaticData.title1, 22.0, Weight.w6, cBlack),
-            StaticData.gap3,
-            SizedBox(
-              height: screenSize.height * 0.05,
-              width: screenSize.width,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: popularDataClass.popularCarddata.length,
-                itemBuilder: (context, index) {
-                  final output = popularDataClass.popularCarddata[index];
-                  return PopularCategoryCard(
-                    click: () {},
-                    txt: output['name'].toString(),
-                  );
-                },
-              ),
-            ),
-            StaticData.gap4,
-            text.textWidget(StaticData.title2, 22.0, Weight.w6, cBlack)
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

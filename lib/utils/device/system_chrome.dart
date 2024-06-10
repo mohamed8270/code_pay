@@ -1,5 +1,4 @@
 import 'package:code_pay/common/styles/color.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SystemChromeMethod {
@@ -13,9 +12,9 @@ class SystemChromeMethod {
   static systemUIoverlay() {
     return SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+        statusBarColor: cVoilet,
         systemNavigationBarColor: cGrey2,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
       ),
     );
   }

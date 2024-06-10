@@ -14,39 +14,56 @@ class CustomAppBar extends StatelessWidget {
 
     // text widget
     final text = TextFond();
-    return Padding(
-      padding: EdgeInsets.only(top: StaticData.p5, bottom: StaticData.p1),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: cGrey2,
-                backgroundImage: NetworkImage(url),
-              ),
-              StaticData.gap2,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  text.textWidget('Judy Smith', 14.0, Weight.w7, cBlack),
-                  text.textWidget('UI & UX Designer', 12.0, Weight.w4, cGrey),
-                ],
-              ),
-            ],
-          ),
-          RoundContainer(
-            icon: StaticData.notify,
-            color: cGrey2,
-            icncolor: cBlack,
-            border: Border.all(width: 1.5, color: cGrey.withOpacity(0.2)),
-          ),
-        ],
+    final screenSize = MediaQuery.sizeOf(context);
+    return Container(
+      height: screenSize.height * 0.13,
+      width: screenSize.width,
+      decoration: const BoxDecoration(
+        color: cVoilet,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(
+            top: StaticData.p5,
+            bottom: StaticData.p1,
+            left: StaticData.p2,
+            right: StaticData.p2),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: cWhite,
+                  backgroundImage: NetworkImage(url),
+                ),
+                StaticData.gap2,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    text.textWidget('Judy Smith', 14.0, Weight.w7, cWhite),
+                    text.textWidget(
+                        'UI & UX Designer', 12.0, Weight.w4, cWhite),
+                  ],
+                ),
+              ],
+            ),
+            RoundContainer(
+              icon: StaticData.notify,
+              color: cVoilet,
+              icncolor: cWhite,
+              border: Border.all(width: 1.5, color: cWhite.withOpacity(0.2)),
+            ),
+          ],
+        ),
       ),
     );
   }
