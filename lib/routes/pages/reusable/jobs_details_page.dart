@@ -31,6 +31,13 @@ class JobsDetailsPage extends StatelessWidget {
             ),
             child: Column(
               children: [
+                DetailsAppBar(
+                  leading: StaticData.back,
+                  title: StaticData.details,
+                  action: StaticData.share,
+                  clicklead: () => Get.back(),
+                  clickaction: () {},
+                ),
                 Stack(
                   children: [
                     Positioned(
@@ -38,8 +45,8 @@ class JobsDetailsPage extends StatelessWidget {
                       right: 50,
                       left: 50,
                       child: Container(
-                        height: screenSize.height * 0.2,
-                        width: screenSize.width * 0.2,
+                        height: screenSize.height * 0.1,
+                        width: screenSize.width * 0.1,
                         decoration: BoxDecoration(
                           color: cWhite,
                           shape: BoxShape.circle,
@@ -50,13 +57,6 @@ class JobsDetailsPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ),
-                    DetailsAppBar(
-                      leading: StaticData.back,
-                      title: StaticData.details,
-                      action: StaticData.share,
-                      clicklead: () => Get.back(),
-                      clickaction: () {},
                     ),
                   ],
                 ),

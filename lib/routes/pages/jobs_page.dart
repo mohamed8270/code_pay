@@ -13,6 +13,7 @@ class JobsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onJobClicked(String id) {
+      print('clicked');
       Get.toNamed('/jobdetails', arguments: id);
     }
 
@@ -22,7 +23,7 @@ class JobsPage extends StatelessWidget {
         child: BlocBuilder<JobsDataBloc, JobsDataState>(
           builder: (context, state) {
             if (state is JobDataLoading) {
-              return const LinearProgressShimmer();
+              return const Center(child: LinearProgressShimmer());
             } else if (state is JobDataError) {
               return Text(state.error);
             } else if (state is JobDataLoaded) {

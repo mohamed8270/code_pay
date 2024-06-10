@@ -63,12 +63,9 @@ class _LinearProgressShimmerState extends State<LinearProgressShimmer>
               return FadeTransition(opacity: _animations[index], child: child);
             },
             child: Container(
-              height: screenSize.height * 0.009,
+              height: screenSize.height * 0.0010,
               width: screenSize.width,
-              decoration: const BoxDecoration(
-                color: cWhite,
-                shape: BoxShape.circle,
-              ),
+              decoration: const BoxDecoration(color: cWhite),
             ),
           ),
         ),

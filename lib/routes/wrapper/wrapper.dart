@@ -21,7 +21,7 @@ class Wrapper extends StatelessWidget {
         BlocProvider(create: (context) => JobsDataBloc()..add(jobsfetch)),
         BlocProvider(create: (context) => JobsDetailsBloc())
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'Code Pay',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
