@@ -5,7 +5,7 @@ import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart
 import 'package:code_pay/routes/pages/home_page.dart';
 import 'package:code_pay/routes/pages/jobs_page.dart';
 import 'package:code_pay/routes/pages/profile_page.dart';
-import 'package:code_pay/routes/pages/reusable/jobs_details_page.dart';
+import 'package:code_pay/routes/pages/reusable/jobs/jobs_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';

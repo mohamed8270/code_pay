@@ -3,7 +3,7 @@ import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_app_bar.dart';
 import 'package:code_pay/common/widgets/reusable/shimmer_effect.dart';
 import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart';
-import 'package:code_pay/routes/pages/reusable/job_details_page_repo.dart';
+import 'package:code_pay/routes/pages/reusable/jobs/job_details_page_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -19,6 +19,7 @@ class JobsDetailsPage extends StatelessWidget {
 
     final String id = ModalRoute.of(context)!.settings.arguments as String;
     context.read<JobsDetailsBloc>().add(FetchJobsDetailsEvent(id: id));
+
     return Scaffold(
       backgroundColor: cGrey2,
       body: Column(

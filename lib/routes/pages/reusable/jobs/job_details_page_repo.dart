@@ -1,7 +1,10 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
+import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
+import 'package:code_pay/utils/string_check.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class JobDetailsPageRepo extends StatelessWidget {
   const JobDetailsPageRepo(
@@ -46,6 +49,8 @@ class JobDetailsPageRepo extends StatelessWidget {
   Widget build(BuildContext context) {
     // text widget
     final text = TextFond();
+    // reusable
+    final reusable = Get.put(ReusableClass());
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -54,18 +59,18 @@ class JobDetailsPageRepo extends StatelessWidget {
         text.textWidget(jobcompany, 12.0, Weight.w5, cBlack.withOpacity(0.4)),
         StaticData.gap3,
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            text.textWidget(joblocation != '' ? 'Not Specified' : joblocation,
-                13.0, Weight.w5, cGrey),
+            text.textWidget(emptyString(joblocation), 12.0, Weight.w5, cGrey),
             const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
-            text.textWidget(experience, 13.0, Weight.w5, cGrey),
+            text.textWidget(experience, 12.0, Weight.w5, cGrey),
             const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
-            text.textWidget(jobsalary != '' ? 'Not Specified' : jobsalary, 12.0,
-                Weight.w5, cGrey),
+            text.textWidget(emptyString(jobsalary), 12.0, Weight.w5, cGrey),
           ],
         ),
         StaticData.gap3,
+        reusable.detailsContainer(context, jobposted, jobveiwed, jobapplied)
       ],
     );
   }
