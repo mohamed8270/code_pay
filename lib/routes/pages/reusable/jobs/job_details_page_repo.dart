@@ -2,6 +2,7 @@ import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
+import 'package:code_pay/routes/pages/reusable/jobs/widgets/custom_tab_bar.dart';
 import 'package:code_pay/utils/string_check.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -62,6 +63,11 @@ class JobDetailsPageRepo extends StatelessWidget {
             context, joblocation, experience, emptyString(jobsalary)),
         StaticData.gap3,
         reusable.detailsContainer(context, jobposted, jobveiwed, jobapplied),
+        StaticData.gap3,
+        SizedBox(
+          height: 300,
+          child: const CustomTabBar(),
+        ),
       ],
     );
   }

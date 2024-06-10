@@ -120,7 +120,7 @@ class ReusableClass extends GetxController {
             ),
             const SizedBox(
               height: 20,
-              width: 50,
+              width: 40,
               child: Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
             ),
             Row(
@@ -132,7 +132,7 @@ class ReusableClass extends GetxController {
             ),
             const SizedBox(
               height: 20,
-              width: 50,
+              width: 40,
               child: Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
             ),
             Row(

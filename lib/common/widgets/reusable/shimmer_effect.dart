@@ -65,7 +65,7 @@ class _LinearProgressShimmerState extends State<LinearProgressShimmer>
             child: Container(
               height: screenSize.height * 0.010,
               width: screenSize.width,
-              decoration: const BoxDecoration(color: cGrey),
+              decoration: const BoxDecoration(color: cGrey2),
             ),
           ),
         ),
