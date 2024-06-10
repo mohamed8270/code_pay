@@ -71,24 +71,28 @@ class DetailsAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // text widget
     final text = TextFond();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        RoundContainer(
-          click: clicklead,
-          icon: leading,
-          color: cWhite.withOpacity(0.5),
-          icncolor: cWhite,
-        ),
-        text.textWidget(title, 14.0, Weight.w6, cWhite),
-        RoundContainer(
-          click: clickaction,
-          icon: action,
-          color: cWhite.withOpacity(0.5),
-          icncolor: cWhite,
-        ),
-      ],
+    return Padding(
+      padding:
+          EdgeInsets.only(left: StaticData.p2, right: StaticData.p2, top: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          RoundContainer(
+            click: clicklead,
+            icon: leading,
+            color: cWhite.withOpacity(0.1),
+            icncolor: cWhite,
+          ),
+          text.textWidget(title, 17.0, Weight.w6, cWhite),
+          RoundContainer(
+            click: clickaction,
+            icon: action,
+            color: cWhite.withOpacity(0.1),
+            icncolor: cWhite,
+          ),
+        ],
+      ),
     );
   }
 }

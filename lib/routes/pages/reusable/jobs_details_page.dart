@@ -20,17 +20,26 @@ class JobsDetailsPage extends StatelessWidget {
     final String id = ModalRoute.of(context)!.settings.arguments as String;
     context.read<JobsDetailsBloc>().add(FetchJobsDetailsEvent(id: id));
     return Scaffold(
+      backgroundColor: cGrey2,
       body: Column(
         children: [
           Container(
-            height: screenSize.height * 0.3,
+            height: screenSize.height * 0.37,
             width: screenSize.width,
             decoration: BoxDecoration(
-              color: cVoilet,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(40),
             ),
-            child: Column(
+            child: Stack(
               children: [
+                Container(
+                  height: screenSize.height * 0.3,
+                  width: screenSize.width,
+                  decoration: BoxDecoration(
+                    color: cVoilet,
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                ),
                 DetailsAppBar(
                   leading: StaticData.back,
                   title: StaticData.details,
@@ -38,27 +47,26 @@ class JobsDetailsPage extends StatelessWidget {
                   clicklead: () => Get.back(),
                   clickaction: () {},
                 ),
-                Stack(
-                  children: [
-                    Positioned(
-                      bottom: -50,
-                      right: 50,
-                      left: 50,
-                      child: Container(
-                        height: screenSize.height * 0.1,
-                        width: screenSize.width * 0.1,
-                        decoration: BoxDecoration(
-                          color: cWhite,
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(url),
-                            fit: BoxFit.contain,
-                            filterQuality: FilterQuality.high,
-                          ),
-                        ),
+                Positioned(
+                  bottom: 10,
+                  right: 50,
+                  left: 50,
+                  child: Container(
+                    height: screenSize.height * 0.125,
+                    width: screenSize.width * 0.125,
+                    decoration: const BoxDecoration(
+                      color: cWhite,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(23),
+                      child: Image(
+                        image: NetworkImage(url),
+                        fit: BoxFit.contain,
+                        filterQuality: FilterQuality.high,
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),

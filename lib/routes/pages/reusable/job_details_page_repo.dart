@@ -49,18 +49,20 @@ class JobDetailsPageRepo extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        text.textWidget(jobcompany, 18.0, Weight.w6, cBlack),
-        StaticData.gap1,
-        text.textWidget(jobname, 16.0, Weight.w5, cGrey),
+        text.textWidget(jobname, 18.0, Weight.w7, cBlack),
+        // StaticData.gap1,
+        text.textWidget(jobcompany, 12.0, Weight.w5, cBlack.withOpacity(0.4)),
         StaticData.gap3,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            text.textWidget(joblocation, 14.0, Weight.w5, cGrey),
-            const Icon(Icons.trip_origin_rounded, size: 12, color: cGrey),
-            text.textWidget(experience, 14.0, Weight.w5, cGrey),
-            const Icon(Icons.trip_origin_rounded, size: 12, color: cGrey),
-            text.textWidget(jobsalary, 14.0, Weight.w5, cGrey),
+            text.textWidget(joblocation != '' ? 'Not Specified' : joblocation,
+                13.0, Weight.w5, cGrey),
+            const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
+            text.textWidget(experience, 13.0, Weight.w5, cGrey),
+            const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
+            text.textWidget(jobsalary != '' ? 'Not Specified' : jobsalary, 12.0,
+                Weight.w5, cGrey),
           ],
         ),
         StaticData.gap3,
