@@ -58,17 +58,19 @@ class JobDetailsPageRepo extends StatelessWidget {
         // StaticData.gap1,
         text.textWidget(jobcompany, 12.0, Weight.w5, cBlack.withOpacity(0.4)),
         StaticData.gap3,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            text.textWidget(emptyString(joblocation), 12.0, Weight.w5, cGrey),
-            const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
-            text.textWidget(experience, 12.0, Weight.w5, cGrey),
-            const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
-            text.textWidget(emptyString(jobsalary), 12.0, Weight.w5, cGrey),
-          ],
-        ),
+        reusable.detailsContainer1(
+            context, joblocation, experience, emptyString(jobsalary)),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   crossAxisAlignment: CrossAxisAlignment.center,
+        //   children: [
+        //     text.textWidget(emptyString(joblocation), 12.0, Weight.w5, cGrey),
+        //     const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
+        //     text.textWidget(experience, 12.0, Weight.w5, cGrey),
+        //     const Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
+        //     text.textWidget(emptyString(jobsalary), 12.0, Weight.w5, cGrey),
+        //   ],
+        // ),
         StaticData.gap3,
         reusable.detailsContainer(context, jobposted, jobveiwed, jobapplied)
       ],

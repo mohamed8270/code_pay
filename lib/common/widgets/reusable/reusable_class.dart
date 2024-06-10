@@ -97,4 +97,54 @@ class ReusableClass extends GetxController {
       ),
     );
   }
+
+  // details container
+  Widget detailsContainer1(context, txt1, txt2, txt3) {
+    final screenSize = MediaQuery.sizeOf(context);
+    return Container(
+      // height: screenSize.height * 0.03,
+      width: screenSize.width * 0.95,
+      color: cGrey2,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFond().textWidget(txt1, 12.0, Weight.w5, cGrey),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+              width: 50,
+              child: Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFond().textWidget(txt2, 12.0, Weight.w5, cGrey),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+              width: 50,
+              child: Icon(Icons.trip_origin_rounded, size: 6, color: cGrey),
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFond().textWidget(txt3, 12.0, Weight.w5, cGrey),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

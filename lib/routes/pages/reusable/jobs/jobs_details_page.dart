@@ -40,7 +40,7 @@ class JobsDetailsPage extends StatelessWidget {
                     color: cVoilet,
                     // image: const DecorationImage(
                     //   image: NetworkImage(
-                    //     'https://i.pinimg.com/736x/a2/56/ab/a256ab90f6dddc61a96e837d887e1ca2.jpg',
+                    //     'https://cpng.pikpng.com/pngl/s/514-5140539_ftestickers-background-pattern-lines-wave-stripes-wavy-lines.png',
                     //   ),
                     //   fit: BoxFit.cover,
                     //   filterQuality: FilterQuality.high,
