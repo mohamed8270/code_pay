@@ -34,95 +34,98 @@ class JobsDetailsPage extends StatelessWidget {
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: Column(
-        children: [
-          Container(
-            height: screenSize.height * 0.32,
-            width: screenSize.width,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(40),
-            ),
-            child: Stack(
-              children: [
-                Container(
-                  height: screenSize.height * 0.25,
-                  width: screenSize.width,
-                  decoration: BoxDecoration(
-                    color: cVoilet,
-                    // image: const DecorationImage(
-                    //   image: NetworkImage(
-                    //     'https://cpng.pikpng.com/pngl/s/514-5140539_ftestickers-background-pattern-lines-wave-stripes-wavy-lines.png',
-                    //   ),
-                    //   fit: BoxFit.cover,
-                    //   filterQuality: FilterQuality.high,
-                    // ),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                ),
-                DetailsAppBar(
-                  leading: StaticData.back,
-                  title: StaticData.details,
-                  action: StaticData.share,
-                  clicklead: () => Get.back(),
-                  clickaction: () {},
-                ),
-                Positioned(
-                  bottom: 10,
-                  right: 50,
-                  left: 50,
-                  child: Container(
-                    height: screenSize.height * 0.125,
-                    width: screenSize.width * 0.125,
-                    decoration: const BoxDecoration(
-                      color: cWhite,
-                      shape: BoxShape.circle,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              height: screenSize.height * 0.32,
+              width: screenSize.width,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    height: screenSize.height * 0.25,
+                    width: screenSize.width,
+                    decoration: BoxDecoration(
+                      color: cVoilet,
+                      // image: const DecorationImage(
+                      //   image: NetworkImage(
+                      //     'https://cpng.pikpng.com/pngl/s/514-5140539_ftestickers-background-pattern-lines-wave-stripes-wavy-lines.png',
+                      //   ),
+                      //   fit: BoxFit.cover,
+                      //   filterQuality: FilterQuality.high,
+                      // ),
+                      borderRadius: BorderRadius.circular(40),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(23),
-                      child: Image(
-                        image: NetworkImage(url),
-                        fit: BoxFit.contain,
-                        filterQuality: FilterQuality.high,
+                  ),
+                  DetailsAppBar(
+                    leading: StaticData.back,
+                    title: StaticData.details,
+                    action: StaticData.share,
+                    clicklead: () => Get.back(),
+                    clickaction: () {},
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    right: 50,
+                    left: 50,
+                    child: Container(
+                      height: screenSize.height * 0.125,
+                      width: screenSize.width * 0.125,
+                      decoration: const BoxDecoration(
+                        color: cWhite,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(23),
+                        child: Image(
+                          image: NetworkImage(url),
+                          fit: BoxFit.contain,
+                          filterQuality: FilterQuality.high,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          BlocBuilder<JobsDetailsBloc, JobsDetailsBlocState>(
-            builder: (context, state) {
-              if (state is JobsDetailsBlocLoading) {
-                return const LinearProgressShimmer();
-              } else if (state is JobsDetailsBlocError) {
-                return Text(state.error);
-              } else if (state is JobsDetailsBlocLoaded) {
-                final output = state.jobsdetails;
-                return JobDetailsPageRepo(
-                  jobname: output.jobname.toString(),
-                  jobplace: output.jobplace.toString(),
-                  jobcompany: output.jobcompany.toString(),
-                  jobposted: output.jobposted.toString(),
-                  jobapplied: output.jobapplied.toString(),
-                  jobveiwed: output.jobviews.toString(),
-                  joblocation: output.jobplace.toString(),
-                  experience: output.jobexperience.toString(),
-                  description: output.jobdescription.toString(),
-                  jobtype: output.jobtype.toString(),
-                  jobindustry: output.jobindustry.toString(),
-                  jobfunction: output.jobfunction.toString(),
-                  skills: output.jobskills,
-                  jobsource: output.jobsource.toString(),
-                  companyurl: output.jobcompanyurl.toString(),
-                  jobsalary: output.jobsalary.toString(),
-                  roles: output.jobrole,
-                );
-              }
-              return const Text('Server busy');
-            },
-          ),
-        ],
+            BlocBuilder<JobsDetailsBloc, JobsDetailsBlocState>(
+              builder: (context, state) {
+                if (state is JobsDetailsBlocLoading) {
+                  return const LinearProgressShimmer();
+                } else if (state is JobsDetailsBlocError) {
+                  return Text(state.error);
+                } else if (state is JobsDetailsBlocLoaded) {
+                  final output = state.jobsdetails;
+                  return JobDetailsPageRepo(
+                    jobname: output.jobname.toString(),
+                    jobplace: output.jobplace.toString(),
+                    jobcompany: output.jobcompany.toString(),
+                    jobposted: output.jobposted.toString(),
+                    jobapplied: output.jobapplied.toString(),
+                    jobveiwed: output.jobviews.toString(),
+                    joblocation: output.jobplace.toString(),
+                    experience: output.jobexperience.toString(),
+                    description: output.jobdescription.toString(),
+                    jobtype: output.jobtype.toString(),
+                    jobindustry: output.jobindustry.toString(),
+                    jobfunction: output.jobfunction.toString(),
+                    skills: output.jobskills,
+                    jobsource: output.jobsource.toString(),
+                    companyurl: output.jobcompanyurl.toString(),
+                    jobsalary: output.jobsalary.toString(),
+                    roles: output.jobrole,
+                  );
+                }
+                return const Text('Server busy');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

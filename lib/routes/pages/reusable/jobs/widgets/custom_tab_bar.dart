@@ -1,11 +1,14 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
+import 'package:code_pay/utils/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTabBar extends StatefulWidget {
-  const CustomTabBar({super.key});
+  const CustomTabBar({super.key, required this.description});
+
+  final String description;
 
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
@@ -69,13 +72,15 @@ class _CustomTabBarState extends State<CustomTabBar>
               ],
             ),
           ),
+          StaticData.gap3,
           Expanded(
             child: TabBarView(
               controller: tabController,
-              children: const [
-                Text('Description'),
-                Text('Company'),
-                Text('About'),
+              children: [
+                ExpandableText(
+                    maxLines: 1000, minLines: 7, text: widget.description),
+                const Text('Company'),
+                const Text('About'),
               ],
             ),
           ),

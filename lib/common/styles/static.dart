@@ -16,13 +16,11 @@ class StaticData {
   static String bookmark = 'https://www.svgrepo.com/show/526490/bookmark.svg';
   static String location = 'https://www.svgrepo.com/show/498139/location.svg';
   static String money = 'https://www.svgrepo.com/show/497954/dollar-circle.svg';
-  static String send = 'https://www.svgrepo.com/show/520930/send.svg';
+  static String send = 'https://www.svgrepo.com/show/533310/send-alt-1.svg';
   static String time = 'https://www.svgrepo.com/show/460789/clock.svg';
   static String view =
       'https://www.svgrepo.com/show/408362/eye-view-reveal-show.svg';
   static String applyicn = 'https://www.svgrepo.com/show/463053/send-alt.svg';
-
-
 
   // text
   static String heroText = 'Discover Your \nNext Job.';

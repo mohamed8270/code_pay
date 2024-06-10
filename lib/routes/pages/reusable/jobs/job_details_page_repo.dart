@@ -52,12 +52,14 @@ class JobDetailsPageRepo extends StatelessWidget {
     final text = TextFond();
     // reusable
     final reusable = Get.put(ReusableClass());
+
+    final screenSize = MediaQuery.sizeOf(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         text.textWidget(jobname, 18.0, Weight.w7, cBlack),
         // StaticData.gap1,
-        text.textWidget(jobcompany, 12.0, Weight.w5, cBlack.withOpacity(0.4)),
+        text.textWidget(jobcompany, 12.0, Weight.w5, cGrey),
         StaticData.gap3,
         reusable.detailsContainer1(
             context, joblocation, experience, emptyString(jobsalary)),
@@ -65,8 +67,8 @@ class JobDetailsPageRepo extends StatelessWidget {
         reusable.detailsContainer(context, jobposted, jobveiwed, jobapplied),
         StaticData.gap3,
         SizedBox(
-          height: 300,
-          child: const CustomTabBar(),
+          height: screenSize.height,
+          child: CustomTabBar(description: description),
         ),
       ],
     );
