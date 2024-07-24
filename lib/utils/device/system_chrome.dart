@@ -12,9 +12,9 @@ class SystemChromeMethod {
   static systemUIoverlay() {
     return SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: cVoilet,
-        systemNavigationBarColor: cGrey2,
-        statusBarIconBrightness: Brightness.light,
+        statusBarColor: cWhite,
+        systemNavigationBarColor: cWhite,
+        statusBarIconBrightness: Brightness.dark,
       ),
     );
   }

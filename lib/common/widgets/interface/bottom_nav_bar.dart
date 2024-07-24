@@ -4,6 +4,7 @@ import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -20,19 +21,31 @@ class BottomNavBar extends StatelessWidget {
         body: navigate.screens[navigate.selectedIndex.value],
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: cGrey2,
+            color: cWhite,
             border: Border(
-              top: BorderSide(width: 1.5, color: cGrey.withOpacity(0.05)),
+              top: BorderSide(width: 1.3, color: cBlack.withOpacity(0.05)),
             ),
           ),
           child: BottomNavigationBar(
             elevation: 0,
             currentIndex: navigate.selectedIndex.value,
             onTap: (i) => navigate.selectedIndex.value = i,
-            backgroundColor: cGrey2,
+            backgroundColor: cWhite,
             type: BottomNavigationBarType.fixed,
-            showUnselectedLabels: false,
-            showSelectedLabels: false,
+            showUnselectedLabels: true,
+            showSelectedLabels: true,
+            selectedItemColor: cGreen,
+            unselectedItemColor: cBlack,
+            selectedLabelStyle: GoogleFonts.poppins(
+                fontSize: 9,
+                fontWeight: FontWeight.w600,
+                color: cGreen,
+                height: 1.9),
+            unselectedLabelStyle: GoogleFonts.poppins(
+                fontSize: 9,
+                fontWeight: FontWeight.w600,
+                color: cBlack,
+                height: 1.9),
             items: [
               BottomNavigationBarItem(
                 icon: reusable.svgIconOutline(StaticData.homeOutline),
@@ -45,9 +58,14 @@ class BottomNavBar extends StatelessWidget {
                 label: 'Jobs',
               ),
               BottomNavigationBarItem(
-                icon: reusable.svgIconOutline(StaticData.profileOutline),
-                activeIcon: reusable.svgIconFilled(StaticData.profileFilled),
-                label: 'Profile',
+                icon: reusable.svgIconOutline(StaticData.scopeOutline),
+                activeIcon: reusable.svgIconFilled(StaticData.scopeFilled),
+                label: 'Scope',
+              ),
+              BottomNavigationBarItem(
+                icon: reusable.svgIconOutline(StaticData.settingOutline),
+                activeIcon: reusable.svgIconFilled(StaticData.settingFilled),
+                label: 'Settings',
               ),
             ],
           ),

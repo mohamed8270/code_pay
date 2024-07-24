@@ -6,39 +6,35 @@ class StaticData {
   static String homeFilled = 'assets/icons/home-filled.svg';
   static String caseOutline = 'assets/icons/case-outline.svg';
   static String caseFilled = 'assets/icons/case-filled.svg';
-  static String profileOutline = 'assets/icons/profile-outline.svg';
-  static String profileFilled = 'assets/icons/profile-filled.svg';
+  static String scopeOutline = 'assets/icons/scope-outline.svg';
+  static String scopeFilled = 'assets/icons/scope-filled.svg';
+  static String settingOutline = 'assets/icons/settings-outline.svg';
+  static String settingFilled = 'assets/icons/settings-filled.svg';
 
   // icons network
-  static String notify = 'https://www.svgrepo.com/show/498261/notification.svg';
+  static String notify =
+      'https://www.svgrepo.com/show/497362/notification-bing.svg';
   static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
   static String share = 'https://www.svgrepo.com/show/507855/share.svg';
-  static String bookmark = 'https://www.svgrepo.com/show/526490/bookmark.svg';
+  static String bookmark = 'https://www.svgrepo.com/show/506124/bookmark.svg';
   static String location = 'https://www.svgrepo.com/show/498139/location.svg';
   static String money = 'https://www.svgrepo.com/show/497954/dollar-circle.svg';
-  static String send = 'https://www.svgrepo.com/show/533310/send-alt-1.svg';
-  static String time = 'https://www.svgrepo.com/show/460789/clock.svg';
-  static String view =
-      'https://www.svgrepo.com/show/408362/eye-view-reveal-show.svg';
+  static String send = 'https://www.svgrepo.com/show/533306/send.svg';
+  static String time = 'https://www.svgrepo.com/show/499655/time.svg';
+  static String view = 'https://www.svgrepo.com/show/532493/eye.svg';
   static String applyicn = 'https://www.svgrepo.com/show/463053/send-alt.svg';
+  static String jobtype = 'https://www.svgrepo.com/show/499596/doc-paper.svg';
+  static String industry = 'https://www.svgrepo.com/show/437524/building-2.svg';
+  static String function = 'https://www.svgrepo.com/show/510102/org-chart.svg';
+  static String search = 'https://www.svgrepo.com/show/532554/search-alt.svg';
+  static String org = 'https://www.svgrepo.com/show/495991/building-3.svg';
+  static String menu = 'https://www.svgrepo.com/show/522595/menu-2.svg';
 
   // text
-  static String heroText = 'Discover Your \nNext Job.';
-  static String title1 = 'Popular Categories';
-  static String title2 = 'Suggested Jobs';
-  static String des = 'Description';
-  static String info = 'More Info';
-  static String recruiter = 'Recruiter Info';
-  static String apply = 'Apply';
-  static String details = 'Details';
-
-  // padding
-  static double p1 = 5;
-  static double p2 = 10;
-  static double p3 = 15;
-  static double p4 = 20;
-  static double p5 = 30;
-  static double p6 = 40;
+  static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';
+  static String heroText2 = ' Code Pay';
+  static String heroText3 =
+      'Discover the hottest jobs in your industry or desired field. Jobbo analyzes job postings across various platforms to identify the most sought-after positions and equip you with the knowledge to make informed career choices.';
 
   // gap
   static Gap gap1 = const Gap(5);

@@ -1,56 +1,42 @@
 import 'package:code_pay/common/styles/fonts.dart';
-import 'package:code_pay/common/styles/static.dart';
-import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton(
+class CustomBtn extends StatelessWidget {
+  const CustomBtn(
       {super.key,
       required this.h,
       required this.w,
+      required this.bg,
       required this.txt,
-      required this.color,
-      this.icn,
+      required this.txts,
       required this.txtcolor,
-      required this.icncolor,
+      required this.r,
       required this.click});
 
   final double h;
   final double w;
+  final Color bg;
   final String txt;
-  final Color color;
-  final String? icn;
-  final Color icncolor;
+  final double txts;
   final Color txtcolor;
+  final double r;
   final VoidCallback click;
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.sizeOf(context);
-    // text widget
-    final text = TextFond();
-    // reusable
-    final reusable = Get.put(ReusableClass());
+    var text = TextFond();
+    final scrnsize = MediaQuery.sizeOf(context);
     return GestureDetector(
       onTap: click,
       child: Container(
-        height: screenSize.height * h,
-        width: screenSize.width * w,
+        height: scrnsize.height * h,
+        width: scrnsize.width * w,
         decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(40),
+          color: bg,
+          borderRadius: BorderRadius.circular(r),
         ),
         alignment: Alignment.center,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            text.textWidget(txt, 14.0, Weight.w6, txtcolor),
-            StaticData.gap2,
-            reusable.svgIcon(StaticData.send, 18.0, 18.0, icncolor)
-          ],
-        ),
+        child: text.textWidget(txt, txts, FontWeight.w600, txtcolor),
       ),
     );
   }

@@ -34,10 +34,10 @@ class _ExpandableTextState extends State<ExpandableText> {
       widget.text,
       textAlign: TextAlign.justify,
       overflow: TextOverflow.ellipsis,
-      style: GoogleFonts.dmSans(
+      style: GoogleFonts.poppins(
         fontSize: 12.0,
         fontWeight: FontWeight.w500,
-        color: cGrey,
+        color: csGrey,
         height: 1.5,
       ),
       maxLines: isExpanded ? widget.maxLines : widget.minLines,
@@ -61,19 +61,19 @@ class _ExpandableTextState extends State<ExpandableText> {
             });
           },
           child: SizedBox(
-            height: screeSize.height * 0.05,
+            height: screeSize.height * 0.03,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   !_isExpanded ? "See More" : "See Less",
-                  style: text.textStyle(12.0, Weight.w5, cVoilet, 1.5),
+                  style: text.textStyle(12.0, Weight.w5, cBlack, 1.5),
                 ),
                 StaticData.gap1,
                 Icon(
                   !_isExpanded ? Icons.arrow_downward : Icons.arrow_upward,
                   size: 12,
-                  color: cVoilet,
+                  color: cGreen,
                 )
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:code_pay/common/styles/color.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -49,8 +50,8 @@ class _LinearProgressShimmerState extends State<LinearProgressShimmer>
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Shimmer.fromColors(
-      baseColor: cGrey.withOpacity(0.4),
-      highlightColor: cVoilet,
+      baseColor: cbGrey.withOpacity(0.07),
+      highlightColor: cGreen,
       direction: ShimmerDirection.ltr,
       period: const Duration(seconds: 2), // Keep overall shimmer duration
       child: Column(
@@ -63,9 +64,9 @@ class _LinearProgressShimmerState extends State<LinearProgressShimmer>
               return FadeTransition(opacity: _animations[index], child: child);
             },
             child: Container(
-              height: screenSize.height * 0.010,
+              height: screenSize.height * 0.009,
               width: screenSize.width,
-              decoration: const BoxDecoration(color: cGrey2),
+              decoration: const BoxDecoration(color: cbGrey),
             ),
           ),
         ),

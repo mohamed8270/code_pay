@@ -13,6 +13,9 @@ import 'package:google_fonts/google_fonts.dart';
 // }
 
 class Weight {
+  static FontWeight w1 = FontWeight.w100;
+  static FontWeight w2 = FontWeight.w200;
+  static FontWeight w3 = FontWeight.w300;
   static FontWeight w4 = FontWeight.w400;
   static FontWeight w5 = FontWeight.w500;
   static FontWeight w6 = FontWeight.w600;
@@ -28,7 +31,7 @@ class TextFond {
       data,
       overflow: flow,
       textAlign: align,
-      style: GoogleFonts.dmSans(
+      style: GoogleFonts.poppins(
         fontSize: size,
         fontWeight: weight,
         color: color,
@@ -38,8 +41,8 @@ class TextFond {
   }
 
   // text style widget
-  TextStyle textStyle(size, weight, color, h) {
-    return GoogleFonts.dmSans(
+  TextStyle textStyle(size, weight, color, [h]) {
+    return GoogleFonts.poppins(
       fontSize: size,
       fontWeight: weight,
       color: color,
