@@ -17,7 +17,8 @@ class StaticData {
   static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
   static String share = 'https://www.svgrepo.com/show/507855/share.svg';
   static String bookmark = 'https://www.svgrepo.com/show/506124/bookmark.svg';
-  static String location = 'https://www.svgrepo.com/show/498139/location.svg';
+  static String location =
+      'https://www.svgrepo.com/show/532539/location-pin.svg';
   static String money = 'https://www.svgrepo.com/show/497954/dollar-circle.svg';
   static String send = 'https://www.svgrepo.com/show/533306/send.svg';
   static String time = 'https://www.svgrepo.com/show/499655/time.svg';
@@ -29,6 +30,7 @@ class StaticData {
   static String search = 'https://www.svgrepo.com/show/532554/search-alt.svg';
   static String org = 'https://www.svgrepo.com/show/495991/building-3.svg';
   static String menu = 'https://www.svgrepo.com/show/522595/menu-2.svg';
+  static String bag = 'https://www.svgrepo.com/show/533409/briefcase-alt-1.svg';
 
   // text
   static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';

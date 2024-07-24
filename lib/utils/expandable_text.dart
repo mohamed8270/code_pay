@@ -35,10 +35,10 @@ class _ExpandableTextState extends State<ExpandableText> {
       textAlign: TextAlign.justify,
       overflow: TextOverflow.ellipsis,
       style: GoogleFonts.poppins(
-        fontSize: 12.0,
+        fontSize: 10.0,
         fontWeight: FontWeight.w500,
-        color: csGrey,
-        height: 1.5,
+        color: cBlack,
+        height: 1.9,
       ),
       maxLines: isExpanded ? widget.maxLines : widget.minLines,
     );
@@ -67,7 +67,7 @@ class _ExpandableTextState extends State<ExpandableText> {
               children: [
                 Text(
                   !_isExpanded ? "See More" : "See Less",
-                  style: text.textStyle(12.0, Weight.w5, cBlack, 1.5),
+                  style: text.textStyle(10.0, Weight.w5, cBlack, 1.5),
                 ),
                 StaticData.gap1,
                 Icon(
