@@ -147,9 +147,9 @@ class JobDetailsPageRepo extends StatelessWidget {
           ),
           StaticData.gap2,
           PopularCategory(
-            posted: double.parse(jobposted),
-            applied: double.parse(jobapplied),
-            views: double.parse(jobveiwed),
+            posted: jobposted,
+            applied: jobapplied,
+            views: jobveiwed,
             click: () {},
           ),
           StaticData.gap6,
@@ -176,11 +176,11 @@ class JobDetailsPageRepo extends StatelessWidget {
           StaticData.gap2,
           JobDataFunc(
               icn: StaticData.industry, txt1: 'INDUSTRY', txt2: jobindustry),
-          StaticData.gap2,
-          JobDataFuncList(
-              icn: StaticData.skills, txt1: 'SKILLS', skills: skills),
-          StaticData.gap2,
-          JobDataFuncList(icn: StaticData.roles, txt1: 'ROLES', skills: roles),
+          // StaticData.gap2,
+          // JobDataFuncList(
+          //     icn: StaticData.skills, txt1: 'SKILLS', skills: skills),
+          // StaticData.gap2,
+          // JobDataFuncList(icn: StaticData.roles, txt1: 'ROLES', skills: roles),
         ],
       ),
     );

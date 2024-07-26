@@ -50,40 +50,36 @@ class JobsDetailsPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            BlocBuilder<JobsDetailsBloc, JobsDetailsBlocState>(
-              builder: (context, state) {
-                if (state is JobsDetailsBlocLoading) {
-                  return const LinearProgressShimmer();
-                } else if (state is JobsDetailsBlocError) {
-                  return Text(state.error);
-                } else if (state is JobsDetailsBlocLoaded) {
-                  final output = state.jobsdetails;
-                  return JobDetailsPageRepo(
-                    jobname: output.jobname.toString(),
-                    jobplace: output.jobplace.toString(),
-                    jobcompany: output.jobcompany.toString(),
-                    jobposted: output.jobposted.toString(),
-                    jobapplied: output.jobapplied.toString(),
-                    jobveiwed: output.jobviews.toString(),
-                    joblocation: output.jobplace.toString(),
-                    experience: output.jobexperience.toString(),
-                    description: output.jobdescription.toString(),
-                    jobtype: output.jobtype.toString(),
-                    jobindustry: output.jobindustry.toString(),
-                    jobfunction: output.jobfunction.toString(),
-                    skills: output.jobskills,
-                    jobsource: output.jobsource.toString(),
-                    companyurl: output.jobcompanyurl.toString(),
-                    jobsalary: output.jobsalary.toString(),
-                    roles: output.jobrole,
-                  );
-                }
-                return const Text('Server busy');
-              },
-            ),
-          ],
+        child: BlocBuilder<JobsDetailsBloc, JobsDetailsBlocState>(
+          builder: (context, state) {
+            if (state is JobsDetailsBlocLoading) {
+              return const LinearProgressShimmer();
+            } else if (state is JobsDetailsBlocError) {
+              return Text(state.error);
+            } else if (state is JobsDetailsBlocLoaded) {
+              final output = state.jobsdetails;
+              return JobDetailsPageRepo(
+                jobname: output.jobname.toString(),
+                jobplace: output.jobplace.toString(),
+                jobcompany: output.jobcompany.toString(),
+                jobposted: output.jobposted.toString(),
+                jobapplied: output.jobapplied.toString(),
+                jobveiwed: output.jobviews.toString(),
+                joblocation: output.jobplace.toString(),
+                experience: output.jobexperience.toString(),
+                description: output.jobdescription.toString(),
+                jobtype: output.jobtype.toString(),
+                jobindustry: output.jobindustry.toString(),
+                jobfunction: output.jobfunction.toString(),
+                skills: output.jobskills,
+                jobsource: output.jobsource.toString(),
+                companyurl: output.jobcompanyurl.toString(),
+                jobsalary: output.jobsalary.toString(),
+                roles: output.jobrole,
+              );
+            }
+            return const Text('Server busy');
+          },
         ),
       ),
     );

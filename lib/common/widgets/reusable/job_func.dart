@@ -24,6 +24,7 @@ class JobDataFunc extends StatelessWidget {
         width: scrnsize.width,
         decoration: BoxDecoration(
           color: cbGrey,
+          border: Border.all(width: 1.3, color: csGrey),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
@@ -39,6 +40,7 @@ class JobDataFunc extends StatelessWidget {
                   text.textWidget(txt1, 12.0, FontWeight.w300, cBlack)
                 ],
               ),
+              StaticData.gap1,
               text.textWidget(txt2, 12.0, FontWeight.w600, cBlack),
             ],
           ),
@@ -83,18 +85,17 @@ class JobDataFuncList extends StatelessWidget {
             ListView.builder(
               itemCount: skills.length,
               itemBuilder: (context, index) {
-                return FittedBox(
-                  fit: BoxFit.contain,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: cbGrey,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: text.textWidget(
-                          skills, 12.0, FontWeight.w600, cBlack),
-                    ),
+                return Container(
+                  height: scrnsize.height * 0.05,
+                  width: scrnsize.width,
+                  decoration: BoxDecoration(
+                    color: cbGrey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4),
+                    child:
+                        text.textWidget(skills, 12.0, FontWeight.w600, cBlack),
                   ),
                 );
               },

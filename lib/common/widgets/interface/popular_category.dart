@@ -13,9 +13,9 @@ class PopularCategory extends StatelessWidget {
       required this.applied,
       required this.views});
 
-  final double posted;
-  final double applied;
-  final double views;
+  final String posted;
+  final String applied;
+  final String views;
   final VoidCallback click;
 
   @override
@@ -23,7 +23,7 @@ class PopularCategory extends StatelessWidget {
     final scrnSize = MediaQuery.sizeOf(context);
     var text = TextFond();
     return Container(
-      height: scrnSize.height * 0.07,
+      height: scrnSize.height * 0.073,
       width: scrnSize.width,
       decoration: BoxDecoration(
         color: Colors.indigo,
@@ -45,9 +45,14 @@ class PopularCategory extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                StaticData.gap3,
-                text.textWidget(popularityPercent(posted, applied, views), 12.0,
-                    FontWeight.w300, cWhite),
+                StaticData.gap2,
+                text.textWidget(
+                  popularityPercent(
+                      posted == 'a month ago' ? '30' : '0', applied, views),
+                  12.0,
+                  FontWeight.w400,
+                  cWhite,
+                ),
               ],
             ),
             CustomBtn(
