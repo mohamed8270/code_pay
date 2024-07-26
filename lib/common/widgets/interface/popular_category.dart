@@ -2,12 +2,20 @@ import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_button.dart';
+import 'package:code_pay/utils/string_check.dart';
 import 'package:flutter/material.dart';
 
 class PopularCategory extends StatelessWidget {
-  const PopularCategory({super.key, required this.txt, required this.click});
+  const PopularCategory(
+      {super.key,
+      required this.click,
+      required this.posted,
+      required this.applied,
+      required this.views});
 
-  final String txt;
+  final double posted;
+  final double applied;
+  final double views;
   final VoidCallback click;
 
   @override
@@ -38,7 +46,8 @@ class PopularCategory extends StatelessWidget {
                   ),
                 ),
                 StaticData.gap3,
-                text.textWidget(txt, 12.0, FontWeight.w300, cWhite),
+                text.textWidget(popularityPercent(posted, applied, views), 12.0,
+                    FontWeight.w300, cWhite),
               ],
             ),
             CustomBtn(

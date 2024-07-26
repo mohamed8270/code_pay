@@ -145,7 +145,12 @@ class JobDetailsPageRepo extends StatelessWidget {
             ],
           ),
           StaticData.gap2,
-          PopularCategory(txt: '258.98% peoples choice 👍', click: () {}),
+          PopularCategory(
+            posted: double.parse(jobposted),
+            applied: double.parse(jobapplied),
+            views: double.parse(jobveiwed),
+            click: () {},
+          ),
           StaticData.gap6,
           Row(
             children: [
@@ -160,8 +165,6 @@ class JobDetailsPageRepo extends StatelessWidget {
           ),
           StaticData.gap1,
           ExpandableText(maxLines: 800, minLines: 5, text: description),
-          // text.textWidget(description, 10.0, FontWeight.w500, cBlack,
-          //     TextOverflow.visible, 1.9, TextAlign.justify)
         ],
       ),
     );
