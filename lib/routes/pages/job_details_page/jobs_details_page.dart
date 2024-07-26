@@ -71,11 +71,11 @@ class JobsDetailsPage extends StatelessWidget {
                 jobtype: output.jobtype.toString(),
                 jobindustry: output.jobindustry.toString(),
                 jobfunction: output.jobfunction.toString(),
-                skills: output.jobskills,
+                skills: output.jobskills.toList(),
                 jobsource: output.jobsource.toString(),
                 companyurl: output.jobcompanyurl.toString(),
                 jobsalary: output.jobsalary.toString(),
-                roles: output.jobrole,
+                roles: output.jobrole.toList(),
               );
             }
             return const Text('Server busy');

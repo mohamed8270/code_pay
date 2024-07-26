@@ -43,10 +43,10 @@ class JobDetailsPageRepo extends StatelessWidget {
   final String jobtype;
   final String jobindustry;
   final String jobfunction;
-  final List skills;
+  final List<dynamic> skills;
   final String jobsource;
   final String companyurl;
-  final List roles;
+  final List<dynamic> roles;
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +165,7 @@ class JobDetailsPageRepo extends StatelessWidget {
             ],
           ),
           StaticData.gap1,
-          ExpandableText(maxLines: 800, minLines: 5, text: description),
+          ExpandableText(maxLines: 800, minLines: 4, text: description),
           StaticData.gap2,
           text.textWidget('More Info', 12.0, FontWeight.w600, cBlack),
           StaticData.gap2,
@@ -176,11 +176,11 @@ class JobDetailsPageRepo extends StatelessWidget {
           StaticData.gap2,
           JobDataFunc(
               icn: StaticData.industry, txt1: 'INDUSTRY', txt2: jobindustry),
-          // StaticData.gap2,
-          // JobDataFuncList(
-          //     icn: StaticData.skills, txt1: 'SKILLS', skills: skills),
-          // StaticData.gap2,
-          // JobDataFuncList(icn: StaticData.roles, txt1: 'ROLES', skills: roles),
+          StaticData.gap2,
+          JobDataFuncList(icn: StaticData.skills, txt1: 'SKILLS', data: skills),
+          StaticData.gap2,
+          JobDataFuncList(icn: StaticData.roles, txt1: 'ROLES', data: roles),
+          StaticData.gap2,
         ],
       ),
     );
