@@ -3,6 +3,7 @@ import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/interface/popular_category.dart';
+import 'package:code_pay/common/widgets/reusable/job_func.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/routes/pages/jobs_page/reusable/jobs_data_card.dart';
 import 'package:code_pay/utils/expandable_text.dart';
@@ -165,6 +166,21 @@ class JobDetailsPageRepo extends StatelessWidget {
           ),
           StaticData.gap1,
           ExpandableText(maxLines: 800, minLines: 5, text: description),
+          StaticData.gap2,
+          text.textWidget('More Info', 12.0, FontWeight.w600, cBlack),
+          StaticData.gap2,
+          JobDataFunc(icn: StaticData.jobtype, txt1: 'JOB TYPE', txt2: jobtype),
+          StaticData.gap2,
+          JobDataFunc(
+              icn: StaticData.function, txt1: 'FUNCTION', txt2: jobfunction),
+          StaticData.gap2,
+          JobDataFunc(
+              icn: StaticData.industry, txt1: 'INDUSTRY', txt2: jobindustry),
+          StaticData.gap2,
+          JobDataFuncList(
+              icn: StaticData.skills, txt1: 'SKILLS', skills: skills),
+          StaticData.gap2,
+          JobDataFuncList(icn: StaticData.roles, txt1: 'ROLES', skills: roles),
         ],
       ),
     );

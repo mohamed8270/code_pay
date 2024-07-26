@@ -27,6 +27,9 @@ class StaticData {
   static String jobtype = 'https://www.svgrepo.com/show/499596/doc-paper.svg';
   static String industry = 'https://www.svgrepo.com/show/437524/building-2.svg';
   static String function = 'https://www.svgrepo.com/show/510102/org-chart.svg';
+  static String skills = 'https://www.svgrepo.com/show/108941/science.svg';
+  static String roles =
+      'https://www.svgrepo.com/show/532367/user-check-alt.svg';
   static String search = 'https://www.svgrepo.com/show/532554/search-alt.svg';
   static String org = 'https://www.svgrepo.com/show/495991/building-3.svg';
   static String menu = 'https://www.svgrepo.com/show/522595/menu-2.svg';

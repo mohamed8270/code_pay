@@ -18,8 +18,9 @@ class JobDataFunc extends StatelessWidget {
     var svg = ReusableClass();
     var text = TextFond();
     return FittedBox(
+      fit: BoxFit.fitHeight,
       child: Container(
-        height: scrnsize.height,
+        // height: scrnsize.height,
         width: scrnsize.width,
         decoration: BoxDecoration(
           color: cbGrey,
@@ -41,6 +42,64 @@ class JobDataFunc extends StatelessWidget {
               text.textWidget(txt2, 12.0, FontWeight.w600, cBlack),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class JobDataFuncList extends StatelessWidget {
+  const JobDataFuncList(
+      {super.key, required this.icn, required this.txt1, required this.skills});
+
+  final String icn;
+  final String txt1;
+  final List skills;
+
+  @override
+  Widget build(BuildContext context) {
+    final scrnsize = MediaQuery.sizeOf(context);
+    var svg = ReusableClass();
+    var text = TextFond();
+    return FittedBox(
+      fit: BoxFit.fitHeight,
+      child: Container(
+        // height: scrnsize.height,
+        width: scrnsize.width,
+        decoration: BoxDecoration(
+          color: cbGrey,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                svg.svgIcon(icn, 14.0, 14.0, cBlack),
+                StaticData.gap1,
+                text.textWidget(txt1, 12.0, FontWeight.w300, cBlack)
+              ],
+            ),
+            ListView.builder(
+              itemCount: skills.length,
+              itemBuilder: (context, index) {
+                return FittedBox(
+                  fit: BoxFit.contain,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: cbGrey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: text.textWidget(
+                          skills, 12.0, FontWeight.w600, cBlack),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
