@@ -181,6 +181,8 @@ class JobDetailsPageRepo extends StatelessWidget {
           StaticData.gap2,
           JobDataFuncList(icn: StaticData.roles, txt1: 'ROLES', data: roles),
           StaticData.gap2,
+          text.textWidget('Analytics', 12.0, FontWeight.w600, cBlack),
+          StaticData.gap2,
         ],
       ),
     );
