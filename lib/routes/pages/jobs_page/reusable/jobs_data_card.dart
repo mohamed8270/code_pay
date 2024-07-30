@@ -67,9 +67,9 @@ class JobsDataCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        text.textWidget(jobname, 16.0, Weight.w7, cBlack),
+                        text.textWidget(jobname, 16.0, FontWeight.w700, cBlack),
                         StaticData.gap1,
-                        text.textWidget(companyname, 11.0, Weight.w5,
+                        text.textWidget(companyname, 11.0, FontWeight.w500,
                             cBlack.withOpacity(0.5)),
                       ],
                     ),

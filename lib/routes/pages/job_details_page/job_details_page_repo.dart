@@ -80,10 +80,10 @@ class JobDetailsPageRepo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  text.textWidget(jobname, 15.0, Weight.w7, cBlack),
+                  text.textWidget(jobname, 15.0, FontWeight.w700, cBlack),
                   StaticData.gap1,
-                  text.textWidget(
-                      jobcompany, 12.0, Weight.w4, cBlack.withOpacity(0.5)),
+                  text.textWidget(jobcompany, 12.0, FontWeight.w400,
+                      cBlack.withOpacity(0.5)),
                 ],
               ),
             ],

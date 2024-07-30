@@ -67,7 +67,7 @@ class _ExpandableTextState extends State<ExpandableText> {
               children: [
                 Text(
                   !_isExpanded ? "See More" : "See Less",
-                  style: text.textStyle(10.0, Weight.w5, cGreen, 1.5),
+                  style: text.textStyle(10.0, FontWeight.w600, cBlack, 1.5),
                 ),
                 StaticData.gap1,
                 Icon(

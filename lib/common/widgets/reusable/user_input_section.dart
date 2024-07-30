@@ -36,7 +36,7 @@ class UserInputSection extends StatelessWidget {
           BoxDecoration(color: csGrey, borderRadius: BorderRadius.circular(r)),
       child: TextField(
         cursorColor: cBlack,
-        style: txt.textStyle(10.0, Weight.w5, cBlack, 0.0),
+        style: txt.textStyle(10.0, FontWeight.w500, cBlack, 0.0),
         keyboardType: type,
         controller: controller,
         autofocus: false,
@@ -46,7 +46,7 @@ class UserInputSection extends StatelessWidget {
               padding: const EdgeInsets.all(13),
               child: svg.svgIcon(icn, 14.0, 14.0, cBlack)),
           hintText: text,
-          hintStyle: txt.textStyle(10.0, Weight.w5, cBlack, 0.0),
+          hintStyle: txt.textStyle(10.0, FontWeight.w500, cBlack, 0.0),
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
         ),

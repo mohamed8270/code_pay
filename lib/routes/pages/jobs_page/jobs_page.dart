@@ -36,6 +36,7 @@ class JobsPage extends StatelessWidget {
             toolbarHeight: scrnSize.height * 0.08,
             automaticallyImplyLeading: false,
             excludeHeaderSemantics: false,
+            scrolledUnderElevation: 0,
             floating: true,
             pinned: true,
             centerTitle: false,
@@ -50,6 +51,7 @@ class JobsPage extends StatelessWidget {
             bottom: AppBar(
               backgroundColor: cWhite,
               elevation: 0,
+              scrolledUnderElevation: 0,
               toolbarHeight: scrnSize.height * 0.085,
               flexibleSpace: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
