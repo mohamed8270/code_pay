@@ -3,7 +3,7 @@ import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/common/widgets/reusable/shimmer_effect.dart';
-import 'package:code_pay/data/bloc/jobs_details_bloc/jobs_details_bloc_bloc.dart';
+import 'package:code_pay/data/bloc/jobs_details/jobs_details_bloc_bloc.dart';
 import 'package:code_pay/routes/pages/job_details_page/job_details_page_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -76,6 +76,9 @@ class JobsDetailsPage extends StatelessWidget {
                 companyurl: output.jobcompanyurl.toString(),
                 jobsalary: output.jobsalary.toString(),
                 roles: output.jobrole.toList(),
+                postedHistory: output.postedhistory,
+                appliedHistory: output.appliedhistory,
+                viewsHistory: output.viewshistory,
               );
             }
             return const Text('Server busy');

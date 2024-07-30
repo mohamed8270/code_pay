@@ -6,7 +6,7 @@ import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/common/widgets/reusable/user_input_section.dart';
 import 'package:code_pay/routes/pages/jobs_page/reusable/jobs_data_card.dart';
 import 'package:code_pay/common/widgets/reusable/shimmer_effect.dart';
-import 'package:code_pay/data/bloc/jobs_data_bloc.dart';
+import 'package:code_pay/data/bloc/jobs_data/jobs_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';

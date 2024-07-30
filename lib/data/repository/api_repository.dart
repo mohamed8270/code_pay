@@ -15,4 +15,9 @@ class ApiRepository extends GetxController {
   Future<JobsDetailsModel> getJobsDetails(id) {
     return fetchJobs.fetchJobsDetails(id);
   }
+
+  // scrape job data
+  Future<void> scrapeJobs(url) {
+    return fetchJobs.scrapeJobData(url);
+  }
 }

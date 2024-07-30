@@ -5,30 +5,35 @@ import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/interface/popular_category.dart';
 import 'package:code_pay/common/widgets/reusable/job_func.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
+import 'package:code_pay/routes/pages/job_details_page/graphs/graph_repo.dart';
 import 'package:code_pay/routes/pages/jobs_page/reusable/jobs_data_card.dart';
 import 'package:code_pay/utils/expandable_text.dart';
 import 'package:flutter/material.dart';
 
 class JobDetailsPageRepo extends StatelessWidget {
-  const JobDetailsPageRepo(
-      {super.key,
-      required this.jobname,
-      required this.jobplace,
-      required this.jobcompany,
-      required this.jobposted,
-      required this.jobapplied,
-      required this.jobveiwed,
-      required this.joblocation,
-      required this.experience,
-      required this.description,
-      required this.jobtype,
-      required this.jobindustry,
-      required this.jobfunction,
-      required this.skills,
-      required this.jobsource,
-      required this.companyurl,
-      required this.jobsalary,
-      required this.roles});
+  const JobDetailsPageRepo({
+    super.key,
+    required this.jobname,
+    required this.jobplace,
+    required this.jobcompany,
+    required this.jobposted,
+    required this.jobapplied,
+    required this.jobveiwed,
+    required this.joblocation,
+    required this.experience,
+    required this.description,
+    required this.jobtype,
+    required this.jobindustry,
+    required this.jobfunction,
+    required this.skills,
+    required this.jobsource,
+    required this.companyurl,
+    required this.jobsalary,
+    required this.roles,
+    required this.postedHistory,
+    required this.appliedHistory,
+    required this.viewsHistory,
+  });
 
   final String jobname;
   final String jobplace;
@@ -47,6 +52,9 @@ class JobDetailsPageRepo extends StatelessWidget {
   final String jobsource;
   final String companyurl;
   final List<dynamic> roles;
+  final List postedHistory;
+  final List appliedHistory;
+  final List viewsHistory;
 
   @override
   Widget build(BuildContext context) {
@@ -183,6 +191,7 @@ class JobDetailsPageRepo extends StatelessWidget {
           StaticData.gap2,
           text.textWidget('Analytics', 12.0, FontWeight.w600, cBlack),
           StaticData.gap2,
+          GraphRepo(applied: appliedHistory, views: viewsHistory),
         ],
       ),
     );

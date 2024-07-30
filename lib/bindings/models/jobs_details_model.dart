@@ -22,8 +22,10 @@ class JobsDetailsModel {
   final int jobpostedvalue;
   final int jobappliedvalue;
   final int jobviewsvalue;
-  final List postedhistory;
-  final List appliedhistory;
+
+  final List<PostedHistory> postedhistory;
+  final List<AppliedHistory> appliedhistory;
+  final List<ViewsHistory> viewshistory;
   final List users;
   final String timestamps;
 
@@ -53,6 +55,7 @@ class JobsDetailsModel {
       required this.jobviewsvalue,
       required this.postedhistory,
       required this.appliedhistory,
+      required this.viewshistory,
       required this.users,
       required this.timestamps});
 
@@ -81,10 +84,78 @@ class JobsDetailsModel {
       jobpostedvalue: json['jobPostedValue'],
       jobappliedvalue: json['jobAppliedValue'],
       jobviewsvalue: json['jobViewsValue'],
-      postedhistory: json['postedHistory'],
-      appliedhistory: json['appliedHistory'],
+     
+      postedhistory: (json['postedHistory'] as List<dynamic>)
+          .map((e) => PostedHistory.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      appliedhistory: (json['appliedHistory'] as List<dynamic>)
+          .map((e) => AppliedHistory.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      viewshistory: (json['viewsHistory'] as List<dynamic>)
+          .map((e) => ViewsHistory.fromJson(e as Map<String, dynamic>))
+          .toList(),
       users: json['users'],
       timestamps: json['createdAt'],
+    );
+  }
+}
+
+class PostedHistory {
+  final int? posted;
+  final String date;
+  final String id;
+
+  PostedHistory({
+    this.posted,
+    required this.date,
+    required this.id,
+  });
+
+  factory PostedHistory.fromJson(Map<String, dynamic> json) {
+    return PostedHistory(
+      posted: (json['posted'] as int?)?.toInt(),
+      date: json['Date'],
+      id: json['_id'],
+    );
+  }
+}
+
+class AppliedHistory {
+  final int? applied;
+  final String date;
+  final String id;
+
+  AppliedHistory({
+    this.applied,
+    required this.date,
+    required this.id,
+  });
+
+  factory AppliedHistory.fromJson(Map<String, dynamic> json) {
+    return AppliedHistory(
+      applied: (json['applied'] as int?)?.toInt(),
+      date: json['Date'],
+      id: json['_id'],
+    );
+  }
+}
+
+class ViewsHistory {
+  final int? views;
+  final String date;
+  final String id;
+
+  ViewsHistory({
+    this.views,
+    required this.date,
+    required this.id,
+  });
+
+  factory ViewsHistory.fromJson(Map<String, dynamic> json) {
+    return ViewsHistory(
+      views: (json['views'] as int?)?.toInt(),
+      date: json['Date'],
+      id: json['_id'],
     );
   }
 }

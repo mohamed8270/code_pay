@@ -3,8 +3,11 @@ import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_app_bar.dart';
 import 'package:code_pay/common/widgets/interface/custom_button.dart';
+import 'package:code_pay/common/widgets/interface/status_view.dart';
 import 'package:code_pay/common/widgets/reusable/user_input_section.dart';
+import 'package:code_pay/data/bloc/jobs_scrape/jobs_scrape_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -56,7 +59,26 @@ class HomePage extends StatelessWidget {
                   controller: jobController,
                 ),
                 CustomBtn(
-                  click: () {},
+                  click: () {
+                    var url = jobController.text;
+                    context
+                        .read<JobsScrapeBloc>()
+                        .add(ScrapeJobDataEvent(url: url));
+                    BlocListener<JobsScrapeBloc, JobsScrapeState>(
+                      listener: (context, state) {
+                        if (state is JobsScrapeBlocLoading) {
+                        } else if (state is JobsScrapeBlocLoaded) {
+                          const SnackBarRepo(
+                              txt: 'Data uploaded successfuly', bg: cGreen);
+                        } else if (state is JobsScrapeBlocError) {
+                          SnackBarRepo(
+                              txt:
+                                  'An unexpected error occured ${state.toString()}',
+                              bg: Colors.red);
+                        }
+                      },
+                    );
+                  },
                   h: 0.058,
                   w: 0.21,
                   bg: cBlack,
