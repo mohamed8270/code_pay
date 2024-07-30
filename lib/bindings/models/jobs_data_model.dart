@@ -59,11 +59,11 @@ class JobsDataModel {
       required this.timestamps});
 
   factory JobsDataModel.fromJson(Map<String, dynamic> json) {
-    print(
-      (json['postedHistory'] as List<dynamic>)
-          .map((e) => PostedHistory.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+    // print(
+    //   (json['postedHistory'] as List<dynamic>)
+    //       .map((e) => PostedHistory.fromJson(e as Map<String, dynamic>))
+    //       .toList(),
+    // );
     return JobsDataModel(
       id: json['_id'],
       url: json['url'],
@@ -143,7 +143,7 @@ class ViewsHistory {
   ViewsHistory({this.views, required this.date, required this.id});
 
   factory ViewsHistory.fromJson(Map<String, dynamic> json) {
-    print((json['views'] as int?)?.toInt());
+    // print((json['views'] as int?)?.toInt());
     return ViewsHistory(
       views: (json['views'] as int?)?.toInt(),
       date: json['Date'],
