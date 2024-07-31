@@ -47,7 +47,7 @@ class JobsPage extends StatelessWidget {
               child: icn.svgIcon(StaticData.menu, 12.0, 12.0, cGreen),
             ),
             title: txt.textWidget(
-                'Your perfect job here!', 12.0, FontWeight.w600, cBlack),
+                'Jobs that fits you ⚡', 12.0, FontWeight.w600, cBlack),
             bottom: AppBar(
               backgroundColor: cWhite,
               elevation: 0,
@@ -71,7 +71,7 @@ class JobsPage extends StatelessWidget {
                     h: 0.058,
                     w: 0.21,
                     bg: cBlack,
-                    txt: 'Find a job',
+                    txt: 'Find job  ♨️',
                     txts: 10.0,
                     txtcolor: cWhite,
                     r: 8,
@@ -113,7 +113,18 @@ class JobsPage extends StatelessWidget {
                         },
                       );
                     }
-                    return const Text('Server Busy');
+                    return const Center(
+                      child: SizedBox(
+                        height: 18,
+                        width: 18,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 3,
+                          strokeAlign: 3,
+                          strokeCap: StrokeCap.round,
+                          color: cBlack,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ],

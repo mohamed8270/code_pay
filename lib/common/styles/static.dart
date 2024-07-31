@@ -12,7 +12,7 @@ class StaticData {
   static String settingFilled = 'assets/icons/settings-filled.svg';
 
   // icons network
-  static String notify = 'https://www.svgrepo.com/show/525249/bell-bing.svg';
+  static String notify = 'https://www.svgrepo.com/show/497362/notification-bing.svg';
   static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
   static String share = 'https://www.svgrepo.com/show/507855/share.svg';
   static String bookmark = 'https://www.svgrepo.com/show/506124/bookmark.svg';

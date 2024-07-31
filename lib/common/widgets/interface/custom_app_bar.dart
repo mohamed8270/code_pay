@@ -31,10 +31,10 @@ class CustomAppBar extends StatelessWidget {
           child: icn.svgIcon(StaticData.menu, 12.0, 12.0, cGreen),
         ),
         title: txt.textWidget(
-            'Your perfect job here!', 12.0, FontWeight.w600, cBlack),
+            'Your perfect job here 🔥', 12.0, FontWeight.w600, cBlack),
         actions: [
           icn.svgIcon(StaticData.notify, 24.0, 24.0, cBlack),
-          StaticData.gap2,
+          StaticData.gap3,
           CircleAvatar(
             radius: 13,
             backgroundImage: NetworkImage(url),

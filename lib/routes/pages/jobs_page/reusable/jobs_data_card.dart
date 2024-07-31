@@ -48,7 +48,7 @@ class JobsDataCard extends StatelessWidget {
       child: GestureDetector(
         onTap: click,
         child: Container(
-          height: screenSize.height * 0.33,
+          height: screenSize.height * 0.34,
           width: screenSize.width,
           decoration: BoxDecoration(
             color: cWhite,
@@ -111,7 +111,7 @@ class JobsDataCard extends StatelessWidget {
                             height: 1.7,
                           ),
                         )),
-                    StaticData.gap2,
+                    StaticData.gap4,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

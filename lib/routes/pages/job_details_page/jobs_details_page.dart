@@ -45,7 +45,7 @@ class JobsDetailsPage extends StatelessWidget {
               ),
             ),
             title: txt.textWidget(
-                'Your perfect job here!', 13.0, FontWeight.w600, cBlack),
+                'Job details & Analytics  ✨', 13.0, FontWeight.w600, cBlack),
           ),
         ),
       ),
@@ -82,7 +82,18 @@ class JobsDetailsPage extends StatelessWidget {
                 viewsHistory: output.viewshistory,
               );
             }
-            return const Text('Server busy');
+            return const Center(
+              child: SizedBox(
+                height: 18,
+                width: 18,
+                child: CircularProgressIndicator(
+                  strokeWidth: 3,
+                  strokeAlign: 3,
+                  strokeCap: StrokeCap.round,
+                  color: cBlack,
+                ),
+              ),
+            );
           },
         ),
       ),
