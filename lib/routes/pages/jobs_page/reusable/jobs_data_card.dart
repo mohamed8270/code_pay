@@ -96,7 +96,7 @@ class JobsDataCard extends StatelessWidget {
                         EssentialsRepo(txt: apply, icn: StaticData.applyicn),
                       ],
                     ),
-                    StaticData.gap2,
+                    StaticData.gap3,
                     SizedBox(
                         height: screenSize.height * 0.083,
                         // width: screenSize.width * 0.95,
@@ -111,7 +111,7 @@ class JobsDataCard extends StatelessWidget {
                             height: 1.7,
                           ),
                         )),
-                    StaticData.gap4,
+                    StaticData.gap3,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

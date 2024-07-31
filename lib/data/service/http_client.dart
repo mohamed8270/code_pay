@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:code_pay/bindings/models/jobs_data_model.dart';
 import 'package:code_pay/bindings/models/jobs_details_model.dart';
-// import 'package:code_pay/common/styles/color.dart';
+import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/widgets/interface/status_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -59,19 +59,15 @@ class HttpClientFetch extends GetxController {
         headers: {'Content-Type': 'application/json'},
       );
 
-      if (res.statusCode != 200) {
+      if (res.statusCode == 200) {
+        const SnackBarRepo(txt: 'Data uploaded successfuly', bg: cGreen);
+      } else if (res.statusCode == 500) {
+        const SnackBarRepo(txt: 'Internal server error', bg: Colors.red);
+      } else if (res.statusCode == 404) {
+        const SnackBarRepo(txt: '404 Not found', bg: Colors.red);
+      } else {
         throw Exception('An unexcepted error occured!');
       }
-
-      // if (res.statusCode == 200) {
-      //   const SnackBarRepo(txt: 'Data uploaded successfuly', bg: cGreen);
-      // } else if (res.statusCode == 500) {
-      //   const SnackBarRepo(txt: 'Internal server error', bg: Colors.red);
-      // } else if (res.statusCode == 404) {
-      //   const SnackBarRepo(txt: '404 Not found', bg: Colors.red);
-      // } else {
-      //   throw Exception('An unexcepted error occured!');
-      // }
     } catch (e) {
       const SnackBarRepo(txt: 'An error occured in scraping', bg: Colors.red);
     }

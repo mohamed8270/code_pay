@@ -2,6 +2,7 @@ import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UserInputSection extends StatelessWidget {
   const UserInputSection({
@@ -36,7 +37,8 @@ class UserInputSection extends StatelessWidget {
           BoxDecoration(color: csGrey, borderRadius: BorderRadius.circular(r)),
       child: TextField(
         cursorColor: cBlack,
-        style: txt.textStyle(10.0, FontWeight.w500, cBlack, 0.0),
+        style: GoogleFonts.poppins(
+            fontSize: 10, fontWeight: FontWeight.w500, color: cBlack),
         keyboardType: type,
         controller: controller,
         autofocus: false,
