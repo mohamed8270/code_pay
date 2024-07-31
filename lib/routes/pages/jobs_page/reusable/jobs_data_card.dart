@@ -3,6 +3,7 @@ import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
+import 'package:code_pay/routes/pages/jobs_page/jobs_ribbon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,7 +18,10 @@ class JobsDataCard extends StatelessWidget {
       required this.click,
       required this.days,
       required this.views,
-      required this.apply});
+      required this.apply,
+      required this.jobposted,
+      required this.jobapplied,
+      required this.jobviews});
 
   final String jobname;
   final String companyname;
@@ -25,6 +29,9 @@ class JobsDataCard extends StatelessWidget {
   final String views;
   final String apply;
   final String jobsalary;
+  final String jobposted;
+  final String jobapplied;
+  final String jobviews;
   final String description;
   final VoidCallback applyclick;
   final VoidCallback click;
@@ -41,7 +48,7 @@ class JobsDataCard extends StatelessWidget {
       child: GestureDetector(
         onTap: click,
         child: Container(
-          height: screenSize.height * 0.32,
+          height: screenSize.height * 0.33,
           width: screenSize.width,
           decoration: BoxDecoration(
             color: cWhite,
@@ -52,81 +59,88 @@ class JobsDataCard extends StatelessWidget {
               strokeAlign: BorderSide.strokeAlignCenter,
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    reusable.svgIcon(StaticData.org, 50.0, 50.0, cBlack),
-                    StaticData.gap2,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        text.textWidget(jobname, 16.0, FontWeight.w700, cBlack),
-                        StaticData.gap1,
-                        text.textWidget(companyname, 11.0, FontWeight.w500,
-                            cBlack.withOpacity(0.5)),
-                      ],
-                    ),
-                  ],
-                ),
-                StaticData.gap2,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    EssentialsRepo(txt: days, icn: StaticData.time),
-                    EssentialsRepo(txt: views, icn: StaticData.view),
-                    EssentialsRepo(txt: apply, icn: StaticData.applyicn),
-                  ],
-                ),
-                StaticData.gap2,
-                SizedBox(
-                    height: screenSize.height * 0.083,
-                    // width: screenSize.width * 0.95,
-                    child: Text(
-                      description,
-                      maxLines: 5,
-                      textAlign: TextAlign.justify,
-                      style: GoogleFonts.poppins(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500,
-                        color: cBlack.withOpacity(0.5),
-                        height: 1.7,
-                      ),
-                    )),
-                StaticData.gap2,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              ribbonCard(jobposted, jobapplied, jobviews, context),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        text.textWidget(
-                            '₹ $jobsalary', 14.0, FontWeight.w600, cGreen),
-                        StaticData.gap1,
-                        text.textWidget('/Month', 10.0, FontWeight.w400,
-                            cBlack.withOpacity(0.5)),
+                        reusable.svgIcon(StaticData.org, 50.0, 50.0, cBlack),
+                        StaticData.gap2,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            text.textWidget(
+                                jobname, 16.0, FontWeight.w700, cBlack),
+                            StaticData.gap1,
+                            text.textWidget(companyname, 11.0, FontWeight.w500,
+                                cBlack.withOpacity(0.5)),
+                          ],
+                        ),
                       ],
                     ),
-                    CustomBtn(
-                      h: 0.04,
-                      w: 0.2,
-                      bg: cGreen,
-                      txt: 'Apply Now',
-                      txts: 10.0,
-                      txtcolor: cWhite,
-                      r: 6,
-                      click: applyclick,
+                    StaticData.gap2,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        EssentialsRepo(txt: days, icn: StaticData.time),
+                        EssentialsRepo(txt: views, icn: StaticData.view),
+                        EssentialsRepo(txt: apply, icn: StaticData.applyicn),
+                      ],
                     ),
+                    StaticData.gap2,
+                    SizedBox(
+                        height: screenSize.height * 0.083,
+                        // width: screenSize.width * 0.95,
+                        child: Text(
+                          description,
+                          maxLines: 5,
+                          textAlign: TextAlign.justify,
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                            color: cBlack.withOpacity(0.5),
+                            height: 1.7,
+                          ),
+                        )),
+                    StaticData.gap2,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            text.textWidget(
+                                '₹ $jobsalary', 14.0, FontWeight.w600, cGreen),
+                            StaticData.gap1,
+                            text.textWidget('/Month', 10.0, FontWeight.w400,
+                                cBlack.withOpacity(0.5)),
+                          ],
+                        ),
+                        CustomBtn(
+                          h: 0.04,
+                          w: 0.2,
+                          bg: cGreen,
+                          txt: 'Apply Now',
+                          txts: 10.0,
+                          txtcolor: cWhite,
+                          r: 6,
+                          click: applyclick,
+                        ),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

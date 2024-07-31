@@ -27,8 +27,8 @@ class _GraphRepoState extends State<GraphRepo> {
         title: ChartTitle(
           text: 'Job Growth',
           textStyle: GoogleFonts.poppins(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
             color: cGreen,
           ),
         ),

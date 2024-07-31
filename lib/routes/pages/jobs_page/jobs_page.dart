@@ -106,6 +106,9 @@ class JobsPage extends StatelessWidget {
                             description: output.jobdescription.toString(),
                             click: () => onJobClicked(output.id),
                             applyclick: () {},
+                            jobposted: output.jobposted,
+                            jobapplied: output.jobapplied,
+                            jobviews: output.jobviews,
                           );
                         },
                       );

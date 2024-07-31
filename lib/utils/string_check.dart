@@ -31,15 +31,15 @@ String popularityPercent(String posteddata, appliedata, viewsdata) {
 // emoji fitting
 String emojiType(String txt) {
   var val = double.parse(txt);
-  if (val <= 20.0) {
-    return 'Begginers choice 🙂';
-  } else if (val <= 50.0) {
-    return 'Freshers favourite 😊';
-  } else if (val <= 70.0) {
-    return 'Intermediate dev 🤗';
-  } else if (val <= 100.0) {
-    return 'Top tier 😎';
+  if (val >= 20.0) {
+    return 'Begginers choice ✨';
+  } else if (val >= 50.0) {
+    return 'Freshers favourite 👍';
+  } else if (val >= 70.0) {
+    return 'Intermediate dev ⚡';
   } else if (val >= 100.0) {
+    return 'Top tier 🖥️';
+  } else if (val >= 130.0) {
     return 'Titan 🔥';
   } else {
     return 'Peoples choice 👍';
