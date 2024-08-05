@@ -1,6 +1,7 @@
+const JobModel = require('../../models/job.model');
 const connectToDB = require('../../mongoose');
 const scrapeJobData =  require('../scraper');
-const JobModel = require('../../models/job.model');
+
 
 const scrapeAndStoreJobData = async (joburl) => {
     if(!joburl) return true;
@@ -51,7 +52,7 @@ const scrapeAndStoreJobData = async (joburl) => {
             {url: scrapedJobData.url},
             jobData,
             {upsert: true, new: true},
-        )
+        );
 
         
     } catch (error) {

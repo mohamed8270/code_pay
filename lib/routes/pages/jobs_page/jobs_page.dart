@@ -95,7 +95,7 @@ class JobsPage extends StatelessWidget {
                         physics: const ScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          final output = state.jobs.first;
+                          final output = state.jobs[index];
                           return JobsDataCard(
                             jobname: output.jobname.toString(),
                             companyname: output.jobcompany.toString(),
