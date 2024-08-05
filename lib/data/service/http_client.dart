@@ -16,15 +16,10 @@ class HttpClientFetch extends GetxController {
 
     try {
       http.Response response = await http.get(Uri.tryParse(url)!);
-      if (response.statusCode == 200) {
-        List<dynamic> jobsres = jsonDecode(response.body);
-
-        List<JobsDataModel> jobsdata =
-            jobsres.map((dynamic e) => JobsDataModel.fromJson(e)).toList();
-        return jobsdata;
-      } else {
-        throw Exception('Internal Server Error!');
-      }
+      List<dynamic> jobsres = jsonDecode(response.body);
+      List<JobsDataModel> jobsdata =
+          jobsres.map((dynamic e) => JobsDataModel.fromJson(e)).toList();
+      return jobsdata;
     } catch (e) {
       throw Exception(e);
     }
