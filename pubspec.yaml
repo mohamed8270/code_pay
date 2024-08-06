@@ -45,8 +45,11 @@ dependencies:
   http: ^1.2.1
   flutter_dotenv: ^5.1.0
   shimmer: ^3.0.0
-  syncfusion_flutter_charts: ^26.2.5+1
+  syncfusion_flutter_charts: ^26.2.8
   marquee: ^2.2.3
+
+dependency_overrides:
+  fading_edge_scrollview: ^4.1.1
 
 dev_dependencies:
   flutter_test:

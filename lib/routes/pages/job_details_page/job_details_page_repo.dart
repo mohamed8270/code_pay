@@ -9,6 +9,8 @@ import 'package:code_pay/routes/pages/job_details_page/graphs/graph_repo.dart';
 import 'package:code_pay/routes/pages/jobs_page/reusable/jobs_data_card.dart';
 import 'package:code_pay/utils/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:marquee/marquee.dart';
 
 class JobDetailsPageRepo extends StatelessWidget {
   const JobDetailsPageRepo({
@@ -80,7 +82,8 @@ class JobDetailsPageRepo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  text.textWidget(jobname, 15.0, FontWeight.w700, cBlack),
+                  // text.textWidget(jobname, 15.0, FontWeight.w700, cBlack),
+                  marqueeText(jobname, context),
                   StaticData.gap1,
                   text.textWidget(jobcompany, 12.0, FontWeight.w400,
                       cBlack.withOpacity(0.5)),
@@ -217,4 +220,31 @@ class JobdataRepo extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget marqueeText(txt, context) {
+  final scrnsize = MediaQuery.sizeOf(context);
+  return SizedBox(
+    height: scrnsize.height * 0.03,
+    width: scrnsize.width * 0.75,
+    child: Marquee(
+      text: txt,
+      style: GoogleFonts.poppins(
+          fontSize: 15, fontWeight: FontWeight.w700, color: cBlack),
+      scrollAxis: Axis.horizontal,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      blankSpace: 20.0,
+      velocity: 100.0,
+      pauseAfterRound: const Duration(seconds: 1),
+      showFadingOnlyWhenScrolling: true,
+      fadingEdgeStartFraction: 0.1,
+      fadingEdgeEndFraction: 0.1,
+      numberOfRounds: 3,
+      startPadding: 0.0,
+      accelerationDuration: const Duration(seconds: 1),
+      accelerationCurve: Curves.linear,
+      decelerationDuration: const Duration(milliseconds: 500),
+      decelerationCurve: Curves.easeOut,
+    ),
+  );
 }

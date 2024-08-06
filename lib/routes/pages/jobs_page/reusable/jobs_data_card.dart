@@ -6,7 +6,6 @@ import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/routes/pages/jobs_page/jobs_ribbon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marquee/marquee.dart';
 
 class JobsDataCard extends StatelessWidget {
   const JobsDataCard(
@@ -79,9 +78,19 @@ class JobsDataCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // text.textWidget(
-                            //     jobname, 16.0, FontWeight.w700, cBlack),
-                            marqueeText(jobname),
+                            SizedBox(
+                              width: screenSize.width * 0.71,
+                              child: Text(
+                                jobname,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: cBlack,
+                                ),
+                              ),
+                            ),
                             StaticData.gap1,
                             text.textWidget(companyname, 11.0, FontWeight.w500,
                                 cBlack.withOpacity(0.5)),
@@ -179,26 +188,4 @@ class EssentialsRepo extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget marqueeText(txt) {
-  return Marquee(
-    text: txt,
-    style: GoogleFonts.poppins(
-        fontSize: 16, fontWeight: FontWeight.w700, color: cBlack),
-    scrollAxis: Axis.horizontal,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    blankSpace: 20.0,
-    velocity: 100.0,
-    pauseAfterRound: const Duration(seconds: 1),
-    showFadingOnlyWhenScrolling: true,
-    fadingEdgeStartFraction: 0.1,
-    fadingEdgeEndFraction: 0.1,
-    numberOfRounds: 3,
-    startPadding: 10.0,
-    accelerationDuration: const Duration(seconds: 1),
-    accelerationCurve: Curves.linear,
-    decelerationDuration: const Duration(milliseconds: 500),
-    decelerationCurve: Curves.easeOut,
-  );
 }
