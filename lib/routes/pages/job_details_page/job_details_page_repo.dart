@@ -201,7 +201,9 @@ class JobDetailsPageRepo extends StatelessWidget {
           StaticData.gap2,
           text.textWidget('Analytics', 12.0, FontWeight.w600, cBlack),
           StaticData.gap2,
-          GraphRepo(applied: appliedHistory, views: viewsHistory),
+          GraphRepoLack(applied: appliedHistory, views: viewsHistory),
+          StaticData.gap2,
+          GraphRepoCom(views: viewsHistory, post: postedHistory),
         ],
       ),
     );
