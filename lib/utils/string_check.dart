@@ -18,7 +18,7 @@ String popularityPercent(String posteddata, appliedata, viewsdata) {
   int applied = int.parse(aStr);
   int views = int.parse(vStr);
 
-  print([posted, applied, views]);
+  // print([posted, applied, views]);
   double normalizedViews = views / 100;
   double normalizedApplied = applied / 100;
   double first = (normalizedViews + (2 * normalizedApplied));
@@ -34,15 +34,15 @@ String popularityPercent(String posteddata, appliedata, viewsdata) {
 // emoji fitting
 String emojiType(String txt) {
   var val = double.parse(txt);
-  if (val >= 20.0) {
+  if (0.0 < val && val <= 20.0) {
     return 'Begginers choice ✨';
-  } else if (val >= 50.0) {
+  } else if (20.0 < val && val <= 40.0) {
     return 'Freshers favourite 👍';
-  } else if (val >= 70.0) {
+  } else if (40.0 < val && val <= 60.0) {
     return 'Intermediate dev ⚡';
-  } else if (val >= 100.0) {
+  } else if (60.0 < val && val <= 80.0) {
     return 'Top tier 🖥️';
-  } else if (val >= 130.0) {
+  } else if (80.0 < val && val <= 100.0) {
     return 'Titan 🔥';
   } else {
     return 'Peoples choice 👍';
