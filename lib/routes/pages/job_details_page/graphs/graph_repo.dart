@@ -15,24 +15,27 @@ class GraphRepo extends StatefulWidget {
 
 class _GraphRepoState extends State<GraphRepo> {
   List<ViewsvsApplied> chartData = [];
-  graphData() {
-    for (int i = 0; i > widget.applied.length; i++) {
-      chartData.add(
-        ViewsvsApplied(
-          viewsgraph: widget.views[i]['views'],
-          appliedgraph: widget.applied[i]['applied'],
-          date: widget.views[i]['Date'],
-        ),
-      );
-    }
-
-    print(chartData);
-  }
 
   @override
   void initState() {
     super.initState();
     graphData();
+  }
+
+  graphData() {
+    for (int i = 0; i < widget.views.length; i++) {
+      // print('views: ${widget.applied[i]['views']}');
+      // print(widget.applied);
+      // print(widget.views);
+      // print('function running');
+      chartData.add(
+        ViewsvsApplied(
+          viewsgraph: widget.views[i]['views'] ?? 0,
+          appliedgraph: widget.applied[i]['apply'] ?? 0,
+          date: widget.views[i]['Date'],
+        ),
+      );
+    }
   }
 
   @override
@@ -59,13 +62,13 @@ class _GraphRepoState extends State<GraphRepo> {
         series: [
           LineSeries<ViewsvsApplied, DateTime>(
             dataSource: chartData,
-            xValueMapper: (ViewsvsApplied data, _) => data.date,
+            xValueMapper: (ViewsvsApplied data, _) => DateTime.parse(data.date),
             yValueMapper: (ViewsvsApplied data, _) => data.appliedgraph,
             name: 'Applied',
           ),
           LineSeries<ViewsvsApplied, DateTime>(
             dataSource: chartData,
-            xValueMapper: (ViewsvsApplied data, _) => data.date,
+            xValueMapper: (ViewsvsApplied data, _) => DateTime.parse(data.date),
             yValueMapper: (ViewsvsApplied data, _) => data.viewsgraph,
             name: 'Views',
           ),

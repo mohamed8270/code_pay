@@ -1,5 +1,5 @@
 class ViewsvsApplied {
-  final DateTime date;
+  final String date;
   final int viewsgraph;
   final int appliedgraph;
 

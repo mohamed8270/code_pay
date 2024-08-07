@@ -23,9 +23,9 @@ class JobsDetailsModel {
   final int jobappliedvalue;
   final int jobviewsvalue;
 
-  final List<PostedHistory> postedhistory;
-  final List<AppliedHistory> appliedhistory;
-  final List<ViewsHistory> viewshistory;
+  final List postedhistory;
+  final List appliedhistory;
+  final List viewshistory;
   final List users;
   final String timestamps;
 
@@ -60,6 +60,7 @@ class JobsDetailsModel {
       required this.timestamps});
 
   factory JobsDetailsModel.fromJson(Map<String, dynamic> json) {
+    // print(json['appliedHistory']);
     return JobsDetailsModel(
       id: json['_id'],
       url: json['url'],
@@ -84,16 +85,9 @@ class JobsDetailsModel {
       jobpostedvalue: json['jobPostedValue'],
       jobappliedvalue: json['jobAppliedValue'],
       jobviewsvalue: json['jobViewsValue'],
-     
-      postedhistory: (json['postedHistory'] as List<dynamic>)
-          .map((e) => PostedHistory.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      appliedhistory: (json['appliedHistory'] as List<dynamic>)
-          .map((e) => AppliedHistory.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      viewshistory: (json['viewsHistory'] as List<dynamic>)
-          .map((e) => ViewsHistory.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      postedhistory: json['postedHistory'],
+      appliedhistory: json['appliedHistory'],
+      viewshistory: json['viewsHistory'],
       users: json['users'],
       timestamps: json['createdAt'],
     );

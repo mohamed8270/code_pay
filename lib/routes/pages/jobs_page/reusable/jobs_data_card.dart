@@ -92,7 +92,12 @@ class JobsDataCard extends StatelessWidget {
                               ),
                             ),
                             StaticData.gap1,
-                            text.textWidget(companyname, 11.0, FontWeight.w500,
+                            text.textWidget(
+                                companyname == ''
+                                    ? 'Company Confidential'
+                                    : companyname,
+                                11.0,
+                                FontWeight.w500,
                                 cBlack.withOpacity(0.5)),
                           ],
                         ),
@@ -130,7 +135,10 @@ class JobsDataCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             text.textWidget(
-                                '₹ $jobsalary', 14.0, FontWeight.w600, cGreen),
+                                '₹ ${jobsalary == '' ? 'Not Specified' : jobsalary}',
+                                14.0,
+                                FontWeight.w600,
+                                cGreen),
                             StaticData.gap1,
                             text.textWidget('/Month', 10.0, FontWeight.w400,
                                 cBlack.withOpacity(0.5)),

@@ -85,7 +85,10 @@ class JobDetailsPageRepo extends StatelessWidget {
                   // text.textWidget(jobname, 15.0, FontWeight.w700, cBlack),
                   marqueeText(jobname, context),
                   StaticData.gap1,
-                  text.textWidget(jobcompany, 12.0, FontWeight.w400,
+                  text.textWidget(
+                      jobcompany == '' ? 'Company Confidential' : jobcompany,
+                      12.0,
+                      FontWeight.w400,
                       cBlack.withOpacity(0.5)),
                 ],
               ),
@@ -139,7 +142,11 @@ class JobDetailsPageRepo extends StatelessWidget {
                 ),
               ),
               StaticData.gap3,
-              text.textWidget('₹ $jobsalary', 14.0, FontWeight.w400, cGreen),
+              text.textWidget(
+                  '₹ ${jobsalary == '' ? 'Not Specified' : jobsalary}',
+                  14.0,
+                  FontWeight.w400,
+                  cGreen),
               StaticData.gap1,
               text.textWidget(
                   '/per annum', 11.0, FontWeight.w400, cBlack.withOpacity(0.4)),
