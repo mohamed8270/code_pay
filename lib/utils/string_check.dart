@@ -1,6 +1,6 @@
-// empty text check
 // ignore_for_file: avoid_print
 
+// empty text check
 String emptyString(txt) {
   if (txt != '') {
     return txt;
@@ -13,16 +13,19 @@ String popularityPercent(String posteddata, appliedata, viewsdata) {
   String pStr = posteddata.replaceAll(RegExp(r'[^0-9]'), '');
   String aStr = appliedata.replaceAll(RegExp(r'[^0-9]'), '');
   String vStr = viewsdata.replaceAll(RegExp(r'[^0-9]'), '');
+
   int posted = int.parse(pStr);
   int applied = int.parse(aStr);
   int views = int.parse(vStr);
-  // print([posted, applied, views]);
-  int k = 2;
-  int kConstant = k * applied;
-  int first = views + kConstant;
-  int second = posted + 1;
 
-  double popularityScore = first / second;
+  print([posted, applied, views]);
+  double normalizedViews = views / 100;
+  double normalizedApplied = applied / 100;
+  double first = (normalizedViews + (2 * normalizedApplied));
+  double second = (posted + 1);
+  double third = first / second;
+
+  double popularityScore = (third * 100).clamp(0, 100).toDouble();
   String output = popularityScore.toStringAsFixed(2);
   String res = '$output% ${emojiType(output)}';
   return res;

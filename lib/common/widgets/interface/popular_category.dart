@@ -48,7 +48,7 @@ class PopularCategory extends StatelessWidget {
                 StaticData.gap2,
                 text.textWidget(
                   popularityPercent(
-                      posted == 'a month ago' ? '30' : '0', applied, views),
+                      posted == 'a month ago' ? '30' : posted, applied, views),
                   12.0,
                   FontWeight.w400,
                   cWhite,

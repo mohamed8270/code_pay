@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 dynamic ribbonCard(posteddata, appliedata, viewsdata, context) {
   var res = popularityPercent(
-      posteddata == 'a month ago' ? '30' : '0', appliedata, viewsdata);
+      posteddata == 'a month ago' ? '30' : posteddata, appliedata, viewsdata);
   String data = res.replaceAll(RegExp(r'[^0-9]'), '');
   int checkdata = int.parse(data);
   var txt = TextFond();
