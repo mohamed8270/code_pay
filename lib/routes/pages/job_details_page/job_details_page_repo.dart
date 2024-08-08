@@ -32,6 +32,7 @@ class JobDetailsPageRepo extends StatelessWidget {
     required this.skills,
     required this.jobsource,
     required this.jobapply,
+    required this.quickapply,
     required this.companyurl,
     required this.jobsalary,
     required this.roles,
@@ -56,6 +57,7 @@ class JobDetailsPageRepo extends StatelessWidget {
   final List<dynamic> skills;
   final String jobsource;
   final String jobapply;
+  final String quickapply;
   final String companyurl;
   final List<dynamic> roles;
   final List postedHistory;
@@ -172,7 +174,7 @@ class JobDetailsPageRepo extends StatelessWidget {
             posted: jobposted,
             applied: jobapplied,
             views: jobveiwed,
-            click: () {},
+            click: () => Get.to(WebViewPage(weburl: quickapply)),
           ),
           StaticData.gap6,
           Row(

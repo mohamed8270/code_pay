@@ -42,6 +42,7 @@ class _WebViewPageState extends State<WebViewPage> {
           });
         },
       ))
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..loadRequest(Uri.parse(widget.weburl));
   }
 

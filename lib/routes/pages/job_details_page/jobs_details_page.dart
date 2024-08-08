@@ -75,6 +75,7 @@ class JobsDetailsPage extends StatelessWidget {
                 skills: output.jobskills.toList(),
                 jobsource: output.jobsource.toString(),
                 jobapply: output.jobapply.toString(),
+                quickapply: output.jobquickapply.toString(),
                 companyurl: output.jobcompanyurl.toString(),
                 jobsalary: output.jobsalary.toString(),
                 roles: output.jobrole.toList(),
