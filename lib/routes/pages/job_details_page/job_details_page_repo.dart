@@ -7,8 +7,10 @@ import 'package:code_pay/common/widgets/reusable/job_func.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/routes/pages/job_details_page/graphs/graph_repo.dart';
 import 'package:code_pay/routes/pages/jobs_page/reusable/jobs_data_card.dart';
+import 'package:code_pay/routes/pages/web_view/web_view_page.dart';
 import 'package:code_pay/utils/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
 
@@ -29,6 +31,7 @@ class JobDetailsPageRepo extends StatelessWidget {
     required this.jobfunction,
     required this.skills,
     required this.jobsource,
+    required this.jobapply,
     required this.companyurl,
     required this.jobsalary,
     required this.roles,
@@ -52,6 +55,7 @@ class JobDetailsPageRepo extends StatelessWidget {
   final String jobfunction;
   final List<dynamic> skills;
   final String jobsource;
+  final String jobapply;
   final String companyurl;
   final List<dynamic> roles;
   final List postedHistory;
@@ -122,7 +126,7 @@ class JobDetailsPageRepo extends StatelessWidget {
                 txts: 10.0,
                 txtcolor: cWhite,
                 r: 6,
-                click: () {},
+                click: () => Get.to(WebViewPage(weburl: jobapply)),
               ),
             ],
           ),
