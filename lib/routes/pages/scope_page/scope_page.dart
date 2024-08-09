@@ -1,3 +1,5 @@
+import 'package:code_pay/common/styles/color.dart';
+import 'package:code_pay/common/styles/fonts.dart';
 import 'package:flutter/material.dart';
 
 class ScopePage extends StatelessWidget {
@@ -5,6 +7,28 @@ class ScopePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    // var icn = ReusableClass();
+    var txt = TextFond();
+    return Scaffold(
+      backgroundColor: cbGrey,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
+        child: Container(
+          decoration: BoxDecoration(
+            color: cWhite,
+            border: Border(
+              bottom: BorderSide(width: 1.3, color: cBlack.withOpacity(0.05)),
+            ),
+          ),
+          alignment: Alignment.center,
+          child: AppBar(
+            backgroundColor: cWhite,
+            scrolledUnderElevation: 0,
+            title: txt.textWidget(
+                'Job Analytics  ✨', 13.0, FontWeight.w600, cBlack),
+          ),
+        ),
+      ),
+    );
   }
 }

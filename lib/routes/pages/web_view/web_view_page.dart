@@ -66,12 +66,23 @@ class _WebViewPageState extends State<WebViewPage> {
             leading: GestureDetector(
               onTap: () => Get.back(),
               child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: icn.svgIcon(StaticData.back, 11.0, 11.0, cGreen),
+                padding: const EdgeInsets.all(16),
+                child: icn.svgIcon(StaticData.quit, 11.0, 11.0, cGreen),
               ),
             ),
-            title: txt.textWidget(
-                'Job details & Analytics  ✨', 13.0, FontWeight.w600, cBlack),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                txt.textWidget('Code Pay  ✨', 13.0, FontWeight.w600, cBlack),
+                StaticData.gap1,
+                SizedBox(
+                  width: 110,
+                  child: txt.textWidget(widget.weburl, 10.0, FontWeight.w400,
+                      cBlack, TextOverflow.clip),
+                ),
+              ],
+            ),
           ),
         ),
       ),

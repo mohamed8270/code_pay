@@ -12,7 +12,8 @@ class StaticData {
   static String settingFilled = 'assets/icons/settings-filled.svg';
 
   // icons network
-  static String notify = 'https://www.svgrepo.com/show/497362/notification-bing.svg';
+  static String notify =
+      'https://www.svgrepo.com/show/497362/notification-bing.svg';
   static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
   static String share = 'https://www.svgrepo.com/show/507855/share.svg';
   static String bookmark = 'https://www.svgrepo.com/show/506124/bookmark.svg';
@@ -33,6 +34,7 @@ class StaticData {
   static String org = 'https://www.svgrepo.com/show/495991/building-3.svg';
   static String menu = 'https://www.svgrepo.com/show/522595/menu-2.svg';
   static String bag = 'https://www.svgrepo.com/show/533409/briefcase-alt-1.svg';
+  static String quit = 'https://www.svgrepo.com/show/510355/x.svg';
 
   // text
   static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';
