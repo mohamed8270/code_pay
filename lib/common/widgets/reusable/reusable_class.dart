@@ -33,4 +33,20 @@ class ReusableClass extends GetxController {
       colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
     );
   }
+
+  // loading widget
+  Widget circularLoading() {
+    return const Center(
+      child: SizedBox(
+        height: 18,
+        width: 18,
+        child: CircularProgressIndicator(
+          color: cGreen,
+          strokeAlign: 3,
+          strokeWidth: 3,
+          strokeCap: StrokeCap.round,
+        ),
+      ),
+    );
+  }
 }

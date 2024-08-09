@@ -2,6 +2,7 @@ import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/routes/pages/scope_page/reusable/analytics_card.dart';
+import 'package:code_pay/routes/pages/scope_page/widgets/impression_widget.dart';
 import 'package:flutter/material.dart';
 
 class ScopePage extends StatelessWidget {
@@ -9,7 +10,6 @@ class ScopePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var icn = ReusableClass();
     var txt = TextFond();
     return Scaffold(
       backgroundColor: cbGrey,
@@ -40,14 +40,7 @@ class ScopePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                AnalyticsCard(
-                  h: 0.15,
-                  w: 0.45,
-                  icn: StaticData.view,
-                  t1: 'Impressions',
-                  t2: '456K',
-                  t3: 'from last week',
-                ),
+                const ImpressionsWidget(),
                 AnalyticsCard(
                   h: 0.15,
                   w: 0.45,
@@ -55,6 +48,7 @@ class ScopePage extends StatelessWidget {
                   t1: 'Competetive',
                   t2: '500',
                   t3: 'from last week',
+                  click: () {},
                 ),
               ],
             ),
@@ -66,6 +60,7 @@ class ScopePage extends StatelessWidget {
               t1: 'High Paying',
               t2: '1,00,000 - 10,00,000',
               t3: 'from last week',
+              click: () {},
             ),
           ],
         ),
