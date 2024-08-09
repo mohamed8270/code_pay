@@ -19,7 +19,7 @@ class StaticData {
   static String bookmark = 'https://www.svgrepo.com/show/506124/bookmark.svg';
   static String location =
       'https://www.svgrepo.com/show/532539/location-pin.svg';
-  static String money = 'https://www.svgrepo.com/show/497954/dollar-circle.svg';
+  static String money = 'https://www.svgrepo.com/show/523355/dollar.svg';
   static String send = 'https://www.svgrepo.com/show/533306/send.svg';
   static String time = 'https://www.svgrepo.com/show/499655/time.svg';
   static String view = 'https://www.svgrepo.com/show/532493/eye.svg';
