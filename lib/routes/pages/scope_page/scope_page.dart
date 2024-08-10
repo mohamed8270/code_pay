@@ -1,7 +1,8 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
-import 'package:code_pay/routes/pages/scope_page/reusable/analytics_card.dart';
+import 'package:code_pay/routes/pages/scope_page/widgets/competetive_widget.dart';
+import 'package:code_pay/routes/pages/scope_page/widgets/highpay_widget.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/impression_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -36,32 +37,16 @@ class ScopePage extends StatelessWidget {
         child: Column(
           children: [
             StaticData.gap2,
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const ImpressionsWidget(),
-                AnalyticsCard(
-                  h: 0.15,
-                  w: 0.45,
-                  icn: StaticData.applyicn,
-                  t1: 'Competetive',
-                  t2: '500',
-                  t3: 'from last week',
-                  click: () {},
-                ),
+                ImpressionsWidget(),
+                CompetetiveWidget(),
               ],
             ),
             StaticData.gap3,
-            AnalyticsCard(
-              h: 0.15,
-              w: 0.95,
-              icn: StaticData.money,
-              t1: 'High Paying',
-              t2: '1,00,000 - 10,00,000',
-              t3: 'from last week',
-              click: () {},
-            ),
+            const HighpayWidget(),
           ],
         ),
       ),
