@@ -5,6 +5,7 @@ import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/data/bloc/jobs_data/jobs_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -34,7 +35,7 @@ class SalaryGraphWidget extends StatelessWidget {
 
     graphData(List sl, s) {
       for (int i = 0; i < sl.length; i++) {
-        print(s[i].jobsalary);
+        // print(s[i].jobsalary);
         var value = calculateDiff(s[i].jobsalary);
         data.add(
           SalaryGraphClass(jobname: s[i].jobname, salary: value),
@@ -77,15 +78,18 @@ class SalaryGraphWidget extends StatelessWidget {
               textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
             ),
             legend: const Legend(isVisible: true),
-            primaryXAxis: const CategoryAxis(
-              majorGridLines: MajorGridLines(width: 0),
+            primaryXAxis: CategoryAxis(
+              majorGridLines: const MajorGridLines(width: 0),
+              labelStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+              maximumLabelWidth: 55,
+              autoScrollingMode: AutoScrollingMode.start,
             ),
-            primaryYAxis: const NumericAxis(
-              // minimum: 0,
-              // maximum: 100,
-              axisLine: AxisLine(width: 0),
-              majorGridLines: MajorGridLines(width: 0),
-              majorTickLines: MajorTickLines(size: 0),
+            primaryYAxis: NumericAxis(
+              axisLine: const AxisLine(width: 0),
+              majorGridLines: const MajorGridLines(width: 0),
+              majorTickLines: const MajorTickLines(size: 0),
+              labelStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+              numberFormat: NumberFormat.compact(),
             ),
             series: [
               ColumnSeries<SalaryGraphClass, String>(
@@ -93,9 +97,10 @@ class SalaryGraphWidget extends StatelessWidget {
                 xValueMapper: (SalaryGraphClass data, _) => data.jobname,
                 yValueMapper: (SalaryGraphClass data, _) => data.salary,
                 isTrackVisible: true,
+                color: cGreen,
                 trackColor: csGrey.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(5),
-                name: 'Salary',
+                name: 'Job with salary',
                 dataLabelSettings: DataLabelSettings(
                   isVisible: true,
                   labelAlignment: ChartDataLabelAlignment.top,
