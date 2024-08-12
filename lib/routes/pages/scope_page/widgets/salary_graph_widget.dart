@@ -50,7 +50,7 @@ class SalaryGraphWidget extends StatelessWidget {
             baseColor: csGrey,
             highlightColor: cWhite,
             child: Container(
-              height: scrnsize.height * 0.35,
+              height: scrnsize.height * 0.42,
               width: scrnsize.width * 0.95,
               decoration: BoxDecoration(
                 color: cWhite,
@@ -60,7 +60,7 @@ class SalaryGraphWidget extends StatelessWidget {
           );
         } else if (state is JobDataError) {
           return Container(
-            height: scrnsize.height * 0.35,
+            height: scrnsize.height * 0.42,
             width: scrnsize.width * 0.95,
             decoration: BoxDecoration(
               color: cWhite,
@@ -70,50 +70,60 @@ class SalaryGraphWidget extends StatelessWidget {
           );
         } else if (state is JobDataLoaded) {
           graphData(state.jobs, state.jobs);
-          return SfCartesianChart(
-            backgroundColor: cWhite,
-            plotAreaBorderWidth: 0,
-            title: ChartTitle(
-              text: 'Top paying jobs',
-              textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
+          return Container(
+            height: scrnsize.height * 0.42,
+            width: scrnsize.width * 0.95,
+            decoration: BoxDecoration(
+              color: cWhite,
+              borderRadius: BorderRadius.circular(15),
             ),
-            legend: const Legend(isVisible: true),
-            primaryXAxis: CategoryAxis(
-              majorGridLines: const MajorGridLines(width: 0),
-              labelStyle:
-                  txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
-              maximumLabelWidth: 50,
-              autoScrollingMode: AutoScrollingMode.start,
-            ),
-            primaryYAxis: NumericAxis(
-              axisLine: const AxisLine(width: 0),
-              majorGridLines: const MajorGridLines(width: 0),
-              majorTickLines: const MajorTickLines(size: 0),
-              labelStyle:
-                  txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
-              numberFormat: NumberFormat.compact(),
-            ),
-            series: [
-              ColumnSeries<SalaryGraphClass, String>(
-                dataSource: data,
-                xValueMapper: (SalaryGraphClass data, _) => data.jobname,
-                yValueMapper: (SalaryGraphClass data, _) => data.salary,
-                isTrackVisible: true,
-                color: const Color(0xFF0caf60),
-                trackColor: csGrey.withOpacity(0.35),
-                borderRadius: BorderRadius.circular(5),
-                name: 'Salary per month',
-                dataLabelSettings: DataLabelSettings(
-                  isVisible: true,
-                  labelAlignment: ChartDataLabelAlignment.top,
-                  textStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
-                ),
+            child: SfCartesianChart(
+              backgroundColor: cWhite,
+              plotAreaBorderWidth: 0,
+              title: ChartTitle(
+                text: 'Top paying jobs',
+                textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
+                alignment: ChartAlignment.near,
               ),
-            ],
+              legend: const Legend(isVisible: true),
+              primaryXAxis: CategoryAxis(
+                majorGridLines: const MajorGridLines(width: 0),
+                labelStyle: txt.textStyle(
+                    8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+                maximumLabelWidth: 50,
+                autoScrollingMode: AutoScrollingMode.start,
+              ),
+              primaryYAxis: NumericAxis(
+                axisLine: const AxisLine(width: 0),
+                majorGridLines: const MajorGridLines(width: 0),
+                majorTickLines: const MajorTickLines(size: 0),
+                labelStyle: txt.textStyle(
+                    8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+                numberFormat: NumberFormat.compact(),
+              ),
+              series: [
+                ColumnSeries<SalaryGraphClass, String>(
+                  dataSource: data,
+                  xValueMapper: (SalaryGraphClass data, _) => data.jobname,
+                  yValueMapper: (SalaryGraphClass data, _) => data.salary,
+                  isTrackVisible: true,
+                  color: const Color(0xFF0caf60),
+                  trackColor: csGrey.withOpacity(0.35),
+                  borderRadius: BorderRadius.circular(5),
+                  name: 'Salary per month',
+                  dataLabelSettings: DataLabelSettings(
+                    isVisible: true,
+                    alignment: ChartAlignment.near,
+                    labelAlignment: ChartDataLabelAlignment.auto,
+                    textStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+                  ),
+                ),
+              ],
+            ),
           );
         }
         return Container(
-          height: scrnsize.height * 0.35,
+          height: scrnsize.height * 0.42,
           width: scrnsize.width * 0.95,
           decoration: BoxDecoration(
             color: cWhite,
