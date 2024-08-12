@@ -22,21 +22,24 @@ class SalaryGraphWidget extends StatelessWidget {
     // data list
     List<SalaryGraphClass> data = [];
 
-    graphData(List sl, s) {
-      for (int i = 0; i < sl.length; i++) {
-        data.add(
-          SalaryGraphClass(jobname: s.jobname, salary: s.jobsalary ?? 0),
-        );
-      }
-    }
-
     int calculateDiff(String input) {
-      String cleanedInput = input.replaceAll(' INR', '');
+      String cleanedInput =
+          input == '' ? '0,00,00 - 0,00,00,00' : input.replaceAll(' INR', '');
       List<String> numbers = cleanedInput.split('-');
       int num1 = int.parse(numbers[0].replaceAll(',', ''));
       int num2 = int.parse(numbers[1].replaceAll(',', ''));
 
       return num2 - num1;
+    }
+
+    graphData(List sl, s) {
+      for (int i = 0; i < sl.length; i++) {
+        print(s[i].jobsalary);
+        var value = calculateDiff(s[i].jobsalary);
+        data.add(
+          SalaryGraphClass(jobname: s[i].jobname, salary: value),
+        );
+      }
     }
 
     return BlocBuilder<JobsDataBloc, JobsDataState>(
@@ -66,7 +69,41 @@ class SalaryGraphWidget extends StatelessWidget {
           );
         } else if (state is JobDataLoaded) {
           graphData(state.jobs, state.jobs);
-          return const SfCartesianChart();
+          return SfCartesianChart(
+            backgroundColor: cWhite,
+            plotAreaBorderWidth: 0,
+            title: ChartTitle(
+              text: 'Top paying jobs',
+              textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
+            ),
+            legend: const Legend(isVisible: true),
+            primaryXAxis: const CategoryAxis(
+              majorGridLines: MajorGridLines(width: 0),
+            ),
+            primaryYAxis: const NumericAxis(
+              // minimum: 0,
+              // maximum: 100,
+              axisLine: AxisLine(width: 0),
+              majorGridLines: MajorGridLines(width: 0),
+              majorTickLines: MajorTickLines(size: 0),
+            ),
+            series: [
+              ColumnSeries<SalaryGraphClass, String>(
+                dataSource: data,
+                xValueMapper: (SalaryGraphClass data, _) => data.jobname,
+                yValueMapper: (SalaryGraphClass data, _) => data.salary,
+                isTrackVisible: true,
+                trackColor: csGrey.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(5),
+                name: 'Salary',
+                dataLabelSettings: DataLabelSettings(
+                  isVisible: true,
+                  labelAlignment: ChartDataLabelAlignment.top,
+                  textStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+                ),
+              ),
+            ],
+          );
         }
         return Container(
           height: scrnsize.height * 0.35,
