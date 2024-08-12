@@ -1,7 +1,7 @@
 import 'package:code_pay/bindings/models/detail_graph_model.dart';
 import 'package:code_pay/common/styles/color.dart';
+import 'package:code_pay/common/styles/fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 // Views vs Applied Graph data [Lack Skills]
@@ -42,6 +42,7 @@ class _GraphRepoLackState extends State<GraphRepoLack> {
   @override
   Widget build(BuildContext context) {
     final scrnsize = MediaQuery.sizeOf(context);
+    var txt = TextFond();
     return Container(
       height: scrnsize.height * 0.4,
       width: scrnsize.width,
@@ -50,24 +51,30 @@ class _GraphRepoLackState extends State<GraphRepoLack> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: SfCartesianChart(
-        primaryXAxis: const CategoryAxis(),
+        primaryXAxis: CategoryAxis(
+          labelStyle:
+              txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+          maximumLabelWidth: 50,
+        ),
+        primaryYAxis: CategoryAxis(
+          labelStyle:
+              txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+          maximumLabelWidth: 20,
+        ),
         title: ChartTitle(
           text: 'Job Growth (Views vs Applied)',
-          textStyle: GoogleFonts.poppins(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: cGreen,
-          ),
+          alignment: ChartAlignment.near,
+          textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
         ),
         legend: const Legend(isVisible: true),
         series: [
-          LineSeries<ViewsvsApplied, DateTime>(
+          SplineSeries<ViewsvsApplied, DateTime>(
             dataSource: chartData,
             xValueMapper: (ViewsvsApplied data, _) => DateTime.parse(data.date),
             yValueMapper: (ViewsvsApplied data, _) => data.appliedgraph,
             name: 'Applied',
           ),
-          LineSeries<ViewsvsApplied, DateTime>(
+          SplineSeries<ViewsvsApplied, DateTime>(
             dataSource: chartData,
             xValueMapper: (ViewsvsApplied data, _) => DateTime.parse(data.date),
             yValueMapper: (ViewsvsApplied data, _) => data.viewsgraph,
@@ -116,6 +123,7 @@ class _GraphRepoComState extends State<GraphRepoCom> {
   @override
   Widget build(BuildContext context) {
     final scrnsize = MediaQuery.sizeOf(context);
+    var txt = TextFond();
     return Container(
       height: scrnsize.height * 0.4,
       width: scrnsize.width,
@@ -124,24 +132,30 @@ class _GraphRepoComState extends State<GraphRepoCom> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: SfCartesianChart(
-        primaryXAxis: const CategoryAxis(),
+        primaryXAxis: CategoryAxis(
+          labelStyle:
+              txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+          maximumLabelWidth: 50,
+        ),
+        primaryYAxis: CategoryAxis(
+          labelStyle:
+              txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+          maximumLabelWidth: 20,
+        ),
         title: ChartTitle(
           text: 'Job Growth (Posted vs Views)',
-          textStyle: GoogleFonts.poppins(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: cGreen,
-          ),
+          alignment: ChartAlignment.near,
+          textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
         ),
         legend: const Legend(isVisible: true),
         series: [
-          LineSeries<ViewsvsPost, DateTime>(
+          SplineSeries<ViewsvsPost, DateTime>(
             dataSource: chartData,
             xValueMapper: (ViewsvsPost data, _) => DateTime.parse(data.date),
             yValueMapper: (ViewsvsPost data, _) => data.postedgraph,
             name: 'Posted',
           ),
-          LineSeries<ViewsvsPost, DateTime>(
+          SplineSeries<ViewsvsPost, DateTime>(
             dataSource: chartData,
             xValueMapper: (ViewsvsPost data, _) => DateTime.parse(data.date),
             yValueMapper: (ViewsvsPost data, _) => data.viewsgraph,
