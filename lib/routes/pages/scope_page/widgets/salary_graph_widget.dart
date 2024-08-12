@@ -80,15 +80,17 @@ class SalaryGraphWidget extends StatelessWidget {
             legend: const Legend(isVisible: true),
             primaryXAxis: CategoryAxis(
               majorGridLines: const MajorGridLines(width: 0),
-              labelStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
-              maximumLabelWidth: 55,
+              labelStyle:
+                  txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
+              maximumLabelWidth: 50,
               autoScrollingMode: AutoScrollingMode.start,
             ),
             primaryYAxis: NumericAxis(
               axisLine: const AxisLine(width: 0),
               majorGridLines: const MajorGridLines(width: 0),
               majorTickLines: const MajorTickLines(size: 0),
-              labelStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+              labelStyle:
+                  txt.textStyle(8.0, FontWeight.w600, cBlack.withOpacity(0.6)),
               numberFormat: NumberFormat.compact(),
             ),
             series: [
@@ -97,10 +99,10 @@ class SalaryGraphWidget extends StatelessWidget {
                 xValueMapper: (SalaryGraphClass data, _) => data.jobname,
                 yValueMapper: (SalaryGraphClass data, _) => data.salary,
                 isTrackVisible: true,
-                color: cGreen,
-                trackColor: csGrey.withOpacity(0.5),
+                color: const Color(0xFF0caf60),
+                trackColor: csGrey.withOpacity(0.35),
                 borderRadius: BorderRadius.circular(5),
-                name: 'Job with salary',
+                name: 'Salary per month',
                 dataLabelSettings: DataLabelSettings(
                   isVisible: true,
                   labelAlignment: ChartDataLabelAlignment.top,

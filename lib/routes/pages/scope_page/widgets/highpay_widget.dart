@@ -68,7 +68,7 @@ class HighpayWidget extends StatelessWidget {
             h: 0.15,
             w: 0.95,
             icn: StaticData.money,
-            t1: 'High Paying',
+            t1: 'Highest Pay',
             t2: sum,
             t3: 'from last week',
             click: () {},
