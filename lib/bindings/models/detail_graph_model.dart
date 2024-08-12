@@ -1,3 +1,4 @@
+// views vs applied graph class
 class ViewsvsApplied {
   final String date;
   final int viewsgraph;
@@ -10,6 +11,7 @@ class ViewsvsApplied {
   });
 }
 
+// views vs post graph class
 class ViewsvsPost {
   final String date;
   final int viewsgraph;
@@ -19,4 +21,12 @@ class ViewsvsPost {
       {required this.date,
       required this.viewsgraph,
       required this.postedgraph});
+}
+
+// salary graph class
+class SalaryGraphClass {
+  final String jobname;
+  final int salary;
+
+  SalaryGraphClass({required this.jobname, required this.salary});
 }

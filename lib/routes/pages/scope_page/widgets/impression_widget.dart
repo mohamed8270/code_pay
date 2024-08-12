@@ -6,6 +6,7 @@ import 'package:code_pay/data/bloc/jobs_data/jobs_data_bloc.dart';
 import 'package:code_pay/routes/pages/scope_page/reusable/analytics_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ImpressionsWidget extends StatelessWidget {
   const ImpressionsWidget({super.key});
@@ -13,8 +14,9 @@ class ImpressionsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scrnsize = MediaQuery.sizeOf(context);
-    var use = ReusableClass();
+
     var txt = TextFond();
+    var use = ReusableClass();
 
     addViewsData(vl, v) {
       var viewsList = [];
@@ -34,15 +36,17 @@ class ImpressionsWidget extends StatelessWidget {
     return BlocBuilder<JobsDataBloc, JobsDataState>(
       builder: (context, state) {
         if (state is JobDataLoading) {
-          return Container(
-            height: scrnsize.height * 0.15,
-            width: scrnsize.width * 0.45,
-            decoration: BoxDecoration(
-              color: cWhite,
-              borderRadius: BorderRadius.circular(15),
+          return Shimmer.fromColors(
+            baseColor: csGrey,
+            highlightColor: cWhite,
+            child: Container(
+              height: scrnsize.height * 0.15,
+              width: scrnsize.width * 0.45,
+              decoration: BoxDecoration(
+                color: cWhite,
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
-            alignment: Alignment.center,
-            child: use.circularLoading(),
           );
         } else if (state is JobDataLoaded) {
           final sum = addViewsData(state.jobs.length, state.jobs);
@@ -76,7 +80,7 @@ class ImpressionsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           alignment: Alignment.center,
-          child: txt.textWidget('No Data', 10.0, FontWeight.w600, cBlack),
+          child: use.circularLoading(),
         );
       },
     );

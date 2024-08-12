@@ -1,6 +1,7 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
+import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/data/bloc/jobs_data/jobs_data_bloc.dart';
 import 'package:code_pay/routes/pages/scope_page/reusable/analytics_card.dart';
 import 'package:flutter/material.dart';
@@ -14,19 +15,25 @@ class HighpayWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final scrnsize = MediaQuery.sizeOf(context);
     var txt = TextFond();
+    var use = ReusableClass();
 
-    addHighPay(sl, s) {
+    String addHighPay(sl, s) {
       var payout = '1,00,000 - 1,00,00,00';
       for (int i = 0; i < sl; i++) {
         String res = s[i].jobsalary;
-        String pStr = res.replaceAll(RegExp(r'-(.*)'), '');
-        int highpay = int.parse(pStr);
-        if (highpay >= 300) {
-          payout.replaceAll('1,00,000 - 1,00,00,00', res);
+        RegExp regex = RegExp(r'-\s*([\d,]+)');
+        Match? matchs = regex.firstMatch(res);
+
+        if (matchs != null) {
+          String pStr = matchs.group(1) ?? '';
+          int highpay = int.parse(pStr.replaceAll(',', ''));
+          if (highpay >= 300) {
+            payout = res;
+          }
         }
       }
 
-      return payout;
+      return payout.toString();
     }
 
     return BlocBuilder<JobsDataBloc, JobsDataState>(
@@ -75,7 +82,7 @@ class HighpayWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           alignment: Alignment.center,
-          child: txt.textWidget('No Data', 10.0, FontWeight.w600, cBlack),
+          child: use.circularLoading(),
         );
       },
     );

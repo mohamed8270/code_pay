@@ -4,6 +4,7 @@ import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/competetive_widget.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/highpay_widget.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/impression_widget.dart';
+import 'package:code_pay/routes/pages/scope_page/widgets/salary_graph_widget.dart';
 import 'package:flutter/material.dart';
 
 class ScopePage extends StatelessWidget {
@@ -47,6 +48,8 @@ class ScopePage extends StatelessWidget {
             ),
             StaticData.gap3,
             const HighpayWidget(),
+            StaticData.gap3,
+            const SalaryGraphWidget(),
           ],
         ),
       ),

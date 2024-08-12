@@ -1,15 +1,17 @@
+import 'package:code_pay/bindings/models/detail_graph_model.dart';
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
-import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/data/bloc/jobs_data/jobs_data_bloc.dart';
-import 'package:code_pay/routes/pages/scope_page/reusable/analytics_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
-class CompetetiveWidget extends StatelessWidget {
-  const CompetetiveWidget({super.key});
+class SalaryGraphWidget extends StatelessWidget {
+  const SalaryGraphWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +19,24 @@ class CompetetiveWidget extends StatelessWidget {
     var txt = TextFond();
     var use = ReusableClass();
 
-    addApplyData(al, a) {
-      var applylist = [];
-      for (int i = 0; i < al; i++) {
-        String res = a[i].jobapplied;
-        String aStr = res.replaceAll(RegExp(r'[^0-9]'), '');
-        int apply = int.parse(aStr);
-        if (apply >= 200) {
-          applylist.add(apply);
-        }
-      }
+    // data list
+    List<SalaryGraphClass> data = [];
 
-      var sum = applylist.reduce((value, element) => value + element);
-      return sum.toString();
+    graphData(List sl, s) {
+      for (int i = 0; i < sl.length; i++) {
+        data.add(
+          SalaryGraphClass(jobname: s.jobname, salary: s.jobsalary ?? 0),
+        );
+      }
+    }
+
+    int calculateDiff(String input) {
+      String cleanedInput = input.replaceAll(' INR', '');
+      List<String> numbers = cleanedInput.split('-');
+      int num1 = int.parse(numbers[0].replaceAll(',', ''));
+      int num2 = int.parse(numbers[1].replaceAll(',', ''));
+
+      return num2 - num1;
     }
 
     return BlocBuilder<JobsDataBloc, JobsDataState>(
@@ -39,45 +46,35 @@ class CompetetiveWidget extends StatelessWidget {
             baseColor: csGrey,
             highlightColor: cWhite,
             child: Container(
-              height: scrnsize.height * 0.15,
-              width: scrnsize.width * 0.45,
+              height: scrnsize.height * 0.35,
+              width: scrnsize.width * 0.95,
               decoration: BoxDecoration(
                 color: cWhite,
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
           );
-        } else if (state is JobDataLoaded) {
-          final sum = addApplyData(state.jobs.length, state.jobs);
-          return AnalyticsCard(
-            h: 0.15,
-            w: 0.45,
-            icn: StaticData.send,
-            t1: 'Competetive',
-            t2: sum,
-            t3: 'from last week',
-            click: () {},
-          );
         } else if (state is JobDataError) {
           return Container(
-            height: scrnsize.height * 0.15,
-            width: scrnsize.width * 0.45,
+            height: scrnsize.height * 0.35,
+            width: scrnsize.width * 0.95,
             decoration: BoxDecoration(
               color: cWhite,
               borderRadius: BorderRadius.circular(15),
             ),
-            alignment: Alignment.center,
-            child: txt.textWidget(state.error, 10.0, FontWeight.w600, cBlack),
+            child: txt.textWidget(state.error, 12.0, FontWeight.w600, cBlack),
           );
+        } else if (state is JobDataLoaded) {
+          graphData(state.jobs, state.jobs);
+          return const SfCartesianChart();
         }
         return Container(
-          height: scrnsize.height * 0.15,
-          width: scrnsize.width * 0.45,
+          height: scrnsize.height * 0.35,
+          width: scrnsize.width * 0.95,
           decoration: BoxDecoration(
             color: cWhite,
             borderRadius: BorderRadius.circular(15),
           ),
-          alignment: Alignment.center,
           child: use.circularLoading(),
         );
       },
