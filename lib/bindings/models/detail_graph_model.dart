@@ -30,3 +30,11 @@ class SalaryGraphClass {
 
   SalaryGraphClass({required this.jobname, required this.salary});
 }
+
+// skills graph class
+class SkillsGraphClass {
+  final String skills;
+  final int count;
+
+  SkillsGraphClass({required this.skills, required this.count});
+}

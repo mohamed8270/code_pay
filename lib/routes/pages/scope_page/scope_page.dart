@@ -4,6 +4,7 @@ import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/competetive_widget.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/highpay_widget.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/impression_widget.dart';
+import 'package:code_pay/routes/pages/scope_page/widgets/jobskills_graph_widget.dart';
 import 'package:code_pay/routes/pages/scope_page/widgets/salary_graph_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -35,22 +36,27 @@ class ScopePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
-        child: Column(
-          children: [
-            StaticData.gap2,
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ImpressionsWidget(),
-                CompetetiveWidget(),
-              ],
-            ),
-            StaticData.gap3,
-            const HighpayWidget(),
-            StaticData.gap3,
-            const SalaryGraphWidget(),
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              StaticData.gap2,
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ImpressionsWidget(),
+                  CompetetiveWidget(),
+                ],
+              ),
+              StaticData.gap3,
+              const HighpayWidget(),
+              StaticData.gap3,
+              const SalaryGraphWidget(),
+              StaticData.gap3,
+              const JobskillsGraphWidget(),
+            ],
+          ),
         ),
       ),
     );
