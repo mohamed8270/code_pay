@@ -28,10 +28,12 @@ class JobskillsGraphWidget extends StatelessWidget {
         for (int j = 0; j < res.length; j++) {
           int count = map[res[j]] ?? 0;
           map[res[j]] = count + 1;
+          print(map[res[j]]);
+          print(res[j]);
           data.add(SkillsGraphClass(
             skills: res[j],
             count: map[res[j]] ?? 0,
-            mapper: '${map[res[j]]} %',
+            mapper: res[j],
           ));
         }
       }
@@ -44,7 +46,7 @@ class JobskillsGraphWidget extends StatelessWidget {
             baseColor: csGrey,
             highlightColor: cWhite,
             child: Container(
-              height: scrnsize.height * 0.42,
+              height: scrnsize.height * 0.45,
               width: scrnsize.width * 0.95,
               decoration: BoxDecoration(
                 color: cWhite,
@@ -54,7 +56,7 @@ class JobskillsGraphWidget extends StatelessWidget {
           );
         } else if (state is JobDataError) {
           return Container(
-            height: scrnsize.height * 0.42,
+            height: scrnsize.height * 0.45,
             width: scrnsize.width * 0.95,
             decoration: BoxDecoration(
               color: cWhite,
@@ -65,7 +67,7 @@ class JobskillsGraphWidget extends StatelessWidget {
         } else if (state is JobDataLoaded) {
           sameJobCount(state.jobs.length, state.jobs);
           return Container(
-            height: scrnsize.height * 0.42,
+            height: scrnsize.height * 0.45,
             width: scrnsize.width * 0.95,
             decoration: BoxDecoration(
               color: cWhite,
@@ -83,6 +85,12 @@ class JobskillsGraphWidget extends StatelessWidget {
                 DoughnutSeries<SkillsGraphClass, String>(
                   dataSource: data,
                   explode: true,
+                  explodeAll: true,
+                  radius: '80%',
+                  innerRadius: '30%',
+                  groupMode: CircularChartGroupMode.value,
+                  groupTo: 1,
+                  explodeGesture: ActivationMode.singleTap,
                   xValueMapper: (SkillsGraphClass data, _) => data.skills,
                   yValueMapper: (SkillsGraphClass data, _) => data.count,
                   dataLabelMapper: (SkillsGraphClass data, _) => data.mapper,
@@ -98,7 +106,7 @@ class JobskillsGraphWidget extends StatelessWidget {
           );
         }
         return Container(
-          height: scrnsize.height * 0.42,
+          height: scrnsize.height * 0.45,
           width: scrnsize.width * 0.95,
           decoration: BoxDecoration(
             color: cWhite,
