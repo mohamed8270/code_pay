@@ -6,6 +6,7 @@ import 'package:code_pay/data/bloc/jobs_data/jobs_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class JobskillsGraphWidget extends StatelessWidget {
   const JobskillsGraphWidget({super.key});
@@ -27,7 +28,11 @@ class JobskillsGraphWidget extends StatelessWidget {
         for (int j = 0; j < res.length; j++) {
           int count = map[res[j]] ?? 0;
           map[res[j]] = count + 1;
-          data.add(SkillsGraphClass(skills: res[j], count: map[res[j]] ?? 0));
+          data.add(SkillsGraphClass(
+            skills: res[j],
+            count: map[res[j]] ?? 0,
+            mapper: '${map[res[j]]} %',
+          ));
         }
       }
     }
@@ -65,6 +70,30 @@ class JobskillsGraphWidget extends StatelessWidget {
             decoration: BoxDecoration(
               color: cWhite,
               borderRadius: BorderRadius.circular(15),
+            ),
+            child: SfCircularChart(
+              backgroundColor: cWhite,
+              title: ChartTitle(
+                text: 'Demanding Skills',
+                textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
+                alignment: ChartAlignment.near,
+              ),
+              legend: const Legend(isVisible: true),
+              series: [
+                DoughnutSeries<SkillsGraphClass, String>(
+                  dataSource: data,
+                  explode: true,
+                  xValueMapper: (SkillsGraphClass data, _) => data.skills,
+                  yValueMapper: (SkillsGraphClass data, _) => data.count,
+                  dataLabelMapper: (SkillsGraphClass data, _) => data.mapper,
+                  dataLabelSettings: DataLabelSettings(
+                    isVisible: true,
+                    alignment: ChartAlignment.near,
+                    labelAlignment: ChartDataLabelAlignment.auto,
+                    textStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+                  ),
+                ),
+              ],
             ),
           );
         }

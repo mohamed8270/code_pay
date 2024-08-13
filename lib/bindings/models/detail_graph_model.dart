@@ -34,7 +34,12 @@ class SalaryGraphClass {
 // skills graph class
 class SkillsGraphClass {
   final String skills;
+  final String mapper;
   final int count;
 
-  SkillsGraphClass({required this.skills, required this.count});
+  SkillsGraphClass({
+    required this.skills,
+    required this.count,
+    required this.mapper,
+  });
 }
