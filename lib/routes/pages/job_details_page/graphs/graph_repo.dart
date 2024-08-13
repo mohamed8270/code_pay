@@ -66,7 +66,9 @@ class _GraphRepoLackState extends State<GraphRepoLack> {
           alignment: ChartAlignment.near,
           textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
         ),
-        legend: const Legend(isVisible: true),
+        legend: Legend(
+            isVisible: true,
+            textStyle: txt.textStyle(9.0, FontWeight.w600, cBlack)),
         series: [
           SplineSeries<ViewsvsApplied, DateTime>(
             dataSource: chartData,
@@ -147,7 +149,9 @@ class _GraphRepoComState extends State<GraphRepoCom> {
           alignment: ChartAlignment.near,
           textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
         ),
-        legend: const Legend(isVisible: true),
+        legend: Legend(
+            isVisible: true,
+            textStyle: txt.textStyle(9.0, FontWeight.w600, cBlack)),
         series: [
           SplineSeries<ViewsvsPost, DateTime>(
             dataSource: chartData,

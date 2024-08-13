@@ -80,7 +80,9 @@ class JobskillsGraphWidget extends StatelessWidget {
                 textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
                 alignment: ChartAlignment.near,
               ),
-              legend: const Legend(isVisible: true),
+              legend: Legend(
+                  isVisible: true,
+                  textStyle: txt.textStyle(9.0, FontWeight.w600, cBlack)),
               series: [
                 DoughnutSeries<SkillsGraphClass, String>(
                   dataSource: data,
@@ -98,7 +100,7 @@ class JobskillsGraphWidget extends StatelessWidget {
                     isVisible: true,
                     alignment: ChartAlignment.near,
                     labelAlignment: ChartDataLabelAlignment.auto,
-                    textStyle: txt.textStyle(8.0, FontWeight.w600, cBlack),
+                    textStyle: txt.textStyle(8.0, FontWeight.w600, cWhite),
                   ),
                 ),
               ],

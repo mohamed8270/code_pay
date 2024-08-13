@@ -85,7 +85,9 @@ class SalaryGraphWidget extends StatelessWidget {
                 textStyle: txt.textStyle(10.0, FontWeight.w600, cBlack),
                 alignment: ChartAlignment.near,
               ),
-              legend: const Legend(isVisible: true),
+              legend: Legend(
+                  isVisible: true,
+                  textStyle: txt.textStyle(9.0, FontWeight.w600, cBlack)),
               primaryXAxis: CategoryAxis(
                 majorGridLines: const MajorGridLines(width: 0),
                 labelStyle: txt.textStyle(
