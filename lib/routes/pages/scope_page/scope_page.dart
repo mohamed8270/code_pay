@@ -55,6 +55,7 @@ class ScopePage extends StatelessWidget {
               const SalaryGraphWidget(),
               StaticData.gap3,
               const JobskillsGraphWidget(),
+              StaticData.gap3,
             ],
           ),
         ),
