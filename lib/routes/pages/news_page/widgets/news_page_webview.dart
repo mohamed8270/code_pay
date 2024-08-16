@@ -1,4 +1,5 @@
 import 'package:code_pay/common/styles/color.dart';
+import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -49,6 +50,7 @@ class _NewsPageWebviewState extends State<NewsPageWebview> {
     return Stack(
       children: [
         WebViewWidget(controller: controller),
+        const ChoiceFilter(),
         if (loading < 100)
           Center(
             child: SizedBox(
@@ -65,6 +67,35 @@ class _NewsPageWebviewState extends State<NewsPageWebview> {
             ),
           ),
       ],
+    );
+  }
+}
+
+class ChoiceFilter extends StatelessWidget {
+  const ChoiceFilter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var scrnsize = MediaQuery.sizeOf(context);
+    var txt = TextFond();
+    return GestureDetector(
+      onTap: () {},
+      child: FittedBox(
+        fit: BoxFit.fitWidth,
+        child: Container(
+          height: scrnsize.height * 0.045,
+          decoration: BoxDecoration(
+            color: cWhite,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: txt.textWidget(
+                'Information Technology', 8.0, FontWeight.w600, cBlack),
+          ),
+        ),
+      ),
     );
   }
 }
