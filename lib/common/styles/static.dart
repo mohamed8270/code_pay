@@ -8,6 +8,8 @@ class StaticData {
   static String caseFilled = 'assets/icons/case-filled.svg';
   static String scopeOutline = 'assets/icons/scope-outline.svg';
   static String scopeFilled = 'assets/icons/scope-filled.svg';
+  static String bookOutline = 'assets/icons/book-outline.svg';
+  static String bookFilled = 'assets/icons/book-filled.svg';
   static String settingOutline = 'assets/icons/settings-outline.svg';
   static String settingFilled = 'assets/icons/settings-filled.svg';
 

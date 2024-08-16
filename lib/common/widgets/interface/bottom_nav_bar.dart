@@ -63,6 +63,11 @@ class BottomNavBar extends StatelessWidget {
                 label: 'Scope',
               ),
               BottomNavigationBarItem(
+                icon: reusable.svgIconOutline(StaticData.bookOutline),
+                activeIcon: reusable.svgIconFilled(StaticData.bookFilled),
+                label: 'News',
+              ),
+              BottomNavigationBarItem(
                 icon: reusable.svgIconOutline(StaticData.settingOutline),
                 activeIcon: reusable.svgIconFilled(StaticData.settingFilled),
                 label: 'Settings',
