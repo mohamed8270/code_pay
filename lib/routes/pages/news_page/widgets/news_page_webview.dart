@@ -34,7 +34,7 @@ class _NewsPageWebviewState extends State<NewsPageWebview> {
               loading = progress;
             });
           },
-          onPageFinished: (url) {
+          onPageFinished: (url) async {
             setState(() {
               loading = 100;
             });
