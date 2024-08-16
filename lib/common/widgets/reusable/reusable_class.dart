@@ -18,8 +18,8 @@ class ReusableClass extends GetxController {
   Widget svgIconFilled(icon) {
     return SvgPicture.asset(
       icon,
-      height: 24,
-      width: 24,
+      height: 25,
+      width: 25,
       colorFilter: const ColorFilter.mode(cGreen, BlendMode.srcIn),
     );
   }
