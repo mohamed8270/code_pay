@@ -28,8 +28,8 @@ class JobskillsGraphWidget extends StatelessWidget {
         for (int j = 0; j < res.length; j++) {
           int count = map[res[j]] ?? 0;
           map[res[j]] = count + 1;
-          print(map[res[j]]);
-          print(res[j]);
+          // print(map[res[j]]);
+          // print(res[j]);
           data.add(SkillsGraphClass(
             skills: res[j],
             count: map[res[j]] ?? 0,

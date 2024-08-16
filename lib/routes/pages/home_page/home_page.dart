@@ -5,6 +5,7 @@ import 'package:code_pay/common/widgets/interface/custom_app_bar.dart';
 import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/reusable/user_input_section.dart';
 import 'package:code_pay/data/repository/api_repository.dart';
+import 'package:code_pay/routes/pages/news_page/widgets/news_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -74,6 +75,8 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            StaticData.gap2,
+            const NewsCard(),
           ],
         ),
       ),
