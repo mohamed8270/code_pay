@@ -1,3 +1,4 @@
+import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -53,6 +54,14 @@ class _NewsPageWebviewState extends State<NewsPageWebview> {
             child: SizedBox(
               height: 18,
               width: 18,
+              child: CircularProgressIndicator(
+                value: loading / 100,
+                valueColor: const AlwaysStoppedAnimation<Color>(cGreen),
+                color: ccGrey,
+                strokeAlign: 3,
+                strokeWidth: 3,
+                strokeCap: StrokeCap.round,
+              ),
             ),
           ),
       ],
