@@ -1,16 +1,10 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
-import 'package:code_pay/routes/pages/news_page/widgets/news_page_webview.dart';
 import 'package:flutter/material.dart';
 
-class NewsPage extends StatefulWidget {
+class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
 
-  @override
-  State<NewsPage> createState() => _NewsPageState();
-}
-
-class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     var txt = TextFond();
@@ -34,7 +28,6 @@ class _NewsPageState extends State<NewsPage> {
           ),
         ),
       ),
-      body: const NewsPageWebview(weburl: 'https://www.technewsworld.com/'),
     );
   }
 }
