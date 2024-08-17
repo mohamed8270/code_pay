@@ -1,5 +1,6 @@
 import 'package:code_pay/bindings/models/jobs_data_model.dart';
 import 'package:code_pay/bindings/models/jobs_details_model.dart';
+import 'package:code_pay/bindings/models/news_data_model.dart';
 import 'package:code_pay/data/service/http_client.dart';
 import 'package:get/get.dart';
 
@@ -19,5 +20,10 @@ class ApiRepository extends GetxController {
   // scrape job data
   Future<void> scrapeJobs(url) {
     return fetchJobs.scrapeJobData(url);
+  }
+
+  // news data
+  Future<List<NewsModel>> newsData() {
+    return fetchJobs.fetchNewsData();
   }
 }
