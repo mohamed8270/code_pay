@@ -39,10 +39,12 @@ class NewsPage extends StatelessWidget {
           if (state is NewsDataLoading) {
             return use.circularLoading();
           } else if (state is NewsDataError) {
+            return NewsCardError(p: state.error);
           } else if (state is NewsDataLoaded) {
             int count = state.news.reversed.length;
             return ListView.builder(
               itemCount: count,
+              scrollDirection: Axis.vertical,
               itemBuilder: (context, i) {
                 List<NewsModel> data = state.news;
                 return NewsCardRepo(

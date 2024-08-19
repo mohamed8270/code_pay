@@ -76,7 +76,7 @@ class NewsCardError extends StatelessWidget {
           ),
         ),
         StaticData.gap2,
-        txt.textWidget('Oops', 14.0, FontWeight.w600, cBlack),
+        txt.textWidget('Oops', 16.0, FontWeight.w600, cBlack),
         StaticData.gap1,
         txt.textWidget(p, 14.0, FontWeight.w600, cBlack),
       ],
