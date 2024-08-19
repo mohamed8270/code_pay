@@ -1,6 +1,8 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
+import 'package:code_pay/data/bloc/news_data/news_data_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
@@ -27,6 +29,11 @@ class NewsPage extends StatelessWidget {
                 txt.textWidget('Tech News  📜', 13.0, FontWeight.w600, cBlack),
           ),
         ),
+      ),
+      body: BlocBuilder<NewsDataBloc, NewsDataState>(
+        builder: (context, state) {
+          return ListView();
+        },
       ),
     );
   }
