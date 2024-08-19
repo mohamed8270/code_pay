@@ -15,7 +15,7 @@ class NewsPage extends StatelessWidget {
     var txt = TextFond();
     var use = ReusableClass();
     return Scaffold(
-      backgroundColor: cbGrey,
+      backgroundColor: cWhite,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: Container(

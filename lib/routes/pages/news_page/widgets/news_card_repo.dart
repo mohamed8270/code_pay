@@ -60,28 +60,30 @@ class NewsCardError extends StatelessWidget {
     var scrnsize = MediaQuery.sizeOf(context);
     var txt = TextFond();
     String img =
-        'https://img.freepik.com/free-vector/404-error-isometric-illustration_23-2148509538.jpg';
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          height: scrnsize.height * 0.3,
-          width: scrnsize.width * 0.3,
-          decoration: BoxDecoration(
-            color: csGrey,
-            image: DecorationImage(
-              image: NetworkImage(img),
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.high,
+        'https://img.freepik.com/free-vector/hand-drawn-no-data-concept_52683-127823.jpg';
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: scrnsize.height * 0.2,
+            width: scrnsize.width * 0.6,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              image: DecorationImage(
+                image: NetworkImage(img),
+                fit: BoxFit.scaleDown,
+                filterQuality: FilterQuality.high,
+              ),
             ),
           ),
-        ),
-        StaticData.gap2,
-        txt.textWidget('Oops', 16.0, FontWeight.w600, cBlack),
-        StaticData.gap1,
-        txt.textWidget(p, 14.0, FontWeight.w600, cBlack),
-      ],
+          StaticData.gap2,
+          txt.textWidget('Oops', 16.0, FontWeight.w600, cBlack),
+          StaticData.gap1,
+          txt.textWidget(p, 10.0, FontWeight.w500, cBlack),
+        ],
+      ),
     );
   }
 }
