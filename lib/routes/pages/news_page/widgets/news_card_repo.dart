@@ -33,6 +33,8 @@ class NewsCardRepo extends StatelessWidget {
         ),
         StaticData.gap2,
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
               width: scrnsize.width * 0.65,
