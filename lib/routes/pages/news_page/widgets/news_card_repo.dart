@@ -57,7 +57,8 @@ class NewsCardError extends StatelessWidget {
   Widget build(BuildContext context) {
     var scrnsize = MediaQuery.sizeOf(context);
     var txt = TextFond();
-    String img = '';
+    String img =
+        'https://img.freepik.com/free-vector/404-error-isometric-illustration_23-2148509538.jpg';
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
