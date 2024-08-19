@@ -1,4 +1,5 @@
 part of 'news_data_bloc.dart';
 
-@immutable
-sealed class NewsDataEvent {}
+abstract class NewsDataEvent {}
+
+class FecthNewsDataEvent extends NewsDataEvent {}
