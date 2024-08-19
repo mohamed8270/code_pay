@@ -1,4 +1,3 @@
-import 'package:code_pay/bindings/models/news_data_model.dart';
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
@@ -46,11 +45,11 @@ class NewsPage extends StatelessWidget {
               itemCount: count,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, i) {
-                List<NewsModel> data = state.news;
+                final data = state.news[i];
                 return NewsCardRepo(
-                  url: data[i].urlToImage,
-                  h1: data[i].title,
-                  p1: data[i].author,
+                  url: data.urlToImage,
+                  h1: data.title,
+                  p1: data.author,
                 );
               },
             );
