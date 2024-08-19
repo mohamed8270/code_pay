@@ -75,7 +75,7 @@ class HttpClientFetch extends GetxController {
 
     try {
       http.Response res = await http.get(Uri.tryParse(url)!);
-      List<dynamic> listres = jsonDecode(res.body);
+      Map<String, dynamic> listres = jsonDecode(res.body);
       List<NewsModel> output =
           listres.map((dynamic e) => NewsModel.fromJson(e)).toList();
       return output;
