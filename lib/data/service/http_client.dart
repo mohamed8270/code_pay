@@ -84,7 +84,7 @@ class HttpClientFetch extends GetxController {
         throw Exception('InternaL Server Error');
       }
     } catch (e) {
-      throw Exception('An unexcepted error occured!');
+      throw Exception('An unexcepted error occured!: $e');
     }
   }
 }

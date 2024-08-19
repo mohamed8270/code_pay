@@ -81,7 +81,8 @@ class NewsCardError extends StatelessWidget {
           StaticData.gap2,
           txt.textWidget('Oops', 16.0, FontWeight.w600, cBlack),
           StaticData.gap1,
-          txt.textWidget(p, 10.0, FontWeight.w500, cBlack),
+          txt.textWidget(p, 10.0, FontWeight.w500, cBlack, TextOverflow.visible,
+              1.5, TextAlign.center),
         ],
       ),
     );
