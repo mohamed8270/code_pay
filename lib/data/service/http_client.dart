@@ -72,9 +72,11 @@ class HttpClientFetch extends GetxController {
   // fetch news data
   Future<List<NewsModel>> fetchNewsData() async {
     String url = dotenv.env['NEWS_URL'].toString();
+    String newsurl = dotenv.env['NEWS_DATA_URL'].toString();
 
     try {
-      http.Response res = await http.get(Uri.tryParse(url)!);
+      await http.get(Uri.tryParse(url)!);
+      http.Response res = await http.get(Uri.tryParse(newsurl)!);
       List<dynamic> listres = jsonDecode(res.body);
       List<NewsModel> output =
           listres.map((dynamic e) => NewsModel.fromJson(e)).toList();
