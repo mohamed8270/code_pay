@@ -75,9 +75,11 @@ class HttpClientFetch extends GetxController {
 
     try {
       http.Response res = await http.get(Uri.tryParse(url)!);
-      List<dynamic> listres = jsonDecode(res.body);
+      Map<String, dynamic> listres = jsonDecode(res.body);
+      print(listres);
+      List<dynamic> out = listres[''];
       List<NewsModel> output =
-          listres.map((dynamic e) => NewsModel.fromJson(e)).toList();
+          out.map((dynamic e) => NewsModel.fromJson(e)).toList();
       return output;
     } catch (e) {
       throw Exception('An unexcepted error occured! $e');
