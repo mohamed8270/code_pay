@@ -7,36 +7,9 @@ class NewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: cWhite,
       body: NewsPageWebview(weburl: 'https://techcrunch.com/'),
     );
   }
 }
-
-
-// BlocBuilder<NewsDataBloc, NewsDataState>(
-//         builder: (context, state) {
-//           if (state is NewsDataLoading) {
-//             return use.circularLoading();
-//           } else if (state is NewsDataError) {
-//             return NewsCardError(p: state.error);
-//           } else if (state is NewsDataLoaded) {
-//             int count = state.news.reversed.length;
-//             return ListView.builder(
-//               itemCount: count,
-//               scrollDirection: Axis.vertical,
-//               shrinkWrap: true,
-//               itemBuilder: (context, i) {
-//                 final data = state.news[i];
-//                 return NewsCardRepo(
-//                   url: data.urlToImage,
-//                   h1: data.title,
-//                   p1: data.author,
-//                 );
-//               },
-//             );
-//           }
-//           return use.circularLoading();
-//         },
-//       ),
