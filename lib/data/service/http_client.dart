@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:code_pay/bindings/models/jobs_data_model.dart';
 import 'package:code_pay/bindings/models/jobs_details_model.dart';
-import 'package:code_pay/bindings/models/news_data_model.dart';
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/widgets/interface/status_view.dart';
 import 'package:flutter/material.dart';
@@ -66,23 +65,6 @@ class HttpClientFetch extends GetxController {
       }
     } catch (e) {
       const SnackBarRepo(txt: 'An error occured in scraping', bg: Colors.red);
-    }
-  }
-
-  // fetch news data
-  Future<List<NewsModel>> fetchNewsData() async {
-    String url = dotenv.env['NEWS_URL'].toString();
-    String newsurl = dotenv.env['NEWS_DATA_URL'].toString();
-
-    try {
-      await http.get(Uri.tryParse(url)!);
-      http.Response res = await http.get(Uri.tryParse(newsurl)!);
-      List<dynamic> listres = jsonDecode(res.body);
-      List<NewsModel> output =
-          listres.map((dynamic e) => NewsModel.fromJson(e)).toList();
-      return output;
-    } catch (e) {
-      throw Exception('An unexcepted error occured! $e');
     }
   }
 }
