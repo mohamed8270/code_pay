@@ -53,7 +53,7 @@ class _NewsPageWebviewState extends State<NewsPageWebview> {
           LinearProgressIndicator(
             value: loading / 100,
             valueColor: const AlwaysStoppedAnimation<Color>(cGreen),
-            color: cWhite,
+            color: Colors.transparent,
             minHeight: 3.5,
             borderRadius: BorderRadius.circular(5),
           ),
