@@ -50,19 +50,12 @@ class _NewsPageWebviewState extends State<NewsPageWebview> {
       children: [
         WebViewWidget(controller: controller),
         if (loading < 100)
-          Center(
-            child: SizedBox(
-              height: 18,
-              width: 18,
-              child: CircularProgressIndicator(
-                value: loading / 100,
-                valueColor: const AlwaysStoppedAnimation<Color>(cGreen),
-                color: ccGrey,
-                strokeAlign: 3,
-                strokeWidth: 3,
-                strokeCap: StrokeCap.round,
-              ),
-            ),
+          LinearProgressIndicator(
+            value: loading / 100,
+            valueColor: const AlwaysStoppedAnimation<Color>(cGreen),
+            color: cWhite,
+            minHeight: 3.5,
+            borderRadius: BorderRadius.circular(5),
           ),
       ],
     );
