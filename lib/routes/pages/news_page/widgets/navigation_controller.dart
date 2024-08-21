@@ -16,29 +16,28 @@ class NavigationControlls extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         GestureDetector(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: use.svgIcon(StaticData.arrowBack, 22.0, 22.0, cBlack),
-          ),
+          onTap: () async {
+            if (await controller.canGoBack()) {
+              await controller.goBack();
+            }
+          },
+          child: use.svgIcon(StaticData.arrowBack, 24.0, 24.0, cBlack),
         ),
-        StaticData.gap2,
+        StaticData.gap4,
         GestureDetector(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: use.svgIcon(StaticData.arrowGo, 22.0, 22.0, cBlack),
-          ),
+          onTap: () async {
+            if (await controller.canGoForward()) {
+              await controller.goForward();
+            }
+          },
+          child: use.svgIcon(StaticData.arrowGo, 24.0, 24.0, cBlack),
         ),
-        StaticData.gap2,
+        StaticData.gap4,
         GestureDetector(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: use.svgIcon(StaticData.reload, 20.0, 20.0, cBlack),
-          ),
+          onTap: () => controller.reload(),
+          child: use.svgIcon(StaticData.reload, 22.0, 22.0, cBlack),
         ),
-        StaticData.gap2,
+        StaticData.gap4,
       ],
     );
   }
