@@ -88,7 +88,7 @@ class _NewsPageState extends State<NewsPage> {
                 txt.textWidget('Code Pay  ✨', 13.0, FontWeight.w600, cBlack),
                 StaticData.gap1,
                 SizedBox(
-                  width: 110,
+                  width: 120,
                   child: txt.textWidget(
                       weburl, 10.0, FontWeight.w400, cBlack, TextOverflow.clip),
                 ),
