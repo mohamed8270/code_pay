@@ -29,7 +29,7 @@ class NavigationControlls extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: RotationTransition(
                 turns: const AlwaysStoppedAnimation(180 / 360),
-                child: use.svgIcon(StaticData.arrowBack, 18.0, 18.0, cBlack)),
+                child: use.svgIcon(StaticData.arrowGo, 18.0, 18.0, cBlack)),
           ),
         ),
         StaticData.gap2,

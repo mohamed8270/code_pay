@@ -38,9 +38,9 @@ class StaticData {
   static String bag = 'https://www.svgrepo.com/show/533409/briefcase-alt-1.svg';
   static String quit = 'https://www.svgrepo.com/show/510355/x.svg';
   static String arrowBack =
-      'https://www.svgrepo.com/show/310929/ios-arrow-left.svg';
+      'https://www.svgrepo.com/show/305142/arrow-ios-back.svg';
   static String arrowGo =
-      'https://www.svgrepo.com/show/310648/chevron-right.svg';
+      'https://www.svgrepo.com/show/305143/arrow-ios-forward.svg';
   static String reload =
       'https://www.svgrepo.com/show/310452/arrow-clockwise.svg';
 
