@@ -106,7 +106,7 @@ class _NewsPageState extends State<NewsPage> {
               value: loading / 100,
               valueColor: const AlwaysStoppedAnimation<Color>(cGreen),
               color: Colors.transparent,
-              minHeight: 3.5,
+              minHeight: 2,
               borderRadius: BorderRadius.circular(5),
             ),
         ],
