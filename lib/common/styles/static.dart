@@ -37,6 +37,12 @@ class StaticData {
   static String menu = 'https://www.svgrepo.com/show/522595/menu-2.svg';
   static String bag = 'https://www.svgrepo.com/show/533409/briefcase-alt-1.svg';
   static String quit = 'https://www.svgrepo.com/show/510355/x.svg';
+  static String arrowBack =
+      'https://www.svgrepo.com/show/310929/ios-arrow-left.svg';
+  static String arrowGo =
+      'https://www.svgrepo.com/show/310648/chevron-right.svg';
+  static String reload =
+      'https://www.svgrepo.com/show/310452/arrow-clockwise.svg';
 
   // text
   static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';
