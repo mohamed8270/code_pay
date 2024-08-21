@@ -43,6 +43,12 @@ class _NewsPageState extends State<NewsPage> {
             setState(() {
               loading = 100;
             });
+            controller.runJavaScript('''
+            document.querySelector('header').style.display='none';
+            document.querySelector('.wp-block-group').style.display='none';
+            document.getElementById('us-tc-main-mw-btm-center').style.display='none';
+            document.querySelector('footer').style.display='none';
+          ''');
           },
           onNavigationRequest: (request) {
             final host = Uri.parse(request.url).host;
