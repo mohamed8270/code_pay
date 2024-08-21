@@ -1,3 +1,4 @@
+import 'package:code_pay/bindings/controllers/connectivity_check.dart';
 import 'package:code_pay/data/repository/api_repository.dart';
 import 'package:code_pay/routes/wrapper/wrapper.dart';
 import 'package:code_pay/utils/device/system_chrome.dart';
@@ -7,7 +8,9 @@ import 'package:get/get.dart';
 
 Future<void> main() async {
   await dotenv.load();
+  WidgetsFlutterBinding.ensureInitialized();
   Get.put(ApiRepository());
+  Get.put(ConnectivityCheck());
   SystemChromeMethod.systemUImode();
   SystemChromeMethod.systemUIoverlay();
   runApp(const MyApp());

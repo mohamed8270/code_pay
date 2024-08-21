@@ -49,4 +49,14 @@ class ReusableClass extends GetxController {
       ),
     );
   }
+
+  // svg offline
+  Widget svgOffline(icn, h, w, c) {
+    return SvgPicture.asset(
+      icn,
+      height: h,
+      width: w,
+      colorFilter: ColorFilter.mode(c, BlendMode.srcIn),
+    );
+  }
 }

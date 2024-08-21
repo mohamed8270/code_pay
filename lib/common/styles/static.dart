@@ -12,6 +12,7 @@ class StaticData {
   static String bookFilled = 'assets/icons/book-filled.svg';
   static String settingOutline = 'assets/icons/settings-outline.svg';
   static String settingFilled = 'assets/icons/settings-filled.svg';
+  static String internet = 'assets/icons/internet.svg';
 
   // icons network
   static String notify =
