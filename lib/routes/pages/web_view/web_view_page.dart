@@ -2,6 +2,7 @@ import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
+import 'package:code_pay/routes/pages/news_page/widgets/navigation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -66,8 +67,8 @@ class _WebViewPageState extends State<WebViewPage> {
             leading: GestureDetector(
               onTap: () => Get.back(),
               child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: icn.svgIcon(StaticData.quit, 11.0, 11.0, cGreen),
+                padding: const EdgeInsets.all(17),
+                child: icn.svgIcon(StaticData.quit, 11.0, 11.0, cBlack),
               ),
             ),
             title: Column(
@@ -83,6 +84,7 @@ class _WebViewPageState extends State<WebViewPage> {
                 ),
               ],
             ),
+            actions: [NavigationControlls(controller: controller)],
           ),
         ),
       ),
