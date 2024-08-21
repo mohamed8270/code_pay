@@ -18,8 +18,16 @@ class NavigationControlls extends StatelessWidget {
         GestureDetector(
           onTap: () {},
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: use.svgIcon(StaticData.arrowBack, 18.0, 18.0, cBlack),
+            padding: const EdgeInsets.all(5),
+            child: use.svgIcon(StaticData.arrowBack, 22.0, 22.0, cBlack),
+          ),
+        ),
+        StaticData.gap2,
+        GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(5),
+            child: use.svgIcon(StaticData.arrowGo, 22.0, 22.0, cBlack),
           ),
         ),
         StaticData.gap2,
@@ -27,17 +35,7 @@ class NavigationControlls extends StatelessWidget {
           onTap: () {},
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RotationTransition(
-                turns: const AlwaysStoppedAnimation(180 / 360),
-                child: use.svgIcon(StaticData.arrowGo, 18.0, 18.0, cBlack)),
-          ),
-        ),
-        StaticData.gap2,
-        GestureDetector(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: use.svgIcon(StaticData.reload, 18.0, 18.0, cBlack),
+            child: use.svgIcon(StaticData.reload, 20.0, 20.0, cBlack),
           ),
         ),
         StaticData.gap2,
