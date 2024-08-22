@@ -1,8 +1,10 @@
 import 'package:code_pay/common/styles/color.dart';
 import 'package:code_pay/common/styles/fonts.dart';
 import 'package:code_pay/common/styles/static.dart';
+import 'package:code_pay/common/widgets/interface/status_view.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
 import 'package:code_pay/common/widgets/reusable/user_input_section.dart';
+import 'package:code_pay/data/service/http_client.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +13,7 @@ class EmailDialogueBox {
     var scrnsize = MediaQuery.sizeOf(context);
     var use = ReusableClass();
     var txt = TextFond();
+    var httpClient = HttpClientFetch();
     var emailController = TextEditingController();
     String t1 = 'Dont miss the next big opportunity to be placed!';
     String t2 = 'Never miss a bargain with our timely alerts!';
@@ -55,7 +58,16 @@ class EmailDialogueBox {
           ),
           actions: [
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                if (emailController.text.isEmpty) {
+                  const SnackBarRepo(
+                      txt: 'Please enter email!', bg: Colors.red);
+                } else if (emailController.text.isNotEmpty) {
+                  String email = emailController.text;
+                  httpClient.insertEmail(id, email);
+                  Get.back();
+                }
+              },
               child: Container(
                 height: scrnsize.height * 0.055,
                 width: scrnsize.width,
