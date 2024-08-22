@@ -27,16 +27,17 @@ class EmailDialogueBox {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              use.svgIcon(StaticData.logo, 38.0, 38.0, cGreen),
+              use.svgIcon(StaticData.logo, 28.0, 28.0, cGreen),
               GestureDetector(
                 onTap: () => Get.back(),
-                child: use.svgIcon(StaticData.quit, 38.0, 38.0, cBlack),
+                child: use.svgIcon(StaticData.quit, 20.0, 20.0, cBlack),
               ),
             ],
           ),
           content: SizedBox(
             height: scrnsize.height * 0.21,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 txt.textWidget(t1, 14.0, FontWeight.w600, cBlack),
                 StaticData.gap2,
@@ -48,7 +49,7 @@ class EmailDialogueBox {
                   text: 'mail.com',
                   icn: StaticData.mail,
                   type: TextInputType.emailAddress,
-                  height_: 0.05,
+                  height_: 0.058,
                   width_: 0.95,
                   controller: emailController,
                   r: 5.0,
