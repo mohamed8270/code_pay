@@ -71,6 +71,17 @@ app.get('/get/job/details/:id', async (req, res) => {
     }
 });
 
+// add user email to product
+app.post('/jobs/email', async (req, res) => {
+    const jobId = req.body.jobId;
+    const email = req.body.email;
+    try {
+        const sendEmail = await 
+    } catch (error) {
+        
+    }
+});
+
 // listener
 app.listen(port, () => {
     console.log(`App running on port ${port}`);

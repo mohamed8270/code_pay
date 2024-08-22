@@ -60,4 +60,6 @@ const scrapeAndStoreJobData = async (joburl) => {
     }
 }
 
+
+
 module.exports = {scrapeAndStoreJobData};
