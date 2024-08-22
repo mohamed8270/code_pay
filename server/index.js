@@ -7,7 +7,7 @@ const connectToDB = require('./mongoose');
 require('dotenv').config();
 
 //  imports
-const {scrapeAndStoreJobData} = require('./lib/actions');
+const {scrapeAndStoreJobData, addUserEmailToJobs} = require('./lib/actions');
 const scrapeJobData = require('./lib/scraper');
 const {extractWhiteSpace} = require('./lib/utils/utils');
 
@@ -76,9 +76,11 @@ app.post('/jobs/email', async (req, res) => {
     const jobId = req.body.jobId;
     const email = req.body.email;
     try {
-        const sendEmail = await 
+        const sendEmail = await addUserEmailToJobs(jobId, email);
+        console.log(sendEmail);
+        res.status(200).json({message: "Mail send successfully"});
     } catch (error) {
-        
+        res.status(500).json({message: "An error occured while sending mail", error: error.message});
     }
 });
 
