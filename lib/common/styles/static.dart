@@ -15,6 +15,7 @@ class StaticData {
   static String internet = 'assets/icons/internet.svg';
 
   // icons network
+  static String logo = 'https://www.svgrepo.com/show/350363/leaf.svg';
   static String notify =
       'https://www.svgrepo.com/show/497362/notification-bing.svg';
   static String back = 'https://www.svgrepo.com/show/533620/arrow-sm-left.svg';
@@ -44,6 +45,7 @@ class StaticData {
       'https://www.svgrepo.com/show/305143/arrow-ios-forward.svg';
   static String reload =
       'https://www.svgrepo.com/show/310452/arrow-clockwise.svg';
+  static String mail = 'https://www.svgrepo.com/show/379142/email-alt.svg';
 
   // text
   static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';

@@ -24,10 +24,10 @@ class EmailDialogueBox {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              use.svgIcon('', 38.0, 38.0, cBlack),
+              use.svgIcon(StaticData.logo, 38.0, 38.0, cGreen),
               GestureDetector(
                 onTap: () => Get.back(),
-                child: use.svgIcon('', 38.0, 38.0, cBlack),
+                child: use.svgIcon(StaticData.quit, 38.0, 38.0, cBlack),
               ),
             ],
           ),
@@ -42,8 +42,8 @@ class EmailDialogueBox {
                 txt.textWidget(t3, 8.0, FontWeight.w500, cBlack),
                 StaticData.gap1,
                 UserInputSection(
-                  text: '@mail.com',
-                  icn: '',
+                  text: 'mail.com',
+                  icn: StaticData.mail,
                   type: TextInputType.emailAddress,
                   height_: 0.05,
                   width_: 0.95,
