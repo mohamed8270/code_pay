@@ -67,4 +67,22 @@ class HttpClientFetch extends GetxController {
       const SnackBarRepo(txt: 'An error occured in scraping', bg: Colors.red);
     }
   }
+
+  // add user to jobs by email
+  Future<void> insertEmail(String jobId, String email) async {
+    String emailUrl = dotenv.env['JOBS_EMAIL_SEND'].toString();
+    http.Response res = await http.post(
+      Uri.tryParse(emailUrl)!,
+      body: jsonEncode({'jobId': jobId, 'email': email}),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (res.statusCode == 200) {
+      const SnackBarRepo(txt: 'User mail added successfully!', bg: cGreen);
+    } else if (res.statusCode == 500) {
+      const SnackBarRepo(txt: 'Error adding user email!', bg: Colors.red);
+    } else {
+      throw Exception('Unexpected error occurred!');
+    }
+  }
 }
