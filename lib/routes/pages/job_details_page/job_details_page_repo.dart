@@ -5,6 +5,7 @@ import 'package:code_pay/common/widgets/interface/custom_button.dart';
 import 'package:code_pay/common/widgets/interface/popular_category.dart';
 import 'package:code_pay/common/widgets/reusable/job_func.dart';
 import 'package:code_pay/common/widgets/reusable/reusable_class.dart';
+import 'package:code_pay/routes/pages/job_details_page/email_dialogue_box.dart';
 import 'package:code_pay/routes/pages/job_details_page/graphs/graph_repo.dart';
 import 'package:code_pay/routes/pages/jobs_page/reusable/jobs_data_card.dart';
 import 'package:code_pay/routes/pages/web_view/web_view_page.dart';
@@ -17,6 +18,7 @@ import 'package:marquee/marquee.dart';
 class JobDetailsPageRepo extends StatelessWidget {
   const JobDetailsPageRepo({
     super.key,
+    required this.id,
     required this.jobname,
     required this.jobplace,
     required this.jobcompany,
@@ -41,6 +43,7 @@ class JobDetailsPageRepo extends StatelessWidget {
     required this.viewsHistory,
   });
 
+  final String id;
   final String jobname;
   final String jobplace;
   final String jobcompany;
@@ -70,6 +73,7 @@ class JobDetailsPageRepo extends StatelessWidget {
     var text = TextFond();
     // reusable
     var reusable = ReusableClass();
+    var emailClass = EmailDialogueBox();
 
     final screenSize = MediaQuery.sizeOf(context);
     return Padding(
@@ -104,7 +108,7 @@ class JobDetailsPageRepo extends StatelessWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () => emailClass.mailDialgoueBox(context, id),
                 child: Container(
                   height: screenSize.height * 0.05,
                   width: screenSize.width * 0.3,

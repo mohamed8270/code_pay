@@ -60,6 +60,7 @@ class JobsDetailsPage extends StatelessWidget {
             } else if (state is JobsDetailsBlocLoaded) {
               final output = state.jobsdetails;
               return JobDetailsPageRepo(
+                id: output.id.toString(),
                 jobname: output.jobname.toString(),
                 jobplace: output.jobplace.toString(),
                 jobcompany: output.jobcompany.toString(),
