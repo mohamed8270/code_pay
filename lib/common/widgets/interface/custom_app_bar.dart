@@ -34,8 +34,22 @@ class CustomAppBar extends StatelessWidget {
         title: txt.textWidget(
             'Your perfect job here', 12.0, FontWeight.w600, cBlack),
         actions: [
-          icn.svgIcon(StaticData.notify, 24.0, 24.0, cBlack),
-          StaticData.gap3,
+          Stack(children: [
+            IconButton(
+              onPressed: () {},
+              icon: icn.svgIcon(StaticData.notify, 24.0, 24.0, cBlack),
+            ),
+            Positioned(
+              top: 6.5,
+              right: 6.5,
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                decoration: const BoxDecoration(
+                    color: Colors.red, shape: BoxShape.circle),
+              ),
+            ),
+          ]),
+          StaticData.gap2,
           CircleAvatar(
             radius: 13,
             backgroundImage: NetworkImage(url),
