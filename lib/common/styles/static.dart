@@ -50,9 +50,11 @@ class StaticData {
 
   // text
   static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';
-  static String heroText2 = ' Code Pay';
+  static String name = ' Code Pay';
   static String heroText3 =
       'Discover the hottest jobs in your industry or desired field. Jobbo analyzes job postings across various platforms to identify the most sought-after positions and equip you with the knowledge to make informed career choices.';
+  static String splashDes =
+      'Code Pay is an application that provides detailed insights about jobs and scopes, Thus help them to achieve their dream job';
 
   // gap
   static Gap gap1 = const Gap(5);

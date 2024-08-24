@@ -87,6 +87,7 @@ class _NewsPageState extends State<NewsPage> {
           child: AppBar(
             backgroundColor: cWhite,
             scrolledUnderElevation: 0,
+            automaticallyImplyLeading: false,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,

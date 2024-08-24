@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                 style: txt.textStyle(40.0, FontWeight.w800, cBlack, 1.4),
                 children: [
                   TextSpan(
-                    text: StaticData.heroText2,
+                    text: StaticData.name,
                     style: txt.textStyle(40.0, FontWeight.w800, cGreen, 1.4),
                   ),
                 ],
