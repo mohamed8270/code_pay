@@ -46,6 +46,7 @@ class StaticData {
   static String reload =
       'https://www.svgrepo.com/show/310452/arrow-clockwise.svg';
   static String mail = 'https://www.svgrepo.com/show/379142/email-alt.svg';
+  static String google = 'https://www.svgrepo.com/show/448227/google.svg';
 
   // text
   static String heroText1 = 'Uncover Your Dream Job, Analyze Trends with';
