@@ -53,6 +53,7 @@ class JobsPage extends StatelessWidget {
               backgroundColor: cWhite,
               elevation: 0,
               scrolledUnderElevation: 0,
+              automaticallyImplyLeading: false,
               toolbarHeight: scrnSize.height * 0.085,
               flexibleSpace: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

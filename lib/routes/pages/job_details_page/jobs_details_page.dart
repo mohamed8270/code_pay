@@ -37,6 +37,7 @@ class JobsDetailsPage extends StatelessWidget {
           child: AppBar(
             backgroundColor: cWhite,
             scrolledUnderElevation: 0,
+            automaticallyImplyLeading: false,
             leading: GestureDetector(
               onTap: () => Get.back(),
               child: Padding(

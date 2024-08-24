@@ -26,6 +26,7 @@ class CustomAppBar extends StatelessWidget {
         elevation: 0,
         backgroundColor: cWhite,
         centerTitle: false,
+        automaticallyImplyLeading: false,
         leading: Padding(
           padding: const EdgeInsets.all(13),
           child: icn.svgIcon(StaticData.menu, 12.0, 12.0, cGreen),
