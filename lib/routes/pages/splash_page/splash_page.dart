@@ -48,8 +48,17 @@ class _SplashPageState extends State<SplashPage> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: txt.textWidget(
-                  StaticData.splashDes, 12.0, FontWeight.w500, cWhite),
+              child: SizedBox(
+                width: scrnsize.width * 0.85,
+                child: txt.textWidget(
+                    StaticData.splashDes,
+                    12.0,
+                    FontWeight.w500,
+                    cWhite,
+                    TextOverflow.visible,
+                    1.5,
+                    TextAlign.center),
+              ),
             )
           ],
         ),
