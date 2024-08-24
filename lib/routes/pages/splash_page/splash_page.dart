@@ -30,7 +30,7 @@ class _SplashPageState extends State<SplashPage> {
         statusBarIconBrightness: Brightness.light,
       ),
     );
-    Timer(const Duration(seconds: 20), () {
+    Timer(const Duration(seconds: 6), () {
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
           statusBarColor: cWhite,
