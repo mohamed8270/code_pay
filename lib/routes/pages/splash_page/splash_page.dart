@@ -31,6 +31,13 @@ class _SplashPageState extends State<SplashPage> {
       ),
     );
     Timer(const Duration(seconds: 20), () {
+      SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+          statusBarColor: cWhite,
+          systemNavigationBarColor: cWhite,
+          statusBarIconBrightness: Brightness.dark,
+        ),
+      );
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
